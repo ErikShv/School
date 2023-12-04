@@ -44,7 +44,7 @@
         <Ellipse x:Name="elpYellow" Fill="LightGray" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="3" Stroke="White" StrokeThickness="4"></Ellipse>
         <Ellipse x:Name="elpGreen" Fill="LightGray" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="7" Grid.RowSpan="3" Stroke="White" StrokeThickness="4"></Ellipse>
 
-        <Button x:Name="btnAuto"   Background="LightBlue" Content="Automatic" FontSize="80" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" HorizontalAlignment="Stretch" CornerRadius="30" FontFamily=" david" BorderBrush="Red" BorderThickness="5" Foreground="red" ></Button>
+        <Button x:Name="btnAuto"   Background="LightBlue" Content="Automatic" FontSize="80" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" HorizontalAlignment="Stretch" CornerRadius="30" FontFamily=" david" BorderBrush="Red" BorderThickness="5" Foreground="red" Click="btnAuto_Click" ></Button>
         <Button x:Name="btnManual" Background="LightBlue" Content="Manual" FontSize="80"  Grid.Column="10" Grid.Row="1" Grid.ColumnSpan="4" Grid.RowSpan="1" HorizontalAlignment="Stretch" CornerRadius="30" FontFamily="david" BorderBrush="Red" BorderThickness="5" Foreground="red" Click="btnManual_Click" ></Button>
 
         <Image x:Name="imgboy" Source="/Assets/Boy/boy_idle_right.gif" Grid.Column="1" Grid.Row="3"  Grid.RowSpan="4" Grid.ColumnSpan="5"  ></Image>

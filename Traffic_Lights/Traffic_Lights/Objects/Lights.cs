@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Shapes;
 
@@ -26,6 +27,7 @@ namespace Traffic_Lights.Objects
         private TrafficLightsState _state; //הרמזור יווצר במצב אדום
 
 
+        private DispatcherTimer _timer;//המשתנה יאפשר לקיים לולאה המתבצעת בקצב שיקבע
         /// <summary>
         /// הפעולה בונה עצם רמזור
         /// </summary>
@@ -40,6 +42,16 @@ namespace Traffic_Lights.Objects
             _lightYellow = yellow;
             _isAuto = false;
             _state = TrafficLightsState.red;
+
+            _timer = new DispatcherTimer();//כך בונים טיימר
+            _timer.Interval = TimeSpan.FromSeconds(2);//כך קובעים את תדירות עבודת הטיימר
+            _timer.Stop();//הטיימר לא יעבוד כאשר יווצר
+            _timer.Tick += _timer_Tick;
+        }
+
+        private void _timer_Tick(object sender, object e)//הפעולה תתבצע באופן אוטומטי כל 2 שניות
+        {                                                //בתנאי שהטיימר מופעל
+            SetState();
         }
 
 

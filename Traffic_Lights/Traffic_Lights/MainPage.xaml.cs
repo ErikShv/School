@@ -37,13 +37,18 @@ namespace Traffic_Lights
         /// <param name="e"></param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            _myLights = new Lights(elpRed, elpGreen, elpYellow);
+            _myLights = new Lights(elpRed, elpGreen, elpYellow);//כך בונים רמזור
 
         }
 
         private void btnManual_Click(object sender, RoutedEventArgs e)
         {
             _myLights.SetState();
+        }
+
+        private void btnAuto_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
