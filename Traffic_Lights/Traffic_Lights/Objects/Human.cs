@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Traffic_Lights.Objects
 {
-   public class Girl:Human
+  public abstract  class Human
     {
+
     }
 }
