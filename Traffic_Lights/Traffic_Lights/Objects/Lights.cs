@@ -28,6 +28,28 @@ namespace Traffic_Lights.Objects
 
 
         private DispatcherTimer _timer;//המשתנה יאפשר לקיים לולאה המתבצעת בקצב שיקבע
+        public bool IsAuto
+        {
+            get
+            {
+                return _isAuto;
+            }
+            set
+            {
+                _isAuto = value;
+                if (_isAuto)
+                {
+                    _timer.Start();
+
+                }
+                else
+                {
+                    _timer.Stop();
+                }
+                
+            }
+        }
+
         /// <summary>
         /// הפעולה בונה עצם רמזור
         /// </summary>
@@ -79,6 +101,7 @@ namespace Traffic_Lights.Objects
                     break;
             }
         }
+
 
     }
 }

@@ -48,7 +48,9 @@ namespace Traffic_Lights
 
         private void btnAuto_Click(object sender, RoutedEventArgs e)
         {
-            
+            _myLights.IsAuto = !_myLights.IsAuto;
+            btnAuto.Content = _myLights.IsAuto ? "Stop": "Auto";
+            btnManual.IsEnabled = !_myLights.IsAuto;
         }
     }
 }
