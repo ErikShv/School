@@ -61,6 +61,7 @@ namespace Traffic_Lights.Objects
                     _humanState = HumanStateType.running;
                     break;
             }
+            MatchGifToState();
         }
     }
 }
