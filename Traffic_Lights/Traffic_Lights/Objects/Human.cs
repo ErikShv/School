@@ -28,8 +28,10 @@ namespace Traffic_Lights.Objects
             Image = imagehuman;
             _bitmapimage = new BitmapImage();
             Image.Source = _bitmapimage;
-            MatchGifToState();
 
+
+            MatchGifToState();
+            Events.OnSetState += SetState;//בזכות השורה הזאת החיות מתחילות להקשיב לרמזור
 
 
         }

@@ -100,6 +100,10 @@ namespace Traffic_Lights.Objects
                     _lightRed.Fill = new SolidColorBrush(Colors.Red);  //תדליק את האור האדום
                     break;
             }
+            if (Events.OnSetState!= null)
+            {
+                Events.OnSetState(_state);//כך הרמזור מפעיל את האירוע בכל פעם שהרמזור מחיף את האור
+            }
         }
 
 
