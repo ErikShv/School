@@ -24,6 +24,8 @@ namespace Traffic_Lights
     public sealed partial class MainPage : Page
     {
         private Lights _myLights;
+        private Human _Boy;
+        private Human _Girl;
         public MainPage()
         {
             this.InitializeComponent();
@@ -38,7 +40,8 @@ namespace Traffic_Lights
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _myLights = new Lights(elpRed, elpGreen, elpYellow);//כך בונים רמזור
-
+            _Boy = new Boy(imgboy);
+            _Girl = new Girl(imggirl);
         }
 
         private void btnManual_Click(object sender, RoutedEventArgs e)

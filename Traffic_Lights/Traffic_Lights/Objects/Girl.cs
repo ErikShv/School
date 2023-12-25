@@ -27,4 +27,5 @@ namespace Traffic_Lights.Objects
                     break;
             }
         }
+    }
 }
