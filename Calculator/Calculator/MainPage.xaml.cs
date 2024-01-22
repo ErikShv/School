@@ -30,8 +30,26 @@ namespace Calculator
 
         private void _btneql_Click(object sender, RoutedEventArgs e)
         {
-
+            double num1, num2, answer =0;
+            num1 = double.Parse(_Num.Text);//כך מתרגמים את המספר שהוזן כמחרוזת לממש מספר 
+            num2 = double.Parse(_Num2.Text);
+            switch (_operation)
+            {
+                case '+': answer = num1 + num2;
+                    break;
+                case '-':
+                    answer = num1 - num2;
+                    break;
+                case '*':
+                    answer = num1 * num2;
+                    break;
+                case '/':
+                    answer = num1 / num2;
+                    break;
+            }
+            _Output.Text = answer.ToString();
         }
+        
         //הפעולה המשותפת לכל הלחצנים של הספרות
         private void btn_Click(object sender, RoutedEventArgs e)
         {
@@ -44,6 +62,38 @@ namespace Calculator
             {
                 _Num2.Text += digit.ToString();
             }
+        }
+
+        private void _devide_Click(object sender, RoutedEventArgs e)
+        {
+            _Operator.Text = "/";
+            _operation = '/';
+        }
+
+        private void _times_Click(object sender, RoutedEventArgs e)
+        {
+            _Operator.Text = "*";
+            _operation = '*';
+        }
+
+        private void _minus_Click(object sender, RoutedEventArgs e)
+        {
+            _Operator.Text = "-";
+            _operation = '-';
+        }
+
+        private void _plus_Click(object sender, RoutedEventArgs e)
+        {
+            _Operator.Text = "+"; //כך הפעולה תופיע על המסך
+            _operation = '+'; //במקום @ מכניסים אופרטור
+        }
+
+        private void _del_Click(object sender, RoutedEventArgs e)
+        {
+            _Num.Text = "";
+            _Num2.Text = "";
+            _Operator.Text = "";
+            _Output.Text = "";
         }
     }
 }
