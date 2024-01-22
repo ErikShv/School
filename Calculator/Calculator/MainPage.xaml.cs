@@ -94,6 +94,7 @@ namespace Calculator
             _Num2.Text = "";
             _Operator.Text = "";
             _Output.Text = "";
+            _operation = '@';
         }
     }
 }
