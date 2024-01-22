@@ -96,5 +96,20 @@ namespace Calculator
             _Output.Text = "";
             _operation = '@';
         }
+
+        private void _backspace_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (_Num.Text != "")
+            {
+                if(_Operator.Text != "")
+                {
+                    if(_Num2.Text != "")
+                    {
+                        
+                    }
+                }
+            }
+        }
     }
 }
