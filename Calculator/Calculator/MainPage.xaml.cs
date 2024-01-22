@@ -22,9 +22,28 @@ namespace Calculator
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private char _operation = '@';
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void _btneql_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //הפעולה המשותפת לכל הלחצנים של הספרות
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            var chooseButton = (Button)sender; // כך מגלים מהו הלחצן שגרם לפעולה לקרות
+            int digit =int.Parse( chooseButton.Name[chooseButton.Name.Length - 1].ToString());
+            if(_operation == '@'){    //עדיין מקלידים את המספר הראשון
+                _Num.Text += digit.ToString();
+            }
+            else
+            {
+                _Num2.Text += digit.ToString();
+            }
         }
     }
 }
