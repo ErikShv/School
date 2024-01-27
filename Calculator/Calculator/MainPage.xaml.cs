@@ -99,17 +99,38 @@ namespace Calculator
 
         private void _backspace_Click(object sender, RoutedEventArgs e)
         {
+
             
-            if (_Num.Text != "")
+            if(_operation == '@')
             {
-                if(_Operator.Text != "")
-                {
-                    if(_Num2.Text != "")
-                    {
-                        
-                    }
-                }
+                string back = _Num.Text.Remove(_Num.Text.Length - 1);
+                _Num.Text = back;
             }
+            if(_Num2.Text != "")
+            {
+                string back2 = _Num2.Text.Substring(0, _Num2.Text.Length - 1);
+                _Num2.Text = back2;
+            }
+            if (_operation != '@' && _Num2.Text == "")
+            {
+                _operation = '@';
+                _Operator.Text = "";
+            }
+        }
+
+        private void _ans_Click(object sender, RoutedEventArgs e)
+        {
+             
+            _Num.Text = _Output.Text;
+            if (_Output.Text != "")
+            {
+                _Num2.Text = "";
+                _Operator.Text = "";
+            }
+
+            
+            _Output.Text = "";
+            _operation = '@';
         }
     }
 }
