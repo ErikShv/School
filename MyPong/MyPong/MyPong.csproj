@@ -130,14 +130,79 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\App\LargeTile.scale-100.png" />
+    <Content Include="Assets\App\LargeTile.scale-125.png" />
+    <Content Include="Assets\App\LargeTile.scale-150.png" />
+    <Content Include="Assets\App\LargeTile.scale-200.png" />
+    <Content Include="Assets\App\LargeTile.scale-400.png" />
+    <Content Include="Assets\App\SmallTile.scale-100.png" />
+    <Content Include="Assets\App\SmallTile.scale-125.png" />
+    <Content Include="Assets\App\SmallTile.scale-150.png" />
+    <Content Include="Assets\App\SmallTile.scale-200.png" />
+    <Content Include="Assets\App\SmallTile.scale-400.png" />
+    <Content Include="Assets\App\SplashScreen.scale-100.png" />
+    <Content Include="Assets\App\SplashScreen.scale-125.png" />
+    <Content Include="Assets\App\SplashScreen.scale-150.png" />
+    <Content Include="Assets\App\SplashScreen.scale-200.png" />
+    <Content Include="Assets\App\SplashScreen.scale-400.png" />
+    <Content Include="Assets\App\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\App\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\App\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\App\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\App\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\App\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\App\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\App\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\App\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\App\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\App\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\App\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\App\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\App\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\App\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\App\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\App\StoreLogo.scale-100.png" />
+    <Content Include="Assets\App\StoreLogo.scale-125.png" />
+    <Content Include="Assets\App\StoreLogo.scale-150.png" />
+    <Content Include="Assets\App\StoreLogo.scale-200.png" />
+    <Content Include="Assets\App\StoreLogo.scale-400.png" />
+    <Content Include="Assets\App\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\App\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\App\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\App\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\App\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Buttons\Help %281%29.png" />
+    <Content Include="Assets\Buttons\Help %282%29.png" />
+    <Content Include="Assets\Buttons\Help %283%29.png" />
+    <Content Include="Assets\Buttons\Help %284%29.png" />
+    <Content Include="Assets\Buttons\Home %281%29.png" />
+    <Content Include="Assets\Buttons\Home %282%29.png" />
+    <Content Include="Assets\Buttons\Home %283%29.png" />
+    <Content Include="Assets\Buttons\Home %284%29.png" />
+    <Content Include="Assets\Buttons\Pause %281%29.png" />
+    <Content Include="Assets\Buttons\Pause %282%29.png" />
+    <Content Include="Assets\Buttons\Pause %283%29.png" />
+    <Content Include="Assets\Buttons\Pause %284%29.png" />
+    <Content Include="Assets\Buttons\Play %281%29.png" />
+    <Content Include="Assets\Buttons\Play %282%29.png" />
+    <Content Include="Assets\Buttons\Play %283%29.png" />
+    <Content Include="Assets\Buttons\Play %284%29.png" />
+    <Content Include="Assets\Buttons\Shop %281%29.png" />
+    <Content Include="Assets\Buttons\Shop %282%29.png" />
+    <Content Include="Assets\Buttons\Shop %283%29.png" />
+    <Content Include="Assets\Buttons\Shop %284%29.png" />
+    <Content Include="Assets\Goals\LeftGoal.png" />
+    <Content Include="Assets\Goals\RightGoal.png" />
     <Content Include="Properties\Default.rd.xml" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -153,6 +218,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.12</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\BackGrounds\" />
+    <Folder Include="Assets\Balls\" />
+    <Folder Include="Assets\Bars\" />
+    <Folder Include="Assets\Fans\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
