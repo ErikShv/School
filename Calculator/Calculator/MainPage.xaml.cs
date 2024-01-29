@@ -23,6 +23,8 @@ namespace Calculator
     public sealed partial class MainPage : Page
     {
         private char _operation = '@';
+        bool flag = true;
+        bool flag2 = true;
         public MainPage()
         {
             this.InitializeComponent();
@@ -30,9 +32,21 @@ namespace Calculator
 
         private void _btneql_Click(object sender, RoutedEventArgs e)
         {
+            
             double num1, num2, answer =0;
-            num1 = double.Parse(_Num.Text);//כך מתרגמים את המספר שהוזן כמחרוזת לממש מספר 
-            num2 = double.Parse(_Num2.Text);
+            string msg = "";
+            if (_Num.Text == "" || _Num2.Text == "" || _Operator.Text == "" || _Num.Text.IndexOf('.') != _Num2.Text.LastIndexOf('.'))
+            {
+                msg = "Error";
+                num1 = 0;
+                num2 = 0;
+                _operation = '+';
+            }
+            else
+            {
+                num1 = double.Parse(_Num.Text);//כך מתרגמים את המספר שהוזן כמחרוזת לממש מספר 
+                num2 = double.Parse(_Num2.Text);
+            }
             switch (_operation)
             {
                 case '+': answer = num1 + num2;
@@ -44,10 +58,26 @@ namespace Calculator
                     answer = num1 * num2;
                     break;
                 case '/':
-                    answer = num1 / num2;
+                    if (num2 != 0)
+                    {
+                        answer = num1 / num2;
+                    }
+                    else
+                    {
+                        msg = "Error";
+                    }
                     break;
             }
-            _Output.Text = answer.ToString();
+            
+            
+            if (msg == "")
+            {
+                _Output.Text = answer.ToString();
+            }
+            else
+            {
+                _Output.Text = msg;
+            }
         }
         
         //הפעולה המשותפת לכל הלחצנים של הספרות
@@ -131,6 +161,28 @@ namespace Calculator
             
             _Output.Text = "";
             _operation = '@';
+        }
+
+        private void _dot_Click(object sender, RoutedEventArgs e)
+        {
+            if(_operation == '@')
+            {
+                if (flag == true)
+                {
+                    _Num.Text += '.';
+                    flag = false;
+                }
+            }
+            
+            else
+            {
+                
+                if (flag2 == true)
+                {
+                    _Num2.Text += '.';
+                    flag2 = false;
+                }
+            }
         }
     }
 }
