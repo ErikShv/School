@@ -180,6 +180,10 @@
     <Content Include="Assets\App\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\BackGrounds\Tenniscourt.png" />
+    <Content Include="Assets\Balls\Ball.png" />
+    <Content Include="Assets\Bars\BlueBar.png" />
+    <Content Include="Assets\Bars\RedBar.png" />
     <Content Include="Assets\Buttons\Help %281%29.png" />
     <Content Include="Assets\Buttons\Help %282%29.png" />
     <Content Include="Assets\Buttons\Help %283%29.png" />
@@ -200,6 +204,9 @@
     <Content Include="Assets\Buttons\Shop %282%29.png" />
     <Content Include="Assets\Buttons\Shop %283%29.png" />
     <Content Include="Assets\Buttons\Shop %284%29.png" />
+    <Content Include="Assets\Fans\BluePerson.png" />
+    <Content Include="Assets\Fans\RedPerson2.png" />
+    <Content Include="Assets\Fans\YellowPerson.png" />
     <Content Include="Assets\Goals\LeftGoal.png" />
     <Content Include="Assets\Goals\RightGoal.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -219,12 +226,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\BackGrounds\" />
-    <Folder Include="Assets\Balls\" />
-    <Folder Include="Assets\Bars\" />
-    <Folder Include="Assets\Fans\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
