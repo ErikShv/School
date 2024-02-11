@@ -6,9 +6,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="White">
 
-    <Grid>
+    <Grid Background="LightGreen" Margin="100"  >
         
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            
+        </Grid.ColumnDefinitions>
+            
+        <Image Source="Assets\Balls\newball.png"  Grid.Row="7" Grid.Column="7"/>
+        <Image Source="Assets\Bars\BlueBar.png"  Grid.Row="6" Grid.Column="1" Grid.RowSpan="3"/>
+        <Image Source="Assets\Bars\RedBar.png"  Grid.Row="6" Grid.Column="12" Grid.RowSpan="3"/>
+        <Image Source="Assets\Goals\LeftGoal.png"  Grid.Row="5" Grid.Column="0" Grid.RowSpan="6"/>
+        <Image Source="Assets\Goals\RightGoal.png"  Grid.Row="5" Grid.Column="13" Grid.RowSpan="6"/>
+        <Image Source="Assets\Buttons\Play (1).png"  Grid.Row="0" Grid.Column="5" Grid.RowSpan="2"/>
+        <Image Source="Assets\Buttons\Pause (1).png"  Grid.Row="0" Grid.Column="7" Grid.RowSpan="2"/>
+        <Image Source="Assets\Buttons\Shop (1).png"  Grid.Row="0" Grid.Column="9" Grid.RowSpan="2"/>
+
+
     </Grid>
 </Page>

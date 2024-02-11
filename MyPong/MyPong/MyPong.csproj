@@ -181,7 +181,7 @@
     <Content Include="Assets\App\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\BackGrounds\Tenniscourt.png" />
-    <Content Include="Assets\Balls\Ball.png" />
+    <Content Include="Assets\Balls\newball.png" />
     <Content Include="Assets\Bars\BlueBar.png" />
     <Content Include="Assets\Bars\RedBar.png" />
     <Content Include="Assets\Buttons\Help %281%29.png" />
