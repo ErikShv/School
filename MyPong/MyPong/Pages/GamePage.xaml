@@ -57,9 +57,13 @@
         </Grid.ColumnDefinitions>
         <Image Source="/Assets/Pictures/moneyBar.png"  Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
         <Image Source="/Assets/Pictures/moneyBar2.png"  Grid.Column="13" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-        <Viewbox Grid.Row="0" Grid.Column="5" Grid.RowSpan="2">
-            <TextBlock x:Name="Points1" FontSize="0.5" Foreground="White" >0</TextBlock>
+        <Viewbox Grid.Row="0" Grid.Column="5" Grid.RowSpan="2" Margin="30,20,0,30">
+            <TextBlock x:Name="Points1" FontSize="1" Foreground="White" >0</TextBlock>
         </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="14" Grid.RowSpan="2" Margin="0,20,30,30">
+            <TextBlock x:Name="Points2" FontSize="1" Foreground="White" >0</TextBlock>
+        </Viewbox>
+            
         <Border Grid.Column="1" Grid.Row="2" Grid.RowSpan="17" Grid.ColumnSpan="18" BorderBrush="Black" CornerRadius="15"  BorderThickness="10">
             <Canvas x:Name="scene"   >
             <Canvas.Background >
