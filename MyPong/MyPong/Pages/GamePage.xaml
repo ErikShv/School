@@ -63,7 +63,15 @@
         <Viewbox Grid.Row="0" Grid.Column="14" Grid.RowSpan="2" Margin="0,20,30,30">
             <TextBlock x:Name="Points2" FontSize="1" Foreground="White" >0</TextBlock>
         </Viewbox>
-            
+        <Viewbox Grid.Row="0" Grid.Column="9" Grid.RowSpan="2" >
+            <TextBlock x:Name="Time" FontSize="20" Foreground="White" >Time:</TextBlock>
+        </Viewbox>
+        <Button x:Name="Pause" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+            <Image Source="/Assets/Buttons/Pause (1).png" ></Image>
+        </Button>
+        <Button x:Name="Help" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+            <Image Source="/Assets/Buttons/Help (1).png" ></Image>
+        </Button>
         <Border Grid.Column="1" Grid.Row="2" Grid.RowSpan="17" Grid.ColumnSpan="18" BorderBrush="Black" CornerRadius="15"  BorderThickness="10">
             <Canvas x:Name="scene"   >
             <Canvas.Background >
