@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace MyPong.Objects
 {
@@ -42,7 +43,9 @@ namespace MyPong.Objects
             Render();
             
         }
-
+        /// <summary>
+        /// מציבה את העצם במיקומו הנוכחי בתוך זירת המשחק
+        /// </summary>
         protected virtual void Render()
         {
             Canvas.SetLeft(image, _x);
@@ -55,6 +58,17 @@ namespace MyPong.Objects
             {
             _x = _startedX;
             _y = _startedY;
+            
         }
+        /// <summary>
+        /// הפעולה קובעת את תמונת האובייקט
+        /// תקבל את הנתיב ואת שם הקובץ מ-Assets והלאה
+        /// </summary>
+        /// <param name="filename">שם הקובץ</param>
+        protected void SetImage(string filename)
+        {
+            image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{filename}"));
+        }
+
     }
 }
