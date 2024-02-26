@@ -8,6 +8,6 @@ namespace MyPong.GameServices
 {
     class GameManager
     {
-
+        
     }
 }
