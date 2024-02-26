@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\Manager.cs" />
+    <Compile Include="Objects\Fan.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\Goal.cs" />
     <Compile Include="Pages\HelpPage.xaml.cs">
@@ -214,9 +215,12 @@
     <Content Include="Assets\Buttons\Shop %282%29.png" />
     <Content Include="Assets\Buttons\Shop %283%29.png" />
     <Content Include="Assets\Buttons\Shop %284%29.png" />
-    <Content Include="Assets\Fans\BluePerson.png" />
-    <Content Include="Assets\Fans\RedPerson2.png" />
-    <Content Include="Assets\Fans\YellowPerson.png" />
+    <Content Include="Assets\Fans\Jelly %281%29.png" />
+    <Content Include="Assets\Fans\Jelly %282%29.png" />
+    <Content Include="Assets\Fans\Jelly %283%29.png" />
+    <Content Include="Assets\Fans\Jelly %284%29.png" />
+    <Content Include="Assets\Fans\Jelly %285%29.png" />
+    <Content Include="Assets\Fans\Jelly %286%29.png" />
     <Content Include="Assets\Goals\LeftGoal.png" />
     <Content Include="Assets\Goals\RightGoal.png" />
     <Content Include="Assets\Pictures\moneyBar.png" />
