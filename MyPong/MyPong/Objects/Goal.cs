@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyPong.Objects
 {
-   public class Goal:GameObject
+    public class Goal : GameObject
     {
-
+        public Goal(string filename, double size, double x, double y) : base(filename, size, x, y)
+        {
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace MyPong.Objects
             image.Width = size;
             image.Height = size;
             Render();
-            
+            SetImage(filename);
         }
         /// <summary>
         /// מציבה את העצם במיקומו הנוכחי בתוך זירת המשחק
