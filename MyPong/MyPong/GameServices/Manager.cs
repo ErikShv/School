@@ -8,12 +8,14 @@ using Windows.UI.Xaml.Controls;
 
 namespace MyPong.GameServices
 {
-
+    /// <summary>
+    /// המחלקה מנהלת את המשחק הכללי(טניס)ף
+    /// </summary>
     public abstract class Manager
     {
         //זאת רשימת כל האובייקטים שישתתפו במשחק היא תכיל את כל סוגי האובייקטים 
         protected List<GameObject> _gameObjects = new List<GameObject>();
-            private Canvas _scnene;
+            protected Canvas _scnene;
         public Manager(Canvas scene)
         {
             _scnene = scene;

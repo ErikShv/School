@@ -10,6 +10,8 @@ namespace MyPong.Objects
     {
         public Goal(string filename, double size, double x, double y) : base(filename, size, x, y)
         {
+            image.Width = 50;
+            image.Height = size;
         }
     }
 }

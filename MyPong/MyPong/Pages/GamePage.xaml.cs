@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPong.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,16 @@ namespace MyPong
     /// </summary>
     public sealed partial class GamePage : Page
     {
+        private GameManager _gamemanager;
         public GamePage()
         {
+
             this.InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _gamemanager = new GameManager(scene);
         }
     }
 }
