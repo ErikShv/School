@@ -119,11 +119,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameServices\Constants.cs" />
+    <Compile Include="GameServices\Events.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\Manager.cs" />
+    <Compile Include="Objects\Bat.cs" />
     <Compile Include="Objects\Fan.cs" />
+    <Compile Include="Objects\GameMovingObject.cs" />
     <Compile Include="Objects\GameObject.cs" />
     <Compile Include="Objects\Goal.cs" />
+    <Compile Include="Objects\LeftBat.cs" />
+    <Compile Include="Objects\RightBat.cs" />
     <Compile Include="Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
