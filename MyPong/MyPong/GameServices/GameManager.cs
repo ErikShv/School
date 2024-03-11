@@ -13,10 +13,8 @@ namespace MyPong.GameServices
     /// </summary>
     public class GameManager : Manager
     {
-        private Canvas _scene;
         public GameManager(Canvas scene) : base(scene)
         {
-            _scnene = scene;
             CreateObjects();
         }
 
@@ -72,22 +70,11 @@ namespace MyPong.GameServices
                 AddObject(leftgoal);
                 var rightgoal = new Goal("Goals/RightGoal.png", 300, _scnene.ActualWidth - 55, _scnene.ActualHeight / 2 - 150);
                 AddObject(rightgoal);
-                var bat = new LeftBat(_scene,"Bars/BlueBar.png", 150, 100, _scnene.ActualHeight / 2 - 75);
+                var bat = new LeftBat(_scnene,"Bars/BlueBar.png", 150, 100, _scnene.ActualHeight / 2 - 75);
                 AddObject(bat);
-                var bat2 = new RightBat(_scene,"Bars/RedBar.png", 150, _scnene.ActualWidth - 130, _scnene.ActualHeight / 2 - 75);
+                var bat2 = new RightBat(_scnene,"Bars/RedBar.png", 150, _scnene.ActualWidth - 130, _scnene.ActualHeight / 2 - 75);
                 AddObject(bat2);
 
-
-
-
-
-
-
-
-
-
-
-            
         }
     }
 }

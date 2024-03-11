@@ -21,11 +21,12 @@ namespace MyPong.Objects
         public GameMovingObject(Canvas scene, string filename, double size,
             double x, double y) : base(filename, size, x, y)
         {
+
             _dx = 0;  //הגוף לא ינוע בהתחלה
             _dy = 0;
             _ddx = 0;
             _ddy = 0;
-            scene = _scene;
+            _scene = scene;
         }
 
         public override void Render()

@@ -23,7 +23,11 @@ namespace MyPong.Objects
                 _y = 1;
                 _dy = -_dy;
             }
-           
+           if(_y + image.Height > _scene?.ActualHeight)
+            {
+                _y = _scene.ActualHeight - image.Height;
+                _dy = -_dy;
+            }
             base.Render();
         }
     }
