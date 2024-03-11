@@ -26,7 +26,7 @@ namespace MyPong.Objects
             _ddy = 0;
 
         }
-        protected override void Render()
+        public override void Render()
         {
             _x += _dx;
             _y += _dy;

@@ -46,7 +46,7 @@ namespace MyPong.Objects
         /// <summary>
         /// מציבה את העצם במיקומו הנוכחי בתוך זירת המשחק
         /// </summary>
-        protected virtual void Render()
+        public virtual void Render()
         {
             Canvas.SetLeft(image, _x);
             Canvas.SetTop(image, _y);

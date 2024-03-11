@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MyPong.Objects
 {
-    class RightBat:Bat
+    class RightBat : Bat
     {
+        public RightBat(string filename, double height, double x, double y) : base(filename, height, x, y)
+        {
+        }
     }
 }
