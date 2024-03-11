@@ -21,6 +21,7 @@ namespace MyPong.Objects
         protected string _filename;//שם הקובץ של התמונה
 
         
+        
 
         /// <summary>
         /// הפעולה בונה עצם בסיסי 

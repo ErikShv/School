@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace MyPong.Objects
 {
@@ -15,17 +16,18 @@ namespace MyPong.Objects
         protected double _tox; //מיקום יעד אופקי
         protected double _ddx; //תאוצה אופקית 
         protected double _ddy; //תאוצה אנכית
+        protected Canvas _scene;
 
-
-        public GameMovingObject(string filename, double size,
+        public GameMovingObject(Canvas scene, string filename, double size,
             double x, double y) : base(filename, size, x, y)
         {
             _dx = 0;  //הגוף לא ינוע בהתחלה
             _dy = 0;
             _ddx = 0;
             _ddy = 0;
-
+            scene = _scene;
         }
+
         public override void Render()
         {
             _x += _dx;
