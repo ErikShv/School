@@ -11,7 +11,7 @@ namespace MyPong.Objects
     {
         public LeftBat(Canvas scene, string filename, double height, double x, double y) : base(scene,filename, height, x, y)
         {
-            _dy = 3;
+            _dy = 0;
         }
     }
 }

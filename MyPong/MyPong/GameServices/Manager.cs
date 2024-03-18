@@ -26,6 +26,18 @@ namespace MyPong.GameServices
             _distapchertimer.Start();
             _distapchertimer.Tick += _dispatcherTimer_Tick;
             Events.OnRun = Run;
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+            Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
+        }
+
+        private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            throw new NotImplementedException();
         }
 
         private void _dispatcherTimer_Tick(object sender, object e)
