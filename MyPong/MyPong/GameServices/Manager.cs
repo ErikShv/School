@@ -29,15 +29,21 @@ namespace MyPong.GameServices
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
             Window.Current.CoreWindow.KeyUp += CoreWindow_KeyUp;
         }
-
+        // הפעולה תתבצע באופן אוטומטי כאשר המשתמש ישחרר את כלשהו
         private void CoreWindow_KeyUp(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
-            throw new NotImplementedException();
+            if(Events.OnKeyRelease != null)
+            {
+                Events.OnKeyRelease(args.VirtualKey);//כאן אנו מפעילים אירוע OnKeyRelease
+            }
         }
-
+        //הפעולה תתבצע באופן אוטומטי כאשר המשתמש ילחץ על מקש כלשהו
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
         {
-            throw new NotImplementedException();
+            if(Events.OnKeyPress != null)
+            {
+                Events.OnKeyPress(args.VirtualKey);//כאן אנו מפעילים אירוע OnKeyPress
+            }
         }
 
         private void _dispatcherTimer_Tick(object sender, object e)

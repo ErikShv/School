@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MyPong.GameServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.System;
 using Windows.UI.Xaml.Controls;
 
 namespace MyPong.Objects
@@ -13,8 +15,19 @@ namespace MyPong.Objects
         {
             image.Width = 20;
             image.Height = height;
-
+            Manager.Events.OnKeyPress += MoveBat;
+            Manager.Events.OnKeyRelease += StopBat;
         }
+        //הפעולה תישאר ריקה אנו נשכתב אותה במחלקות היורשות מפני שכל מחבט צריך להגיב למקשים שונים
+        protected virtual void StopBat(VirtualKey key)
+        {
+            
+        }
+        //הפעולה תישאר ריקה אנו נשכתב אותה במחלקות היורשות מפני שכל מחבט צריך להגיב למקשים שונים
+        protected virtual void MoveBat(VirtualKey key)
+        {
+        }
+
         public override void Render()
         {
             //גבולות
@@ -28,6 +41,7 @@ namespace MyPong.Objects
                 _y = _scene.ActualHeight - image.Height;
                 
             }
+
             base.Render();
         }
     }
