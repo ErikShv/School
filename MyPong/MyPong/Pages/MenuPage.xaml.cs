@@ -26,5 +26,10 @@ namespace MyPong.Pages
         {
             this.InitializeComponent();
         }
+
+        private void start_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(GamePage));
+        }
     }
 }

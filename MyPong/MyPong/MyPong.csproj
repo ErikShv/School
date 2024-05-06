@@ -124,6 +124,7 @@
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\KeyBinds.cs" />
     <Compile Include="GameServices\Manager.cs" />
+    <Compile Include="Objects\Ball.cs" />
     <Compile Include="Objects\Bat.cs" />
     <Compile Include="Objects\Fan.cs" />
     <Compile Include="Objects\GameMovingObject.cs" />

@@ -74,7 +74,8 @@ namespace MyPong.GameServices
                 AddObject(bat);
                 var bat2 = new RightBat(_scnene,"Bars/RedBar.png", 150, _scnene.ActualWidth - 130, _scnene.ActualHeight / 2 - 75);
                 AddObject(bat2);
-
+                var ball = new Ball(_scnene, "Balls/newball.png", 50, _scnene.ActualWidth / 2 - 25, _scnene.ActualHeight / 2 - 25);
+                AddObject(ball);
         }
     }
 }

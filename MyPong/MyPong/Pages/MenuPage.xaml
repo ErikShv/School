@@ -6,9 +6,50 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    Background="LightGreen">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="11" Grid.ColumnSpan="10" BorderBrush="Black" CornerRadius="15"  BorderThickness="10">
+            <Canvas>
+                <Canvas.Background >
+                    <SolidColorBrush>white</SolidColorBrush>
+                </Canvas.Background>
+               
+            </Canvas>
+            
+        </Border>
+        <Button x:Name="start" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="6" Content="Start Game" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Green" Click="start_Click"></Button>
+        <Button x:Name="Levels" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="6" Content="Levels" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Beige"></Button>
+        <Button x:Name="Help" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="6" Content="Help" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Blue"></Button>
+        <Button x:Name="Settings" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="6" Content="Settings" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Yellow"></Button>
+        <Button x:Name="Exit" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="6" Content="Exit" FontSize="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Red"></Button>
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -20,8 +21,8 @@ namespace MyPong.Objects
         public Image image { get; set; }
         protected string _filename;//שם הקובץ של התמונה
 
-        
-        
+        public virtual Rect Rect => new Rect(_x, _y, image.Width, image.Height);
+        public bool Collision { get; set; } = true;
 
         /// <summary>
         /// הפעולה בונה עצם בסיסי 
@@ -60,6 +61,9 @@ namespace MyPong.Objects
             _x = _startedX;
             _y = _startedY;
             
+        }
+        public virtual void Collide(GameObject gameobject)
+        {
         }
         /// <summary>
         /// הפעולה קובעת את תמונת האובייקט

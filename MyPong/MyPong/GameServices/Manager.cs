@@ -52,6 +52,22 @@ namespace MyPong.GameServices
             {
                 Events.OnRun();
             }
+            CheckCollision();
+        }
+
+        private void CheckCollision()
+        {
+            foreach(var gameObject in _gameObjects)
+            {
+                if (gameObject.Collision)
+                {
+                    var otherObject = _gameObjects.FirstOrDefault(g => !ReferenceEquals(g, gameObject) && g.Collision && !RectHelper.Intersect(g.Rect, gameObject.Rect).IsEmpty);
+                    if (otherObject != null) {
+                        gameObject.Collide(otherObject);
+                                             } 
+                }
+
+            }
         }
 
         public void Run()
