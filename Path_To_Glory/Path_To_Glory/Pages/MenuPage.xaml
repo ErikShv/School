@@ -66,7 +66,7 @@
             <Image x:Name="ShopImg" Source="/Assets/Buttons/ShopButton.png"></Image>
         </Button>
         <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
-            <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image>
+            <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image
         </Button>
     </Grid>
 </Page>
