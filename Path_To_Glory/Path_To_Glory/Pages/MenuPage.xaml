@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="Path_To_Glory.Pages.MenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Path_To_Glory.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+
+        </Grid.ColumnDefinitions>
+        <Button x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+            <Image x:Name="PlayImg" Source="/Assets/Buttons/PlayButton.png"></Image>
+        </Button>
+        <Button x:Name="OptionBtn" Grid.Column="9" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+            <Image x:Name="OptionImg" Source="/Assets/Buttons/OptionButton.png"></Image>
+        </Button>
+        <Button x:Name="ShopBtn" Grid.Column="9" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+            <Image x:Name="ShopImg" Source="/Assets/Buttons/ShopButton.png"></Image>
+        </Button>
+        <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+            <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image>
+        </Button>
+    </Grid>
+</Page>

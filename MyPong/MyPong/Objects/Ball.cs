@@ -47,6 +47,7 @@ namespace MyPong.Objects
         {
             if(gameobject is Bat)
             {
+                
                 _dx = -_dx;
             }
             base.Collide(gameobject);
