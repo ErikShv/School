@@ -1,0 +1,120 @@
+﻿<Page
+    x:Class="Path_To_Glory.Pages.ShopPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Path_To_Glory.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="White" BorderThickness="5" Grid.Row="1" Grid.Column="7" Grid.RowSpan="5" Grid.ColumnSpan="5">
+            <Canvas>
+                <Canvas.Background>
+                    <SolidColorBrush Color="Gray"></SolidColorBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="5" Grid.Row="1" Grid.Column="13" Grid.RowSpan="5" Grid.ColumnSpan="5">
+            <Canvas>
+                <Canvas.Background>
+                    <SolidColorBrush Color="Gray"></SolidColorBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="5" Grid.Row="7" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="5">
+            <Canvas>
+                <Canvas.Background>
+                    <SolidColorBrush Color="Gray"></SolidColorBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="5" Grid.Row="7" Grid.Column="7" Grid.RowSpan="5" Grid.ColumnSpan="5">
+            <Canvas>
+                <Canvas.Background>
+                    <SolidColorBrush Color="Gray"></SolidColorBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="5" Grid.Row="7" Grid.Column="13" Grid.RowSpan="5" Grid.ColumnSpan="5">
+            <Canvas>
+                <Canvas.Background>
+                    <SolidColorBrush Color="Gray"></SolidColorBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="5" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" Grid.ColumnSpan="5">
+            <Canvas>
+                <Canvas.Background>
+                    <SolidColorBrush Color="Gray"></SolidColorBrush>
+                </Canvas.Background>
+            </Canvas>
+        </Border>
+        <Image Source="/Assets/GunsNItems/Pistol.png" Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
+        <Image Source="/Assets/GunsNItems/Ak.png" Grid.Column="2" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
+        <Image Source="/Assets/GunsNItems/Mp5.png" Grid.Column="14" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
+        <Image Source="/Assets/GunsNItems/Revolver.png" Grid.Column="8" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
+        <Image Source="/Assets/GunsNItems/Rpg.png" Grid.Column="8" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
+
+        <Button x:Name="BuyPistol"  Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Background="Transparent" >
+            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyRevolver" Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="4" Background="Transparent" >
+            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="ButMp5"  Grid.Column="15" Grid.ColumnSpan="3" Grid.Row="4" Background="Transparent" >
+            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyAk"  Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="10" Background="Transparent" >
+            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyRpg"  Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="10" Background="Transparent" >
+            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        
+        
+    </Grid>
+</Page>

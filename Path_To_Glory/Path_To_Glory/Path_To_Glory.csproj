@@ -122,6 +122,12 @@
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\OptionsPage.xaml.cs">
+      <DependentUpon>OptionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ShopPage.xaml.cs">
+      <DependentUpon>ShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,10 +186,25 @@
     <Content Include="Assets\App\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Backgrounds\GunShopBackground.png" />
+    <Content Include="Assets\Backgrounds\MainMenuGif %281%29.gif" />
+    <Content Include="Assets\Backgrounds\OptionBackground.png" />
+    <Content Include="Assets\Buttons\BuyButton.png" />
+    <Content Include="Assets\Buttons\OffButton.png" />
+    <Content Include="Assets\Buttons\OnButton.png" />
     <Content Include="Assets\Buttons\OptionButton.png" />
     <Content Include="Assets\Buttons\PlayButton.png" />
+    <Content Include="Assets\Buttons\PressedOptionButton.png" />
+    <Content Include="Assets\Buttons\PressedPlayButton.png" />
+    <Content Include="Assets\Buttons\PressedQuitButton.png" />
+    <Content Include="Assets\Buttons\PressedShopButton.png" />
     <Content Include="Assets\Buttons\QuitButton.png" />
     <Content Include="Assets\Buttons\ShopButton.png" />
+    <Content Include="Assets\GunsNItems\Ak.png" />
+    <Content Include="Assets\GunsNItems\Mp5.png" />
+    <Content Include="Assets\GunsNItems\Pistol.png" />
+    <Content Include="Assets\GunsNItems\Revolver.png" />
+    <Content Include="Assets\GunsNItems\Rpg.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -197,9 +218,19 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Characters\" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OptionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

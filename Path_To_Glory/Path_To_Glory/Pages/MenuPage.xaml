@@ -56,17 +56,21 @@
 
 
         </Grid.ColumnDefinitions>
-        <Button x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
+        </Grid.Background>
+        <Button x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="PlayBtn_PointerEntered" PointerExited="PlayBtn_PointerExited">
             <Image x:Name="PlayImg" Source="/Assets/Buttons/PlayButton.png"></Image>
         </Button>
-        <Button x:Name="OptionBtn" Grid.Column="9" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+        <Button x:Name="OptionBtn" Grid.Column="9" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="OptionBtn_PointerEntered" PointerExited="OptionBtn_PointerExited" Click="OptionBtn_Click"> 
             <Image x:Name="OptionImg" Source="/Assets/Buttons/OptionButton.png"></Image>
         </Button>
-        <Button x:Name="ShopBtn" Grid.Column="9" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
+        <Button x:Name="ShopBtn" Grid.Column="9" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="ShopBtn_PointerEntered" PointerExited="ShopBtn_PointerExited" Click="ShopBtn_Click">
             <Image x:Name="ShopImg" Source="/Assets/Buttons/ShopButton.png"></Image>
         </Button>
-        <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent">
-            <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image
+        <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="QuitBtn_PointerEntered" PointerExited="QuitBtn_PointerExited">
+            <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image>
         </Button>
     </Grid>
+    
 </Page>
