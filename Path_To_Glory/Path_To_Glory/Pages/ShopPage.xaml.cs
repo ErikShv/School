@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,6 +26,71 @@ namespace Path_To_Glory.Pages
         public ShopPage()
         {
             this.InitializeComponent();
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void BuyPistol_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BuyPistolImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
+        }
+
+        private void BuyPistol_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BuyPistolImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
+        }
+
+        private void BuyRevolver_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BuyRevolverImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
+        }
+
+        private void BuyRevolver_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BuyRevolverImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
+        }
+
+        private void BuyMp5_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BuyMp5Img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
+        }
+
+        private void BuyMp5_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BuyMp5Img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
+        }
+
+        private void BuyAk_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BuyAkImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
+        }
+
+        private void BuyAk_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BuyAkImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
+        }
+
+        private void BuyRpg_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BuyRpgImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
+        }
+
+        private void BuyRpg_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BuyRpgImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
+        }
+
+        private void BackBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBackButton.png"));
+        }
+
+        private void BackBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
         }
     }
 }

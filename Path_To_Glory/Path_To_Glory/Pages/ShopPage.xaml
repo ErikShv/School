@@ -102,18 +102,24 @@
         <Image Source="/Assets/GunsNItems/Ak.png" Grid.Column="2" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         <Image Source="/Assets/GunsNItems/Mp5.png" Grid.Column="14" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         <Image Source="/Assets/GunsNItems/Revolver.png" Grid.Column="8" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
-        <Image Source="/Assets/GunsNItems/Rpg.png" Grid.Column="8" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
+        <Image Source="/Assets/GunsNItems/Rpg.png" Grid.Column="8" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
 
-        <Button x:Name="BuyPistol"  Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="4" Background="Transparent" >
-            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
-        <Button x:Name="BuyRevolver" Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="4" Background="Transparent" >
-            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
-        <Button x:Name="ButMp5"  Grid.Column="15" Grid.ColumnSpan="3" Grid.Row="4" Background="Transparent" >
-            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
-        <Button x:Name="BuyAk"  Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="10" Background="Transparent" >
-            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
-        <Button x:Name="BuyRpg"  Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="10" Background="Transparent" >
-            <Image Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyPistol"  Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyPistol_PointerEntered" PointerExited="BuyPistol_PointerExited" >
+            <Image x:Name="BuyPistolImg" Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyRevolver" Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyRevolver_PointerEntered" PointerExited="BuyRevolver_PointerExited" >
+            <Image x:Name="BuyRevolverImg" Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyMp5"  Grid.Column="14" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyMp5_PointerEntered" PointerExited="BuyMp5_PointerExited" >
+            <Image x:Name="BuyMp5Img" Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyAk"  Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyAk_PointerEntered" PointerExited="BuyAk_PointerExited" >
+            <Image x:Name="BuyAkImg" Source="/Assets/Buttons/BuyButton.png"></Image></Button>
+        <Button x:Name="BuyRpg"  Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyRpg_PointerEntered" PointerExited="BuyRpg_PointerExited" >
+            <Image x:Name="BuyRpgImg" Source="/Assets/Buttons/BuyButton.png"></Image>
+        </Button>
+       
+        
+        <Button x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
+            <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
+        </Button>
         
         
     </Grid>

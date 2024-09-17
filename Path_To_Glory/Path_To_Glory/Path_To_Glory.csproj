@@ -189,11 +189,14 @@
     <Content Include="Assets\Backgrounds\GunShopBackground.png" />
     <Content Include="Assets\Backgrounds\MainMenuGif %281%29.gif" />
     <Content Include="Assets\Backgrounds\OptionBackground.png" />
+    <Content Include="Assets\Buttons\BackButton.png" />
     <Content Include="Assets\Buttons\BuyButton.png" />
     <Content Include="Assets\Buttons\OffButton.png" />
     <Content Include="Assets\Buttons\OnButton.png" />
     <Content Include="Assets\Buttons\OptionButton.png" />
     <Content Include="Assets\Buttons\PlayButton.png" />
+    <Content Include="Assets\Buttons\PressedBackButton.png" />
+    <Content Include="Assets\Buttons\PressedBuyButton.png" />
     <Content Include="Assets\Buttons\PressedOptionButton.png" />
     <Content Include="Assets\Buttons\PressedPlayButton.png" />
     <Content Include="Assets\Buttons\PressedQuitButton.png" />

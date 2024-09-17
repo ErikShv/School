@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -76,6 +77,11 @@ namespace Path_To_Glory.Pages
         private void ShopBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ShopPage));
+        }
+
+        private void QuitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
         }
     }
 }

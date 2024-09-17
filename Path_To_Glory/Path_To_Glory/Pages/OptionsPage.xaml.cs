@@ -40,6 +40,21 @@ namespace Path_To_Glory.Pages
                 SfxImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/OnButton.png"));
             }
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void BackBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBackButton.png"));
+        }
+
+        private void BackBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
+        }
     }
 }
 

@@ -68,7 +68,7 @@
         <Button x:Name="ShopBtn" Grid.Column="9" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="ShopBtn_PointerEntered" PointerExited="ShopBtn_PointerExited" Click="ShopBtn_Click">
             <Image x:Name="ShopImg" Source="/Assets/Buttons/ShopButton.png"></Image>
         </Button>
-        <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="QuitBtn_PointerEntered" PointerExited="QuitBtn_PointerExited">
+        <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="QuitBtn_PointerEntered" PointerExited="QuitBtn_PointerExited" Click="QuitBtn_Click">
             <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image>
         </Button>
     </Grid>
