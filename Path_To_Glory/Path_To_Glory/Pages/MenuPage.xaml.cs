@@ -91,7 +91,7 @@ namespace Path_To_Glory.Pages
 
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SignUpButton.png"));
+            SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedSignUp.png"));
         }
 
         private void Button_PointerExited(object sender, PointerRoutedEventArgs e)

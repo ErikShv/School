@@ -70,9 +70,13 @@
         <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="2" FontSize="50" HorizontalAlignment="Center">Sign Up</TextBlock>
         <TextBlock Grid.Row="6" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="40" HorizontalAlignment="Center">Username:</TextBlock>
         <TextBlock Grid.Row="8" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="40" HorizontalAlignment="Center">Password:</TextBlock>
-        <TextBox x:Name="UsernameSignUp" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4"></TextBox>
+        <TextBlock Grid.Row="10" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="30" HorizontalAlignment="Center">Password again:</TextBlock>
+        <TextBlock Grid.Row="12" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="3" FontSize="40" HorizontalAlignment="right">Email:</TextBlock>
+        <TextBox x:Name="UsernameSignUp" PlaceholderText="Enter your user name" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4"></TextBox>
+        <TextBox x:Name="EmailSignUp" Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="4"></TextBox>
         <PasswordBox x:Name="PasswordSignUp" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="4" ></PasswordBox>
-        <Button x:Name="ContinueBtn" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent">
+        <PasswordBox x:Name="RePasswordSignUp" Grid.Column="7" Grid.Row="10" Grid.ColumnSpan="4" ></PasswordBox>
+        <Button x:Name="ContinueBtn" Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent">
             <Image x:Name="ContinueImg" Source="/Assets/Buttons/ContinueButton.png"></Image></Button>
 
         <Button x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">

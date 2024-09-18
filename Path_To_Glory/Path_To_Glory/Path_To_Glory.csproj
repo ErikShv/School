@@ -206,6 +206,7 @@
     <Content Include="Assets\Buttons\PressedPlayButton.png" />
     <Content Include="Assets\Buttons\PressedQuitButton.png" />
     <Content Include="Assets\Buttons\PressedShopButton.png" />
+    <Content Include="Assets\Buttons\PressedSignUp.png" />
     <Content Include="Assets\Buttons\QuitButton.png" />
     <Content Include="Assets\Buttons\ShopButton.png" />
     <Content Include="Assets\Buttons\SignUpButton.png" />
