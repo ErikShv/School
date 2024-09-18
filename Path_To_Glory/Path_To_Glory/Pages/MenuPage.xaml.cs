@@ -83,5 +83,20 @@ namespace Path_To_Glory.Pages
         {
             Application.Current.Exit();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SignUp));
+        }
+
+        private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SignUpButton.png"));
+        }
+
+        private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SignUpButton.png"));
+        }
     }
 }

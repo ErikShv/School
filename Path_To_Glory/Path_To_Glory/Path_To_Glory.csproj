@@ -128,6 +128,9 @@
     <Compile Include="Pages\ShopPage.xaml.cs">
       <DependentUpon>ShopPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SignUp.xaml.cs">
+      <DependentUpon>SignUp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -191,18 +194,21 @@
     <Content Include="Assets\Backgrounds\OptionBackground.png" />
     <Content Include="Assets\Buttons\BackButton.png" />
     <Content Include="Assets\Buttons\BuyButton.png" />
+    <Content Include="Assets\Buttons\ContinueButton.png" />
     <Content Include="Assets\Buttons\OffButton.png" />
     <Content Include="Assets\Buttons\OnButton.png" />
     <Content Include="Assets\Buttons\OptionButton.png" />
     <Content Include="Assets\Buttons\PlayButton.png" />
     <Content Include="Assets\Buttons\PressedBackButton.png" />
     <Content Include="Assets\Buttons\PressedBuyButton.png" />
+    <Content Include="Assets\Buttons\PressedContinueButton.png" />
     <Content Include="Assets\Buttons\PressedOptionButton.png" />
     <Content Include="Assets\Buttons\PressedPlayButton.png" />
     <Content Include="Assets\Buttons\PressedQuitButton.png" />
     <Content Include="Assets\Buttons\PressedShopButton.png" />
     <Content Include="Assets\Buttons\QuitButton.png" />
     <Content Include="Assets\Buttons\ShopButton.png" />
+    <Content Include="Assets\Buttons\SignUpButton.png" />
     <Content Include="Assets\GunsNItems\Ak.png" />
     <Content Include="Assets\GunsNItems\Mp5.png" />
     <Content Include="Assets\GunsNItems\Pistol.png" />
@@ -234,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\ShopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SignUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
