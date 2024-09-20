@@ -79,6 +79,7 @@
         <Button x:Name="LeaderBtn" HorizontalAlignment="Center" Grid.RowSpan="2" Click="LeaderBtn_Click" Background="Transparent" PointerEntered="LeaderBtn_PointerEntered" PointerExited="LeaderBtn_PointerExited"> 
             <Image x:Name="LeaderImg" Source="/Assets/Buttons/LeaderboardButton.png"></Image>
         </Button>
+        <Image Source="/Assets/Titles/GameTitle.png" Grid.Column="5" Grid.RowSpan="10" Grid.ColumnSpan="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top"></Image>
     </Grid>
     
 </Page>
