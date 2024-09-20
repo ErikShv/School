@@ -98,5 +98,35 @@ namespace Path_To_Glory.Pages
         {
             SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SignUpButton.png"));
         }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
+        }
+
+        private void LoginBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            LoginImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedLoginButton.png"));
+        }
+
+        private void LoginBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            LoginImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LoginButton.png"));
+        }
+
+        private void LeaderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LeaderboardPage));
+        }
+
+        private void LeaderBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            LeaderImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedLeaderboardButton.png"));
+        }
+
+        private void LeaderBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            LeaderImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LeaderboardButton.png"));
+        }
     }
 }

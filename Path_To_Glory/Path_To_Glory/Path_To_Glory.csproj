@@ -119,6 +119,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LeaderboardPage.xaml.cs">
+      <DependentUpon>LeaderboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
@@ -195,6 +201,8 @@
     <Content Include="Assets\Buttons\BackButton.png" />
     <Content Include="Assets\Buttons\BuyButton.png" />
     <Content Include="Assets\Buttons\ContinueButton.png" />
+    <Content Include="Assets\Buttons\LeaderboardButton.png" />
+    <Content Include="Assets\Buttons\LoginButton.png" />
     <Content Include="Assets\Buttons\OffButton.png" />
     <Content Include="Assets\Buttons\OnButton.png" />
     <Content Include="Assets\Buttons\OptionButton.png" />
@@ -202,6 +210,8 @@
     <Content Include="Assets\Buttons\PressedBackButton.png" />
     <Content Include="Assets\Buttons\PressedBuyButton.png" />
     <Content Include="Assets\Buttons\PressedContinueButton.png" />
+    <Content Include="Assets\Buttons\PressedLeaderboardButton.png" />
+    <Content Include="Assets\Buttons\PressedLoginButton.png" />
     <Content Include="Assets\Buttons\PressedOptionButton.png" />
     <Content Include="Assets\Buttons\PressedPlayButton.png" />
     <Content Include="Assets\Buttons\PressedQuitButton.png" />
@@ -232,6 +242,14 @@
     <Folder Include="Assets\Characters\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Pages\LeaderboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
