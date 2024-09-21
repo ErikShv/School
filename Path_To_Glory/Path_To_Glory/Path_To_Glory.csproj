@@ -227,6 +227,8 @@
     <Content Include="Assets\GunsNItems\Rpg.png" />
     <Content Include="Assets\Titles\GameTitle%282%29.png" />
     <Content Include="Assets\Titles\GameTitle.png" />
+    <Content Include="Assets\Titles\OptionTitle.png" />
+    <Content Include="Assets\Titles\SFX2.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
