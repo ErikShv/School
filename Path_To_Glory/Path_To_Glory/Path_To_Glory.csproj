@@ -225,10 +225,15 @@
     <Content Include="Assets\GunsNItems\Pistol.png" />
     <Content Include="Assets\GunsNItems\Revolver.png" />
     <Content Include="Assets\GunsNItems\Rpg.png" />
+    <Content Include="Assets\Titles\ConfirmPass.png" />
+    <Content Include="Assets\Titles\Email.png" />
     <Content Include="Assets\Titles\GameTitle%282%29.png" />
     <Content Include="Assets\Titles\GameTitle.png" />
+    <Content Include="Assets\Titles\LoginTitle.png" />
     <Content Include="Assets\Titles\OptionTitle.png" />
+    <Content Include="Assets\Titles\Pass.png" />
     <Content Include="Assets\Titles\SFX2.png" />
+    <Content Include="Assets\Titles\Username.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
