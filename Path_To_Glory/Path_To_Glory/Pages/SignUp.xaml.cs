@@ -52,5 +52,10 @@ namespace Path_To_Glory.Pages
         {
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
         }
+
+        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
+        }
     }
 }

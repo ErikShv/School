@@ -122,11 +122,29 @@ namespace Path_To_Glory.Pages
         private void LeaderBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             LeaderImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedLeaderboardButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void LeaderBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             LeaderImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LeaderboardButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        
+        private void AboutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AboutPage));
+        }
+
+        private void AboutBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            AboutImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedAboutButton.png"));
+        }
+
+        private void AboutBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            AboutImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/AboutButton.png"));
         }
     }
 }
