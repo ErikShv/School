@@ -67,8 +67,8 @@
 
             </Canvas>
         </Border>
+        <Image Source="/Assets/Titles/SignUpTitle.png" Grid.Row="2" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="4" VerticalAlignment="Top"></Image>
         
-        <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="2" FontSize="50" HorizontalAlignment="Center">Sign Up</TextBlock>
         <TextBox x:Name="UsernameSignUp" PlaceholderText="Enter your user name" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Center"></TextBox>
         <TextBox x:Name="EmailSignUp" Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.RowSpan="2"></TextBox>
         <PasswordBox x:Name="PasswordSignUp" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Center" ></PasswordBox>

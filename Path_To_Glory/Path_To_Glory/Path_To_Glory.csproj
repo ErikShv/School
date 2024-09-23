@@ -233,6 +233,7 @@
     <Content Include="Assets\Titles\OptionTitle.png" />
     <Content Include="Assets\Titles\Pass.png" />
     <Content Include="Assets\Titles\SFX2.png" />
+    <Content Include="Assets\Titles\SignUpTitle.png" />
     <Content Include="Assets\Titles\Username.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
