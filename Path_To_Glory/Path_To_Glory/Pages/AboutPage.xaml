@@ -67,6 +67,7 @@
 
             </Canvas>
         </Border>
+        <Image Source="/Assets/Titles/AboutText.png" Grid.Row="5" Grid.Column="4" Grid.RowSpan="18" Grid.ColumnSpan="12" VerticalAlignment="Top"></Image>
         <Image Source="/Assets/Titles/AboutTitle.png" Grid.Row="2" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="4" VerticalAlignment="Top"></Image>
     </Grid>
 </Page>

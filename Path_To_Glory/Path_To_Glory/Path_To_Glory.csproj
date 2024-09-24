@@ -230,6 +230,7 @@
     <Content Include="Assets\GunsNItems\Pistol.png" />
     <Content Include="Assets\GunsNItems\Revolver.png" />
     <Content Include="Assets\GunsNItems\Rpg.png" />
+    <Content Include="Assets\Titles\AboutText.png" />
     <Content Include="Assets\Titles\AboutTitle.png" />
     <Content Include="Assets\Titles\ConfirmPass.png" />
     <Content Include="Assets\Titles\Email.png" />
