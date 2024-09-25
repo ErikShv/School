@@ -207,6 +207,7 @@
     <Content Include="Assets\Buttons\ContinueButton.png" />
     <Content Include="Assets\Buttons\LeaderboardButton.png" />
     <Content Include="Assets\Buttons\LoginButton.png" />
+    <Content Include="Assets\Buttons\NoButton.png" />
     <Content Include="Assets\Buttons\OffButton.png" />
     <Content Include="Assets\Buttons\OnButton.png" />
     <Content Include="Assets\Buttons\OptionButton.png" />
@@ -217,14 +218,17 @@
     <Content Include="Assets\Buttons\PressedContinueButton.png" />
     <Content Include="Assets\Buttons\PressedLeaderboardButton.png" />
     <Content Include="Assets\Buttons\PressedLoginButton.png" />
+    <Content Include="Assets\Buttons\PressedNoButton.png" />
     <Content Include="Assets\Buttons\PressedOptionButton.png" />
     <Content Include="Assets\Buttons\PressedPlayButton.png" />
     <Content Include="Assets\Buttons\PressedQuitButton.png" />
     <Content Include="Assets\Buttons\PressedShopButton.png" />
     <Content Include="Assets\Buttons\PressedSignUp.png" />
+    <Content Include="Assets\Buttons\PressedYesButton.png" />
     <Content Include="Assets\Buttons\QuitButton.png" />
     <Content Include="Assets\Buttons\ShopButton.png" />
     <Content Include="Assets\Buttons\SignUpButton.png" />
+    <Content Include="Assets\Buttons\YesButton.png" />
     <Content Include="Assets\GunsNItems\Ak.png" />
     <Content Include="Assets\GunsNItems\Mp5.png" />
     <Content Include="Assets\GunsNItems\Pistol.png" />
@@ -243,6 +247,7 @@
     <Content Include="Assets\Titles\SFX2.png" />
     <Content Include="Assets\Titles\SignUpTitle.png" />
     <Content Include="Assets\Titles\Username.png" />
+    <Content Include="Assets\Titles\USureTitle.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

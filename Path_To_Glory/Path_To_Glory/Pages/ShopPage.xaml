@@ -103,7 +103,7 @@
         <Image Source="/Assets/GunsNItems/Mp5.png" Grid.Column="14" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         <Image Source="/Assets/GunsNItems/Revolver.png" Grid.Column="8" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         <Image Source="/Assets/GunsNItems/Rpg.png" Grid.Column="8" Grid.Row="7" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
-
+        
         <Button x:Name="BuyPistol"  Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyPistol_PointerEntered" PointerExited="BuyPistol_PointerExited" >
             <Image x:Name="BuyPistolImg" Source="/Assets/Buttons/BuyButton.png"></Image></Button>
         <Button x:Name="BuyRevolver" Grid.Column="8" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyRevolver_PointerEntered" PointerExited="BuyRevolver_PointerExited" >

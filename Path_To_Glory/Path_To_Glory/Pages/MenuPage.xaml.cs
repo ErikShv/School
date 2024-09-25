@@ -89,7 +89,7 @@ namespace Path_To_Glory.Pages
 
         private void QuitBtn_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Exit();
+            Popup.Visibility = Visibility.Visible;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -158,6 +158,40 @@ namespace Path_To_Glory.Pages
         private void AboutBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             AboutImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/AboutButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void QuitYesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+        private void QuitYesBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            YesImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedYesButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void QuitYesBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            YesImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void QuitNoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Popup.Visibility = Visibility.Collapsed;
+        }
+
+        private void QuitNoBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedNoButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void QuitNoBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/NoButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
     }
