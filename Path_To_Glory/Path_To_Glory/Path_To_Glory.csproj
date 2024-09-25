@@ -201,6 +201,7 @@
     <Content Include="Assets\Backgrounds\GunShopBackground.png" />
     <Content Include="Assets\Backgrounds\MainMenuGif %281%29.gif" />
     <Content Include="Assets\Backgrounds\OptionBackground.png" />
+    <Content Include="Assets\Backgrounds\ShopBackground.gif" />
     <Content Include="Assets\Buttons\AboutButton.png" />
     <Content Include="Assets\Buttons\BackButton.png" />
     <Content Include="Assets\Buttons\BuyButton.png" />
@@ -245,6 +246,7 @@
     <Content Include="Assets\Titles\OptionTitle.png" />
     <Content Include="Assets\Titles\Pass.png" />
     <Content Include="Assets\Titles\SFX2.png" />
+    <Content Include="Assets\Titles\ShopTitle.png" />
     <Content Include="Assets\Titles\SignUpTitle.png" />
     <Content Include="Assets\Titles\Username.png" />
     <Content Include="Assets\Titles\USureTitle.png" />
