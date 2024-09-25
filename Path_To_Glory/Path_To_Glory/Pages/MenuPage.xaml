@@ -59,7 +59,7 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
         </Grid.Background>
-        <Button x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="PlayBtn_PointerEntered" PointerExited="PlayBtn_PointerExited" IsEnabled="False" >
+        <Button x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="PlayBtn_PointerEntered" PointerExited="PlayBtn_PointerExited">
             <Image x:Name="PlayImg" Source="/Assets/Buttons/PlayButton.png"></Image>
         </Button>
         <Button x:Name="OptionBtn" Grid.Column="9" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="OptionBtn_PointerEntered" PointerExited="OptionBtn_PointerExited" Click="OptionBtn_Click"> 

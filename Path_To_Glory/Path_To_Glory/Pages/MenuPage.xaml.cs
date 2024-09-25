@@ -32,41 +32,49 @@ namespace Path_To_Glory.Pages
         private void PlayBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             PlayImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedPlayButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void PlayBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             PlayImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PlayButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private void OptionBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             OptionImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedOptionButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void OptionBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             OptionImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/OptionButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private void ShopBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             ShopImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedShopButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void ShopBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             ShopImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ShopButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private void QuitBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             QuitImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedQuitButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void QuitBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             QuitImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/QuitButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private void OptionBtn_Click(object sender, RoutedEventArgs e)
@@ -92,11 +100,13 @@ namespace Path_To_Glory.Pages
         private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedSignUp.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             SignUpImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/SignUpButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
@@ -107,11 +117,13 @@ namespace Path_To_Glory.Pages
         private void LoginBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             LoginImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedLoginButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void LoginBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             LoginImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/LoginButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
         private void LeaderBtn_Click(object sender, RoutedEventArgs e)
@@ -140,11 +152,13 @@ namespace Path_To_Glory.Pages
         private void AboutBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             AboutImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedAboutButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
 
         private void AboutBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             AboutImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/AboutButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
     }
 }

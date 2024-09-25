@@ -67,6 +67,9 @@
 
             </Canvas>
         </Border>
+        <Button x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
+            <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
+        </Button>
         <Image Source="/Assets/Titles/AboutText.png" Grid.Row="5" Grid.Column="4" Grid.RowSpan="18" Grid.ColumnSpan="12" VerticalAlignment="Top"></Image>
         <Image Source="/Assets/Titles/AboutTitle.png" Grid.Row="2" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="4" VerticalAlignment="Top"></Image>
     </Grid>
