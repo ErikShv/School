@@ -125,6 +125,12 @@
     <Compile Include="Pages\LeaderboardPage.xaml.cs">
       <DependentUpon>LeaderboardPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LevelSelectPage.xaml.cs">
+      <DependentUpon>LevelSelectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Levels\Tutorial\TutorialRoom1.xaml.cs">
+      <DependentUpon>TutorialRoom1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -198,16 +204,28 @@
     <Content Include="Assets\App\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\App\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Backgrounds\GameMenuBack.png" />
     <Content Include="Assets\Backgrounds\GunShopBackground.png" />
     <Content Include="Assets\Backgrounds\MainMenuGif %281%29.gif" />
+    <Content Include="Assets\Backgrounds\MenuBack.png" />
     <Content Include="Assets\Backgrounds\OptionBackground.png" />
     <Content Include="Assets\Backgrounds\ShopBackground.gif" />
+    <Content Include="Assets\Backgrounds\TutorialBack.png" />
+    <Content Include="Assets\Characters\Knight.png" />
+    <Content Include="Assets\FloorItems\Coin.gif" />
+    <Content Include="Assets\GameUi\CharacterBorder.png" />
+    <Content Include="Assets\GameUi\CoinUi.gif" />
+    <Content Include="Assets\GameUi\EmptyHeart.png" />
+    <Content Include="Assets\GameUi\FullHeart.png" />
+    <Content Include="Assets\GameUi\Heart.png" />
+    <Content Include="Assets\GameUi\NameBorder.png" />
     <Content Include="Assets\Buttons\AboutButton.png" />
     <Content Include="Assets\Buttons\BackButton.png" />
     <Content Include="Assets\Buttons\BuyButton.png" />
     <Content Include="Assets\Buttons\ContinueButton.png" />
     <Content Include="Assets\Buttons\LeaderboardButton.png" />
     <Content Include="Assets\Buttons\LoginButton.png" />
+    <Content Include="Assets\Buttons\NewGameButton.png" />
     <Content Include="Assets\Buttons\NoButton.png" />
     <Content Include="Assets\Buttons\OffButton.png" />
     <Content Include="Assets\Buttons\OnButton.png" />
@@ -219,22 +237,28 @@
     <Content Include="Assets\Buttons\PressedContinueButton.png" />
     <Content Include="Assets\Buttons\PressedLeaderboardButton.png" />
     <Content Include="Assets\Buttons\PressedLoginButton.png" />
+    <Content Include="Assets\Buttons\PressedNewGameButton.png" />
     <Content Include="Assets\Buttons\PressedNoButton.png" />
     <Content Include="Assets\Buttons\PressedOptionButton.png" />
     <Content Include="Assets\Buttons\PressedPlayButton.png" />
     <Content Include="Assets\Buttons\PressedQuitButton.png" />
     <Content Include="Assets\Buttons\PressedShopButton.png" />
     <Content Include="Assets\Buttons\PressedSignUp.png" />
+    <Content Include="Assets\Buttons\PressedTutorialButton.png" />
     <Content Include="Assets\Buttons\PressedYesButton.png" />
     <Content Include="Assets\Buttons\QuitButton.png" />
     <Content Include="Assets\Buttons\ShopButton.png" />
     <Content Include="Assets\Buttons\SignUpButton.png" />
+    <Content Include="Assets\Buttons\TutorialButton.png" />
     <Content Include="Assets\Buttons\YesButton.png" />
     <Content Include="Assets\GunsNItems\Ak.png" />
     <Content Include="Assets\GunsNItems\Mp5.png" />
     <Content Include="Assets\GunsNItems\Pistol.png" />
     <Content Include="Assets\GunsNItems\Revolver.png" />
     <Content Include="Assets\GunsNItems\Rpg.png" />
+    <Content Include="Assets\Tiles\Floor1.png" />
+    <Content Include="Assets\Tiles\Floor2.png" />
+    <Content Include="Assets\Tiles\Floor3.png" />
     <Content Include="Assets\Titles\AboutText.png" />
     <Content Include="Assets\Titles\AboutTitle.png" />
     <Content Include="Assets\Titles\ConfirmPass.png" />
@@ -242,6 +266,7 @@
     <Content Include="Assets\Titles\GameTitle%282%29.png" />
     <Content Include="Assets\Titles\GameTitle.png" />
     <Content Include="Assets\Titles\LeaderTitle.png" />
+    <Content Include="Assets\Titles\LevelSelectTitle.png" />
     <Content Include="Assets\Titles\LoginTitle.png" />
     <Content Include="Assets\Titles\OptionTitle.png" />
     <Content Include="Assets\Titles\Pass.png" />
@@ -263,15 +288,21 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Characters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\LeaderboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LevelSelectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Levels\Tutorial\TutorialRoom1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

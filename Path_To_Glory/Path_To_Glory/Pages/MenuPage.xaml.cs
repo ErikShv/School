@@ -194,5 +194,10 @@ namespace Path_To_Glory.Pages
             NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/NoButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
+
+        private void PlayBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LevelSelectPage));
+        }
     }
 }
