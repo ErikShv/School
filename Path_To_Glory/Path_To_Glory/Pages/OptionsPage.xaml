@@ -69,11 +69,11 @@
         </Border>
        
         <Image Grid.Row="4" Grid.Column="5" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/Assets/Titles/SFX2.png" HorizontalAlignment="Right"></Image>
-        <Button x:Name="SfxBtn" Grid.Row="4" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Click="SfxBtn_Click" PointerEntered="SfxBtn_PointerEntered" PointerExited="SfxBtn_PointerExited" >
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="SfxBtn" Grid.Row="4" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Click="SfxBtn_Click" PointerEntered="SfxBtn_PointerEntered" PointerExited="SfxBtn_PointerExited" >
             <Image Name="SfxImg" Source="/Assets/Buttons/OnButton.png"></Image>
         </Button>
         <Slider Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalAlignment="Center"></Slider>
-        <Button x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>
         <Image Source="/Assets/Titles/OptionTitle.png" Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="2"></Image>

@@ -59,12 +59,15 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
         </Grid.Background>
-        <Button x:Name="NewGameBtn" Grid.Row="11" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="NewGameBtn_PointerEntered" PointerExited="NewGameBtn_PointerExited">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="NewGameBtn" Grid.Row="11" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="NewGameBtn_PointerEntered" PointerExited="NewGameBtn_PointerExited">
             <Image x:Name="NewGameImg" Source="/Assets/Buttons/NewGameButton.png"></Image>
         </Button>
-        <Button x:Name="TutorialBtn" Grid.Row="8" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="TutorialBtn_PointerEntered" PointerExited="TutorialBtn_PointerExited" Click="TutorialBtn_Click">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="TutorialBtn" Grid.Row="8" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="TutorialBtn_PointerEntered" PointerExited="TutorialBtn_PointerExited" Click="TutorialBtn_Click">
             <Image x:Name="TutorialImg" Source="/Assets/Buttons/TutorialButton.png"></Image>
         </Button>
         <Image Source="/Assets/Titles/LevelSelectTitle.png" Grid.Row="1" Grid.Column="6" Grid.RowSpan="8" Grid.ColumnSpan="8" HorizontalAlignment="Center"></Image>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
+            <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
+        </Button>
     </Grid>
 </Page>

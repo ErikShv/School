@@ -73,13 +73,13 @@
         <TextBox x:Name="EmailSignUp" Grid.Column="7" Grid.Row="12" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.RowSpan="2"></TextBox>
         <PasswordBox x:Name="PasswordSignUp" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Center" ></PasswordBox>
         <PasswordBox x:Name="RePasswordSignUp" Grid.Column="7" Grid.Row="10" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Center" ></PasswordBox>
-        <Button x:Name="ContinueBtn" Click="ContinueBtn_Click" Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="ContinueBtn" Click="ContinueBtn_Click" Grid.Row="14" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent">
             <Image x:Name="ContinueImg" Source="/Assets/Buttons/ContinueButton.png"></Image></Button>
         <Image Grid.Row="8" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Pass.png" VerticalAlignment="Center"></Image>
         <Image Grid.Row="6" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Username.png" VerticalAlignment="Center"></Image>
         <Image Grid.Row="10" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/ConfirmPass.png" VerticalAlignment="Center"></Image>
         <Image Grid.Row="12" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Email.png" VerticalAlignment="Center"></Image>
-        <Button x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>
     </Grid>

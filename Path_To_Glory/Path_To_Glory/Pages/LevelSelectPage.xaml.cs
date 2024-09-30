@@ -57,5 +57,22 @@ namespace Path_To_Glory.Pages
         {
             Frame.Navigate(typeof(TutorialRoom1));
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void BackBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBackButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void BackBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
     }
 }

@@ -211,6 +211,7 @@
     <Content Include="Assets\Backgrounds\OptionBackground.png" />
     <Content Include="Assets\Backgrounds\ShopBackground.gif" />
     <Content Include="Assets\Backgrounds\TutorialBack.png" />
+    <Content Include="Assets\Buttons\ForgotPasswordButton.png" />
     <Content Include="Assets\Characters\Knight.png" />
     <Content Include="Assets\FloorItems\Coin.gif" />
     <Content Include="Assets\GameUi\CharacterBorder.png" />
@@ -256,9 +257,11 @@
     <Content Include="Assets\GunsNItems\Pistol.png" />
     <Content Include="Assets\GunsNItems\Revolver.png" />
     <Content Include="Assets\GunsNItems\Rpg.png" />
+    <Content Include="Assets\Tiles\Floor.png" />
     <Content Include="Assets\Tiles\Floor1.png" />
     <Content Include="Assets\Tiles\Floor2.png" />
     <Content Include="Assets\Tiles\Floor3.png" />
+    <Content Include="Assets\Tiles\FloorTutorial.png" />
     <Content Include="Assets\Titles\AboutText.png" />
     <Content Include="Assets\Titles\AboutTitle.png" />
     <Content Include="Assets\Titles\ConfirmPass.png" />

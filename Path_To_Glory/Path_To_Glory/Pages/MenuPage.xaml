@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    
     <Grid>
         <Grid.RowDefinitions>
             
@@ -59,28 +59,28 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
         </Grid.Background>
-        <Button x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="PlayBtn_PointerEntered" PointerExited="PlayBtn_PointerExited" Click="PlayBtn_Click">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="PlayBtn" Grid.Column="9" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="PlayBtn_PointerEntered" PointerExited="PlayBtn_PointerExited" Click="PlayBtn_Click">
             <Image x:Name="PlayImg" Source="/Assets/Buttons/PlayButton.png"></Image>
         </Button>
-        <Button x:Name="OptionBtn" Grid.Column="9" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="OptionBtn_PointerEntered" PointerExited="OptionBtn_PointerExited" Click="OptionBtn_Click"> 
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="OptionBtn" Grid.Column="9" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="OptionBtn_PointerEntered" PointerExited="OptionBtn_PointerExited" Click="OptionBtn_Click"> 
             <Image x:Name="OptionImg" Source="/Assets/Buttons/OptionButton.png"></Image>
         </Button>
-        <Button x:Name="ShopBtn" Grid.Column="9" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="ShopBtn_PointerEntered" PointerExited="ShopBtn_PointerExited" Click="ShopBtn_Click">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="ShopBtn" Grid.Column="9" Grid.Row="12" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="ShopBtn_PointerEntered" PointerExited="ShopBtn_PointerExited" Click="ShopBtn_Click">
             <Image x:Name="ShopImg" Source="/Assets/Buttons/ShopButton.png"></Image>
         </Button>
-        <Button x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="QuitBtn_PointerEntered" PointerExited="QuitBtn_PointerExited" Click="QuitBtn_Click">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="QuitBtn" Grid.Column="9" Grid.Row="14" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="Transparent" PointerEntered="QuitBtn_PointerEntered" PointerExited="QuitBtn_PointerExited" Click="QuitBtn_Click">
             <Image x:Name="QuitImg" Source="/Assets/Buttons/QuitButton.png"></Image>
         </Button>
-        <Button x:Name="SignUpBtn" Grid.Row="0" Grid.Column="16" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="Button_Click" Background="Transparent" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="SignUpBtn" Grid.Row="0" Grid.Column="16" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="Button_Click" Background="Transparent" PointerEntered="Button_PointerEntered" PointerExited="Button_PointerExited">
             <Image x:Name="SignUpImg" Source="/Assets/Buttons/SignUpButton.png"></Image></Button>
-        <Button x:Name="LoginBtn" Grid.Row="0" Grid.Column="18" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="LoginBtn_Click" Background="Transparent" PointerEntered="LoginBtn_PointerEntered" PointerExited="LoginBtn_PointerExited">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="LoginBtn" Grid.Row="0" Grid.Column="18" Grid.ColumnSpan="2" Grid.RowSpan="2" Click="LoginBtn_Click" Background="Transparent" PointerEntered="LoginBtn_PointerEntered" PointerExited="LoginBtn_PointerExited">
             <Image x:Name="LoginImg" Source="/Assets/Buttons/LoginButton.png"></Image>
         </Button>
-        <Button x:Name="LeaderBtn" HorizontalAlignment="Center" Grid.RowSpan="2" Click="LeaderBtn_Click" Background="Transparent" PointerEntered="LeaderBtn_PointerEntered" PointerExited="LeaderBtn_PointerExited"> 
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="LeaderBtn" HorizontalAlignment="Center" Grid.RowSpan="2" Click="LeaderBtn_Click" Background="Transparent" PointerEntered="LeaderBtn_PointerEntered" PointerExited="LeaderBtn_PointerExited"> 
             <Image x:Name="LeaderImg" Source="/Assets/Buttons/LeaderboardButton.png"></Image>
         </Button>
         <Image Source="/Assets/Titles/GameTitle.png" Grid.Column="5" Grid.RowSpan="10" Grid.ColumnSpan="10" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top"></Image>
-        <Button x:Name="AboutBtn" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2" Background="Transparent" Click="AboutBtn_Click" PointerEntered="AboutBtn_PointerEntered" PointerExited="AboutBtn_PointerExited">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="AboutBtn" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="2" Background="Transparent" Click="AboutBtn_Click" PointerEntered="AboutBtn_PointerEntered" PointerExited="AboutBtn_PointerExited">
             <Image x:Name="AboutImg" Source="/Assets/Buttons/AboutButton.png"></Image>
         </Button>
         <Grid x:Name="Popup" Grid.Row="8" Grid.Column="6" Grid.RowSpan="8" Grid.ColumnSpan="8" BorderBrush="Black" BorderThickness="2" Visibility="Collapsed">
@@ -135,10 +135,10 @@
                 <ImageBrush ImageSource="/Assets/Backgrounds/OptionBackground.png"></ImageBrush>
             </Grid.Background>
             <Image Source="/Assets/Titles/USureTitle.png" Grid.RowSpan="8" Grid.ColumnSpan="12" Grid.Row="2" Grid.Column="4"></Image>
-            <Button x:Name="QuitYesBtn" Grid.Row="10" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="6" Background="Transparent" Click="QuitYesBtn_Click" PointerEntered="QuitYesBtn_PointerEntered" PointerExited="QuitYesBtn_PointerExited" >
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="QuitYesBtn" Grid.Row="10" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="6" Background="Transparent" Click="QuitYesBtn_Click" PointerEntered="QuitYesBtn_PointerEntered" PointerExited="QuitYesBtn_PointerExited" >
                 <Image x:Name="YesImg" Source="/Assets/Buttons/YesButton.png"></Image>
             </Button>
-            <Button x:Name="QuitNoBtn" Grid.Row="10" Grid.Column="11" Grid.RowSpan="6" Grid.ColumnSpan="6" Background="Transparent" Click="QuitNoBtn_Click" PointerEntered="QuitNoBtn_PointerEntered" PointerExited="QuitNoBtn_PointerExited">
+            <Button Style="{StaticResource MyButtonStyle}" x:Name="QuitNoBtn" Grid.Row="10" Grid.Column="11" Grid.RowSpan="6" Grid.ColumnSpan="6" Background="Transparent" Click="QuitNoBtn_Click" PointerEntered="QuitNoBtn_PointerEntered" PointerExited="QuitNoBtn_PointerExited">
                 <Image x:Name="NoImg" Source="/Assets/Buttons/NoButton.png"></Image>
             </Button>
 
