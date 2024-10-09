@@ -1,4 +1,5 @@
 ﻿using Path_To_Glory.Pages;
+using Path_To_Glory.Pages.Levels.Tutorial;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -67,7 +68,7 @@ namespace Path_To_Glory
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(MenuPage), e.Arguments);
+                    rootFrame.Navigate(typeof(TutorialRoom1), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

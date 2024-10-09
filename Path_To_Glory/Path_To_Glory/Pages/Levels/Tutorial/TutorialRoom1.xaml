@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
+    
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -63,6 +63,7 @@
 
 
         </Grid.ColumnDefinitions>
+
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Backgrounds/TutorialBack.png"></ImageBrush>
         </Grid.Background>
@@ -140,9 +141,10 @@
             <Button  Grid.RowSpan="4" Grid.ColumnSpan="10" Grid.Row="4" Grid.Column="5" Background="Transparent">
                 <Image Source="/Assets/Buttons/ContinueButton.png"></Image>
             </Button>
-            
+          
         </Grid>
         <Image Source="/Assets/Tiles/FloorTutorial.png" Grid.Row="23" Grid.ColumnSpan="24" Stretch="Fill" Grid.RowSpan="1"></Image>
     </Grid>
+    
     
 </Page>

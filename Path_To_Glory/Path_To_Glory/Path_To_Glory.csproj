@@ -291,7 +291,16 @@
       <Version>6.2.12</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseProject\DatabaseProject.csproj">
+      <Project>{d33de7e3-e623-4f66-9d45-f1a686d8bc9e}</Project>
+      <Name>DatabaseProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameEngine\GameEngine.csproj">
+      <Project>{0d3d1a96-042a-4980-8738-b262e6ebcf48}</Project>
+      <Name>GameEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
@@ -329,6 +338,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GameObjects\" />
+    <Folder Include="GameServices\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
