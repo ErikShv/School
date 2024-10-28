@@ -121,6 +121,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameObjects\GameObject.cs" />
+    <Compile Include="GameServices\Constants.cs" />
+    <Compile Include="GameServices\GameEvents.cs" />
+    <Compile Include="GameServices\Manager.cs" />
     <Compile Include="GameServices\Scene.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\GameEngine.rd.xml" />
