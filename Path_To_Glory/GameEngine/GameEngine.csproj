@@ -120,6 +120,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameObjects\GameMovingObject.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameServices\Constants.cs" />
     <Compile Include="GameServices\GameEvents.cs" />
