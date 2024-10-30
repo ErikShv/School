@@ -119,6 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GameObjects\Coin.cs" />
+    <Compile Include="GameObjects\FloorHp.cs" />
+    <Compile Include="GameObjects\SkullDecor.cs" />
+    <Compile Include="GameServices\GameManager.cs" />
+    <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -213,7 +218,9 @@
     <Content Include="Assets\Backgrounds\TutorialBack.png" />
     <Content Include="Assets\Buttons\ForgotPasswordButton.png" />
     <Content Include="Assets\Characters\Knight.png" />
+    <Content Include="Assets\Decorations\SkullDecor.png" />
     <Content Include="Assets\FloorItems\Coin.gif" />
+    <Content Include="Assets\FloorItems\HeartFloor.png" />
     <Content Include="Assets\GameUi\CharacterBorder.png" />
     <Content Include="Assets\GameUi\CoinUi.gif" />
     <Content Include="Assets\GameUi\EmptyHeart.png" />
@@ -339,10 +346,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameObjects\" />
-    <Folder Include="GameServices\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

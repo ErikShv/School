@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Path_To_Glory.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,15 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
     /// </summary>
     public sealed partial class TutorialRoom1 : Page
     {
+        private GameManager _gameManager;
         public TutorialRoom1()
         {
             this.InitializeComponent();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _gameManager = new GameManager(scene);
         }
     }
 }

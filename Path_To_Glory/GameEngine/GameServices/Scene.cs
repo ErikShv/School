@@ -16,7 +16,7 @@ namespace GameEngine.GameServices
         public Scene()
         {
             Manager.GameEvent.OnRun += Run;
-            Manager.GameEvent.OnRun += CheckCollisional;
+            //Manager.GameEvent.OnRun += CheckCollisional;
 
         }
 
@@ -28,6 +28,33 @@ namespace GameEngine.GameServices
                 {
                     obj.Render();
                 }
+            }
+        }
+        public void AddObject(GameObject gameObject)   //הפעולה מוסיפה אובייקט לרשימה ולמסך
+        {
+            _gameobjects.Add(gameObject);      //האובייקט מתווסף לרשימה
+            Children.Add(gameObject.Image);    //תמונת האובייקט מתווספת למסך
+        }    
+        public void RemoveObject(GameObject gameObject)   //הפעולה מוחקת אובייקט
+        {
+            if (_gameobjects.Contains(gameObject))        //אם האובייקט המבוקש נמצא ברשימה
+            {
+                _gameobjects.Remove(gameObject);          //מחיקתו מהרשימה
+                Children.Remove(gameObject.Image);        //מחיקת המראה של האובייקט מהמסך
+            }
+        }
+        public void RemoveAllObjects()
+        {
+            foreach(GameObject gameObject in _gameobjects)
+            {
+                RemoveObject(gameObject);
+            }
+        }
+        public void Init()    //מחזירה את כל האובייקטים למיקומם ההתחלתי
+        {
+            foreach(GameObject obj in _gameobjects)
+            {
+                obj.Init();
             }
         }
     }
