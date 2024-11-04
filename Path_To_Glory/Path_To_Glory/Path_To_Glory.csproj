@@ -121,6 +121,7 @@
     </Compile>
     <Compile Include="GameObjects\Coin.cs" />
     <Compile Include="GameObjects\FloorHp.cs" />
+    <Compile Include="GameObjects\Knight.cs" />
     <Compile Include="GameObjects\SkullDecor.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
@@ -218,6 +219,10 @@
     <Content Include="Assets\Backgrounds\TutorialBack.png" />
     <Content Include="Assets\Buttons\ForgotPasswordButton.png" />
     <Content Include="Assets\Characters\Knight.png" />
+    <Content Include="Assets\Characters\KnightIdleLeft.gif" />
+    <Content Include="Assets\Characters\KnightIdleRight.gif" />
+    <Content Include="Assets\Characters\KnightRunLeft.gif" />
+    <Content Include="Assets\Characters\KnightRunRight.gif" />
     <Content Include="Assets\Decorations\SkullDecor.png" />
     <Content Include="Assets\FloorItems\Coin.gif" />
     <Content Include="Assets\FloorItems\HeartFloor.png" />
