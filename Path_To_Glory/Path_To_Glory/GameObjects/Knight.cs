@@ -13,9 +13,9 @@ namespace Path_To_Glory.GameObjects
     {
         public enum StateType
         {
-            idelLeft, idelRight, movingLeft, movingRight
+            idelLeft, idelRight, movingLeft, movingRight,JumpLeft,JumpRight,Jump
         }
-        bool jump = false;
+        
         public StateType state { get; set; }
         public Knight(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
@@ -52,15 +52,13 @@ namespace Path_To_Glory.GameObjects
 
         private void Go(VirtualKey key)
         {
-            if (key == Keys.Upkey)
+            if (state != StateType.Jump )
             {
-                Jump();
-            }
-
-            if (key == Keys.Downkey)
-            {
-
-                _dY = 8;
+                if (key == Keys.Upkey)
+                {
+                    state = StateType.Jump; ;
+                    Jump();
+                }
             }
 
             if (key == Keys.Rightkey)
@@ -71,6 +69,7 @@ namespace Path_To_Glory.GameObjects
                     state = StateType.movingRight;
                     SetImage("Characters/KnightRunRight.gif");
                 }
+                
                 _dX = 8;
             }
 
@@ -81,6 +80,7 @@ namespace Path_To_Glory.GameObjects
                     state = StateType.movingLeft;
                     SetImage("Characters/KnightRunLeft.gif");
                 }
+                
                 _dX = -8;
             }
             

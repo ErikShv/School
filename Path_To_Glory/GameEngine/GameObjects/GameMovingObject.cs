@@ -40,7 +40,7 @@ namespace GameEngine.GameObjects
 
         public virtual void Stop()
         {
-            _dX = _dY = _ddX = _ddY = 0;
+            _dX = _dY = _ddX =_ddY= 0;
         }
 
         public void MoveTo(double toX, double toY, double speed = 1, double acceleration = 0)
