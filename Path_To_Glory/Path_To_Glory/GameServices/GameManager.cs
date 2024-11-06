@@ -20,7 +20,7 @@ namespace Path_To_Glory.GameServices
             Scene.AddObject(new Coin(Scene, "FloorItems/Coin.gif", 500, 730));
             Scene.AddObject(new FloorHp(Scene, "FloorItems/HeartFloor.png", 600, 650));
             Scene.AddObject(new SkullDecor(Scene,"Decorations/SkullDecor.png",700,690));
-            Scene.AddObject(new Knight(Scene, "Characters/KnightIdleLeft.gif", 500, 500));
+            Scene.AddObject(new Knight(Scene, "Characters/KnightIdleRight.gif", 800, Scene.ActualHeight-200));
         }
     }
 }

@@ -21,15 +21,40 @@ namespace Path_To_Glory.GameObjects
         {
             Manager.GameEvent.OnKeyDown += Go;
             Manager.GameEvent.OnKeyUp += Stop;
-            Image.Height = 129;
+            Image.Height = 200;
             state = StateType.idelRight;
         }
+
+        public override void Render()
+        {
+            base.Render();
+            if(Rect.Left <= 0)
+            {
+                _X = 0;
+            }
+            if(Rect.Right >= _scene?.ActualWidth)
+            {
+                _X = _scene.ActualWidth - Image.Height;
+            }
+            if(Rect.Bottom >= _scene?.ActualHeight )
+            {
+                _Y = _scene.ActualHeight -Image.ActualHeight;
+                _ddY = 0;
+                _dY = 0;
+            }
+        }
+        public void Jump()
+        {
+            _dY = -20;
+            _ddY = 1;
+        }
+        
 
         private void Go(VirtualKey key)
         {
             if (key == Keys.Upkey)
             {
-                _dY = -8;
+                Jump();
             }
 
             if (key == Keys.Downkey)
@@ -62,7 +87,10 @@ namespace Path_To_Glory.GameObjects
         }
         private void Stop(VirtualKey key)
         {
-            base.Stop();
+            if (key != Keys.Upkey)
+            {
+                base.Stop();
+            }
             if (state == StateType.movingRight)
             {
                 SetImage("Characters/KnightIdleRight.gif");
@@ -74,6 +102,7 @@ namespace Path_To_Glory.GameObjects
                 state = StateType.idelLeft;
             }
         }
+        
     }
 
 
