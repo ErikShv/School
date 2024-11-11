@@ -123,6 +123,7 @@
     <Compile Include="GameObjects\Coin.cs" />
     <Compile Include="GameObjects\FloorHp.cs" />
     <Compile Include="GameObjects\Knight.cs" />
+    <Compile Include="GameObjects\MonsterA.cs" />
     <Compile Include="GameObjects\SkullDecor.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
@@ -219,12 +220,16 @@
     <Content Include="Assets\Backgrounds\ShopBackground.gif" />
     <Content Include="Assets\Backgrounds\TutorialBack.png" />
     <Content Include="Assets\Buttons\ForgotPasswordButton.png" />
+    <Content Include="Assets\Characters\GoblinIdleLeft.gif" />
+    <Content Include="Assets\Characters\GoblinIdleRight.gif" />
     <Content Include="Assets\Characters\Knight.png" />
     <Content Include="Assets\Characters\KnightIdleLeft.gif" />
     <Content Include="Assets\Characters\KnightIdleRight.gif" />
     <Content Include="Assets\Characters\KnightRunLeft.gif" />
     <Content Include="Assets\Characters\KnightRunRight.gif" />
     <Content Include="Assets\Decorations\SkullDecor.png" />
+    <Content Include="Assets\FloorItems\bullet.png" />
+    <Content Include="Assets\FloorItems\BulletLeft.png" />
     <Content Include="Assets\FloorItems\Coin.gif" />
     <Content Include="Assets\FloorItems\HeartFloor.png" />
     <Content Include="Assets\GameUi\CharacterBorder.png" />

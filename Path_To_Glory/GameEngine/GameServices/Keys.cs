@@ -13,6 +13,6 @@ namespace GameEngine.GameServices
         public static VirtualKey Rightkey { get; set; } = VirtualKey.Right;
         public static VirtualKey Upkey { get; set; } = VirtualKey.Up;
         public static VirtualKey Downkey { get; set; } = VirtualKey.Down;
-        
+        public static VirtualKey Shoot { get; set; } = VirtualKey.Z;
     }
 }

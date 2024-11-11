@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.System;
+using Windows.UI.Xaml;
 
 namespace Path_To_Glory.GameObjects
 {
@@ -15,6 +16,8 @@ namespace Path_To_Glory.GameObjects
         {
             idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight
         }
+        private DateTime _lastShotTime = DateTime.MinValue; 
+        private TimeSpan _shootCooldown = TimeSpan.FromMilliseconds(200); 
 
         public StateType _state { get; set; }
         public Knight(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
@@ -76,13 +79,36 @@ namespace Path_To_Glory.GameObjects
         }
         private void Shoot()
         {
-            _scene.AddObject()
+            
+            if (DateTime.Now - _lastShotTime < _shootCooldown)
+            {
+                return; 
+            }
+
+            
+            _lastShotTime = DateTime.Now;
+
+            
+            if (_state == StateType.movingRight || _state == StateType.idelRight || _state == StateType.JumpRight)
+            {
+                _scene.AddObject(new Bullet(_scene, "FloorItems/bullet.png", _X + 50, _Y + 50, true));
+            }
+            if (_state == StateType.movingLeft || _state == StateType.idelLeft || _state == StateType.JumpLeft)
+            {
+                _scene.AddObject(new Bullet(_scene, "FloorItems/BulletLeft.png", _X + 50, _Y + 50, false));
+            }
         }
 
 
         private void Go(VirtualKey key)
         {
             var state = _state;
+           
+            
+            if(key == Keys.Shoot )
+            {
+                Shoot();
+            }
             if (key == Keys.Upkey)
             {
                 if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
@@ -142,27 +168,27 @@ namespace Path_To_Glory.GameObjects
 
             if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
             {
-                if (key != Keys.Upkey)
+                if (key != Keys.Upkey && key != Keys.Shoot)
                 {
                     base.Stop();
                 }
             }
             else
             {
-                    if (key != Keys.Upkey)
+                    if (key != Keys.Upkey && key != Keys.Shoot)
                     {
                         _dX = 0;
                     }
             }
 
 
-            if (_state == StateType.movingRight && _state != StateType.JumpRight)
+            if (_state == StateType.movingRight && _state != StateType.JumpRight && key != Keys.Shoot)
             {
                 SetImage("Characters/KnightIdleRight.gif");
                 _state = StateType.idelRight;
             }
 
-            if (_state == StateType.movingLeft && _state != StateType.JumpLeft)
+            if (_state == StateType.movingLeft && _state != StateType.JumpLeft && key != Keys.Shoot)
             {
                 SetImage("Characters/KnightIdleLeft.gif");
                 _state = StateType.idelLeft;
