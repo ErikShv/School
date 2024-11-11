@@ -55,7 +55,7 @@ namespace Path_To_Glory.Pages
 
         private void TutorialBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(TutorialRoom1));
+            Frame.Navigate(typeof(Room1));
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

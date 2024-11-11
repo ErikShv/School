@@ -21,14 +21,13 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class TutorialRoom1 : Page
+    public sealed partial class Room1 : Page
     {
         private GameManager _gameManager;
-        public TutorialRoom1()
+        public Room1()
         {
             this.InitializeComponent();
         }
-
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             _gameManager = new GameManager(scene);

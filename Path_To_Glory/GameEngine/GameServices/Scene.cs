@@ -1,6 +1,7 @@
 ﻿using GameEngine.GameObjects;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace GameEngine.GameServices
@@ -16,7 +17,7 @@ namespace GameEngine.GameServices
         public Scene()
         {
             Manager.GameEvent.OnRun += Run;
-            //Manager.GameEvent.OnRun += CheckCollisional;
+            Manager.GameEvent.OnRun += CheckCollisional;
 
         }
 
@@ -27,6 +28,23 @@ namespace GameEngine.GameServices
                 if(GameObject is GameMovingObject obj)
                 {
                     obj.Render();
+                }
+            }
+        }
+        public void CheckCollisional()
+        {
+            foreach(var gameObject in _gameobjectsSnapshots)//עוברים על כל רשימת האובייקטים
+            {
+                if (gameObject.collisional) // אם האובייקט לא שקוף
+                {
+                    //מחפשים מופע ראשון של האובייקט, אשר הוא לא אותו אובייקט, הוא לא שקוף והוא נגע באובייקט הנוכחי
+                    var otherobject = _gameobjectsSnapshots.FirstOrDefault(g => !ReferenceEquals(g, gameObject) && g.collisional && !RectHelper.Intersect(g.Rect, gameObject.Rect).IsEmpty);
+                    if(otherobject != null)//אם קיים אובייקט כזה
+                    {
+                        //Collide של אותו אובייקט,כלומר,אם הפעולה נקראת,זה אומר שבוודאות קרתה התנגשות,אם האובייקט מתנגש באובייקט אחר,נקראת הפעולה
+                        // כדי שיוכל להגיב באופן מיוחד ,כל אובייקט משכתב את הפעולה Collide.
+                        gameObject.Collide(otherobject);
+                    }
                 }
             }
         }
