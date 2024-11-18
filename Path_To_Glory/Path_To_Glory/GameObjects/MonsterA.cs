@@ -12,7 +12,7 @@ namespace Path_To_Glory.GameObjects
     {
         public MonsterA(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
-            Image.Height = 200;
+            Image.Height = 70;
         }
         public override void Collide(GameObject gameObject)
         {

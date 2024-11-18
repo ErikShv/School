@@ -18,8 +18,11 @@ namespace Path_To_Glory.GameServices
         private void Init()
         {
             Scene.AddObject(new Coin(Scene, "FloorItems/Coin.gif", 500, 730));
-            Scene.AddObject(new Knight(Scene, "Characters/KnightIdleRight.gif", 800, Scene.ActualHeight-200));
-            Scene.AddObject(new MonsterA(Scene, "Characters/GoblinIdleRight.gif", 1000, Scene.ActualHeight - 200));
+            Scene.AddObject(new Knight(Scene, "Characters/KnightIdleRight2.gif", 800, Scene.ActualHeight-Scene.Ground));
+            Scene.AddObject(new MonsterA(Scene, "Characters/GoblinIdleRight2.gif", 1000, Scene.ActualHeight - Scene.Ground));
+            Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight-30));
+            Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 600, Scene.ActualHeight - 30));
+            Scene.AddObject(new Platform(Scene, "Tiles/FloorTutorial.png", 500, Scene.ActualHeight - 300));
         }
     }
 }

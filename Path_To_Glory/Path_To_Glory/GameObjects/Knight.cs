@@ -24,7 +24,7 @@ namespace Path_To_Glory.GameObjects
         {
             Manager.GameEvent.OnKeyDown += Go;
             Manager.GameEvent.OnKeyUp += Stop;
-            Image.Height = 200;
+            Image.Height =75;
             _state = StateType.idelRight;
         }
 
@@ -39,30 +39,7 @@ namespace Path_To_Glory.GameObjects
             {
                 _X = _scene.ActualWidth - Image.Height;
             }
-            if (Rect.Bottom >= _scene?.ActualHeight)
-            {
-                if(_state == StateType.JumpLeft && _dX != 0)
-                {
-                    _state = StateType.movingLeft;
-                }
-                if (_state == StateType.JumpRight && _dX != 0)
-                {
-                    _state = StateType.movingRight;
-                }
-                if (_state == StateType.JumpLeft && _dX == 0)
-                {
-                    SetImage("Characters/KnightIdleLeft.gif");
-                    _state = StateType.idelLeft;
-                }
-                if (_state == StateType.JumpRight && _dX == 0)
-                {
-                    SetImage("Characters/KnightIdleRight.gif");
-                    _state = StateType.idelRight;
-                }
-                _Y = _scene.ActualHeight -Image.ActualHeight;
-                _ddY = 0;
-                _dY = 0;
-            }
+            
         }
         public void Jump()
         {
@@ -91,11 +68,11 @@ namespace Path_To_Glory.GameObjects
             
             if (_state == StateType.movingRight || _state == StateType.idelRight || _state == StateType.JumpRight)
             {
-                _scene.AddObject(new Bullet(_scene, "FloorItems/bullet.png", _X + 50, _Y + 50, true));
+                _scene.AddObject(new Bullet(_scene, "FloorItems/bullet2.png", _X + 50, _Y+10, true));
             }
             if (_state == StateType.movingLeft || _state == StateType.idelLeft || _state == StateType.JumpLeft)
             {
-                _scene.AddObject(new Bullet(_scene, "FloorItems/BulletLeft.png", _X + 50, _Y + 50, false));
+                _scene.AddObject(new Bullet(_scene, "FloorItems/BulletLeft2.png", _X - 50, _Y+10, false));
             }
         }
 
@@ -123,7 +100,7 @@ namespace Path_To_Glory.GameObjects
                     _state = StateType.movingRight;
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunRight.gif");
+                        SetImage("Characters/KnightRunRight2.gif");
                     }
                 }
                 else
@@ -131,7 +108,7 @@ namespace Path_To_Glory.GameObjects
                     
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunRight.gif");
+                        SetImage("Characters/KnightRunRight2.gif");
                     }
                     _state = StateType.JumpRight;
                 }
@@ -145,7 +122,7 @@ namespace Path_To_Glory.GameObjects
                     _state = StateType.movingLeft;
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunLeft.gif");
+                        SetImage("Characters/KnightRunLeft2.gif");
                     }
                 }
                 else
@@ -153,7 +130,7 @@ namespace Path_To_Glory.GameObjects
                    
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunLeft.gif");
+                        SetImage("Characters/KnightRunLeft2.gif");
                     }
                     _state = StateType.JumpLeft;
                 }
@@ -184,13 +161,13 @@ namespace Path_To_Glory.GameObjects
 
             if (_state == StateType.movingRight && _state != StateType.JumpRight && key != Keys.Shoot)
             {
-                SetImage("Characters/KnightIdleRight.gif");
+                SetImage("Characters/KnightIdleRight2.gif");
                 _state = StateType.idelRight;
             }
 
             if (_state == StateType.movingLeft && _state != StateType.JumpLeft && key != Keys.Shoot)
             {
-                SetImage("Characters/KnightIdleLeft.gif");
+                SetImage("Characters/KnightIdleLeft2.gif");
                 _state = StateType.idelLeft;
             }
         }
@@ -199,6 +176,29 @@ namespace Path_To_Glory.GameObjects
            if(gameObject is Coin)
             {
                 _scene.RemoveObject(gameObject);
+            }
+           if(gameObject is Ground)
+            {
+                _dY = 0;
+                _ddY = 0;
+                if (_state == StateType.JumpLeft && _dX != 0)
+                {
+                    _state = StateType.movingLeft;
+                }
+                if (_state == StateType.JumpRight && _dX != 0)
+                {
+                    _state = StateType.movingRight;
+                }
+                if (_state == StateType.JumpLeft && _dX == 0)
+                {
+                    SetImage("Characters/KnightIdleLeft2.gif");
+                    _state = StateType.idelLeft;
+                }
+                if (_state == StateType.JumpRight && _dX == 0)
+                {
+                    SetImage("Characters/KnightIdleRight2.gif");
+                    _state = StateType.idelRight;
+                }
             }
 
         }

@@ -14,7 +14,7 @@ namespace Path_To_Glory.GameObjects
         public Bullet(Scene scene, string fileName, double placeX, double placeY,bool FacingRight) : base(scene, fileName, placeX, placeY)
         {
             
-            Image.Height = 100;
+            Image.Height = 10;
             _FacingRight = FacingRight;
             if (FacingRight)
             {

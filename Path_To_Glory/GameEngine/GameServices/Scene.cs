@@ -12,7 +12,7 @@ namespace GameEngine.GameServices
 
         protected List<GameObject> _gameobjectsSnapshots => _gameobjects.ToList();
 
-        public double Ground { get; set; }  //ריצפה
+        public double Ground { get; set; } = 100;  //ריצפה
 
         public Scene()
         {
