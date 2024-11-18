@@ -16,15 +16,15 @@ namespace Path_To_Glory.GameObjects
         {
             idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight
         }
-        private DateTime _lastShotTime = DateTime.MinValue; 
-        private TimeSpan _shootCooldown = TimeSpan.FromMilliseconds(200); 
+        private DateTime _lastShotTime = DateTime.MinValue;
+        private TimeSpan _shootCooldown = TimeSpan.FromMilliseconds(200);
 
         public StateType _state { get; set; }
         public Knight(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Manager.GameEvent.OnKeyDown += Go;
             Manager.GameEvent.OnKeyUp += Stop;
-            Image.Height =75;
+            Image.Height = 75;
             _state = StateType.idelRight;
         }
 
@@ -39,11 +39,15 @@ namespace Path_To_Glory.GameObjects
             {
                 _X = _scene.ActualWidth - Image.Height;
             }
+
+          
             
         }
         public void Jump()
         {
-            if(_state == StateType.movingLeft || _state == StateType.idelLeft)
+           
+            
+            if (_state == StateType.movingLeft || _state == StateType.idelLeft)
             {
                 _state = StateType.JumpLeft;
             }
@@ -56,23 +60,23 @@ namespace Path_To_Glory.GameObjects
         }
         private void Shoot()
         {
-            
+
             if (DateTime.Now - _lastShotTime < _shootCooldown)
             {
-                return; 
+                return;
             }
 
-            
+
             _lastShotTime = DateTime.Now;
 
-            
+
             if (_state == StateType.movingRight || _state == StateType.idelRight || _state == StateType.JumpRight)
             {
-                _scene.AddObject(new Bullet(_scene, "FloorItems/bullet2.png", _X + 50, _Y+10, true));
+                _scene.AddObject(new Bullet(_scene, "FloorItems/bullet2.png", _X + 50, _Y + 10, true));
             }
             if (_state == StateType.movingLeft || _state == StateType.idelLeft || _state == StateType.JumpLeft)
             {
-                _scene.AddObject(new Bullet(_scene, "FloorItems/BulletLeft2.png", _X - 50, _Y+10, false));
+                _scene.AddObject(new Bullet(_scene, "FloorItems/BulletLeft2.png", _X - 50, _Y + 10, false));
             }
         }
 
@@ -80,9 +84,9 @@ namespace Path_To_Glory.GameObjects
         private void Go(VirtualKey key)
         {
             var state = _state;
-           
-            
-            if(key == Keys.Shoot )
+
+
+            if (key == Keys.Shoot)
             {
                 Shoot();
             }
@@ -105,7 +109,7 @@ namespace Path_To_Glory.GameObjects
                 }
                 else
                 {
-                    
+
                     if (state != _state)
                     {
                         SetImage("Characters/KnightRunRight2.gif");
@@ -127,7 +131,7 @@ namespace Path_To_Glory.GameObjects
                 }
                 else
                 {
-                   
+
                     if (state != _state)
                     {
                         SetImage("Characters/KnightRunLeft2.gif");
@@ -152,10 +156,10 @@ namespace Path_To_Glory.GameObjects
             }
             else
             {
-                    if (key != Keys.Upkey && key != Keys.Shoot)
-                    {
-                        _dX = 0;
-                    }
+                if (key != Keys.Upkey && key != Keys.Shoot)
+                {
+                    _dX = 0;
+                }
             }
 
 
@@ -173,14 +177,19 @@ namespace Path_To_Glory.GameObjects
         }
         public override void Collide(GameObject gameObject)
         {
-           if(gameObject is Coin)
+       
+
+            if (gameObject is Coin)
             {
                 _scene.RemoveObject(gameObject);
             }
-           if(gameObject is Ground)
+
+            if (gameObject is Ground)
             {
+                
                 _dY = 0;
                 _ddY = 0;
+
                 if (_state == StateType.JumpLeft && _dX != 0)
                 {
                     _state = StateType.movingLeft;
@@ -201,9 +210,49 @@ namespace Path_To_Glory.GameObjects
                 }
             }
 
+            if (gameObject is Platform)
+            {
+                
+                if (Rect.Bottom >= gameObject.Rect.Top && Rect.Top < gameObject.Rect.Top )
+                {
+                   
+                  
+                    _Y = gameObject.Rect.Top - Rect.Height; 
+                    _dY = 0;
+                    _ddY = 0;
+                }
+
+               
+                if (Rect.Top <= gameObject.Rect.Bottom && Rect.Bottom > gameObject.Rect.Bottom )
+                {
+                    
+                    _dY = -_dY; 
+                }
+
+               
+                if (Rect.Right >= gameObject.Rect.Left)
+                {
+                    
+                    _X = gameObject.Rect.Left - Rect.Width; 
+                    _dX = 0; 
+                }
+
+                
+                if (Rect.Left <= gameObject.Rect.Right)
+                {
+                    
+                    _X = gameObject.Rect.Right; 
+                    _dX = 0; 
+                }
+                
+            }
         }
-    }
+    }    
 }
+
+
+
+
 
 
 

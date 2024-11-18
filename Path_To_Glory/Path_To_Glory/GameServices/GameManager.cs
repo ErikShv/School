@@ -22,7 +22,7 @@ namespace Path_To_Glory.GameServices
             Scene.AddObject(new MonsterA(Scene, "Characters/GoblinIdleRight2.gif", 1000, Scene.ActualHeight - Scene.Ground));
             Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight-30));
             Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 600, Scene.ActualHeight - 30));
-            Scene.AddObject(new Platform(Scene, "Tiles/FloorTutorial.png", 500, Scene.ActualHeight - 300));
+            Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", 300, Scene.ActualHeight - 200));
         }
     }
 }

@@ -15,5 +15,6 @@ namespace Path_To_Glory.GameObjects
             Image.Width = 1000;
             Image.Height = 50;
         }
+        
     }
 }

@@ -12,8 +12,9 @@ namespace Path_To_Glory.GameObjects
     {
         public Platform(Scene scene, string filename, double placeX, double placeY) : base(scene, filename, placeX, placeY)
         {
-            Image.Height = 500;
-            Image.Width = 200;
+            Image.Height = 50;
+            
         }
+        
     }
 }
