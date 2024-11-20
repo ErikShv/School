@@ -15,10 +15,9 @@ namespace Path_To_Glory.GameObjects
         public enum StateType
         {
             idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight
-        }
+        }   
         private DateTime _lastShotTime = DateTime.MinValue;
         private TimeSpan _shootCooldown = TimeSpan.FromMilliseconds(200);
-
         public StateType _state { get; set; }
         public Knight(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
@@ -26,6 +25,7 @@ namespace Path_To_Glory.GameObjects
             Manager.GameEvent.OnKeyUp += Stop;
             Image.Height = 75;
             _state = StateType.idelRight;
+            _ddY = 1;
         }
 
         public override void Render()
@@ -45,7 +45,7 @@ namespace Path_To_Glory.GameObjects
         }
         public void Jump()
         {
-           
+
             
             if (_state == StateType.movingLeft || _state == StateType.idelLeft)
             {
@@ -56,7 +56,6 @@ namespace Path_To_Glory.GameObjects
                 _state = StateType.JumpRight;
             }
             _dY = -20;
-            _ddY = 1;
         }
         private void Shoot()
         {
@@ -143,6 +142,10 @@ namespace Path_To_Glory.GameObjects
 
         }
 
+        public override void Stop()
+        {
+            _dX = _dY = _ddX =0;
+        }
         private void Stop(VirtualKey key)
         {
 
@@ -151,7 +154,7 @@ namespace Path_To_Glory.GameObjects
             {
                 if (key != Keys.Upkey && key != Keys.Shoot)
                 {
-                    base.Stop();
+                    Stop();
                 }
             }
             else
@@ -177,19 +180,16 @@ namespace Path_To_Glory.GameObjects
         }
         public override void Collide(GameObject gameObject)
         {
-       
-
             if (gameObject is Coin)
             {
                 _scene.RemoveObject(gameObject);
             }
-
+            else
             if (gameObject is Ground)
             {
                 
                 _dY = 0;
-                _ddY = 0;
-
+                _Y -= 1;
                 if (_state == StateType.JumpLeft && _dX != 0)
                 {
                     _state = StateType.movingLeft;
@@ -210,41 +210,55 @@ namespace Path_To_Glory.GameObjects
                 }
             }
 
-            if (gameObject is Platform)
+            if (gameObject is Platform platform)
             {
-                
-                if (Rect.Bottom >= gameObject.Rect.Top && Rect.Top < gameObject.Rect.Top )
+                var rect = RectHelper.Intersect(Rect, platform.Rect);
+                if(rect.Width<=rect.Height) //מהצד
+                {
+                    if (_dX < 0)
+                    {
+                        _dX = 0;
+                        _X +=2;
+                    }
+                    if (_dX > 0)
+                    {
+                        
+                        _dX = 0;
+                        _X -= 2;
+                    }
+                }
+                if(rect.Width > rect.Height)  //מלמעלה או מלמטה
                 {
                    
-                  
-                    _Y = gameObject.Rect.Top - Rect.Height; 
-                    _dY = 0;
-                    _ddY = 0;
+                    if(_dY>0)    //מלמעלה
+                    {
+                        
+                        _dY = 0;
+                        _Y -= 1;
+                        if (_state == StateType.JumpLeft && _dX != 0)
+                        {
+                            _state = StateType.movingLeft;
+                        }
+                        if (_state == StateType.JumpRight && _dX != 0)
+                        {
+                            _state = StateType.movingRight;
+                        }
+                        if (_state == StateType.JumpLeft && _dX == 0)
+                        {
+                            SetImage("Characters/KnightIdleLeft2.gif");
+                            _state = StateType.idelLeft;
+                        }
+                        if (_state == StateType.JumpRight && _dX == 0)
+                        {
+                            SetImage("Characters/KnightIdleRight2.gif");
+                            _state = StateType.idelRight;
+                        }
+                    }
+                    else          //מלמטה
+                    {
+                        _dY = -_dY;
+                    }
                 }
-
-               
-                if (Rect.Top <= gameObject.Rect.Bottom && Rect.Bottom > gameObject.Rect.Bottom )
-                {
-                    
-                    _dY = -_dY; 
-                }
-
-               
-                if (Rect.Right >= gameObject.Rect.Left)
-                {
-                    
-                    _X = gameObject.Rect.Left - Rect.Width; 
-                    _dX = 0; 
-                }
-
-                
-                if (Rect.Left <= gameObject.Rect.Right)
-                {
-                    
-                    _X = gameObject.Rect.Right; 
-                    _dX = 0; 
-                }
-                
             }
         }
     }    
