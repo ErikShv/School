@@ -15,10 +15,12 @@ namespace Path_To_Glory.GameObjects
         public enum StateType
         {
             idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight
-        }   
+        }
+        
         private DateTime _lastShotTime = DateTime.MinValue;
         private TimeSpan _shootCooldown = TimeSpan.FromMilliseconds(200);
         public StateType _state { get; set; }
+        private int Hp = 3;
         public Knight(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Manager.GameEvent.OnKeyDown += Go;
@@ -115,7 +117,7 @@ namespace Path_To_Glory.GameObjects
                     }
                     _state = StateType.JumpRight;
                 }
-                _dX = 8;
+                _dX = 5;
             }
 
             if (key == Keys.Leftkey)
@@ -137,7 +139,7 @@ namespace Path_To_Glory.GameObjects
                     }
                     _state = StateType.JumpLeft;
                 }
-                _dX = -8;
+                _dX = -5;
             }
 
         }
@@ -209,6 +211,15 @@ namespace Path_To_Glory.GameObjects
                     _state = StateType.idelRight;
                 }
             }
+            if(gameObject is MonsterA)
+            {
+                Manager.GameEvent.OnRemoveLife(Hp);
+                Hp--;
+            }
+            
+
+
+             
 
             if (gameObject is Platform platform)
             {

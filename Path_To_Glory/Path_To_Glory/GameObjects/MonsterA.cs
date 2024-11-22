@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace Path_To_Glory.GameObjects
 {
@@ -13,6 +14,7 @@ namespace Path_To_Glory.GameObjects
         public MonsterA(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Image.Height = 70;
+            _ddY = 1;
         }
         public override void Collide(GameObject gameObject)
         {
@@ -21,6 +23,45 @@ namespace Path_To_Glory.GameObjects
                 _scene.RemoveObject(gameObject);
             }
 
+            if (gameObject is Ground)
+            {
+
+                _dY = 0;
+                _Y -= 1;
+            }
+            if (gameObject is Platform platform)
+            {
+                var rect = RectHelper.Intersect(Rect, platform.Rect);
+                if (rect.Width <= rect.Height) //מהצד
+                {
+                    if (_dX < 0)
+                    {
+                        _dX = 0;
+                        _X += 2;
+                    }
+                    if (_dX > 0)
+                    {
+
+                        _dX = 0;
+                        _X -= 2;
+                    }
+                }
+                if (rect.Width > rect.Height)  //מלמעלה או מלמטה
+                {
+
+                    if (_dY > 0)    //מלמעלה
+                    {
+
+                        _dY = 0;
+                        _Y -= 1;
+
+                    }
+                    else          //מלמטה
+                    {
+                        _dY = -_dY;
+                    }
+                }
+            }
         }
     }
 }
