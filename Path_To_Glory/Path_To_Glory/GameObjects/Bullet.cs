@@ -26,13 +26,15 @@ namespace Path_To_Glory.GameObjects
                 _dX = -8;
             }
         }
-        public override void Collide(GameObject gameObject)
+        public override void Collide(List <GameObject> gameObject)
         {
-            if (gameObject is MonsterA)
+            foreach (var otherobject in gameObject)
             {
-                _scene.RemoveObject(gameObject);
+                if (otherobject is MonsterA)
+                {
+                    _scene.RemoveObject(otherobject);
+                }
             }
-
         }
 
 

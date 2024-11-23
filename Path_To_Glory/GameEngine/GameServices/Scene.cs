@@ -33,17 +33,21 @@ namespace GameEngine.GameServices
         }
         public void CheckCollisional()
         {
-            foreach(var gameObject in _gameobjectsSnapshots)//עוברים על כל רשימת האובייקטים
+            foreach (var gameObject in _gameobjectsSnapshots)
             {
-                if (gameObject.collisional) // אם האובייקט לא שקוף
+                if (gameObject.collisional)
                 {
-                    //מחפשים מופע ראשון של האובייקט, אשר הוא לא אותו אובייקט, הוא לא שקוף והוא נגע באובייקט הנוכחי
-                    var otherobject = _gameobjectsSnapshots.FirstOrDefault(g => !ReferenceEquals(g, gameObject) && g.collisional && !RectHelper.Intersect(g.Rect, gameObject.Rect).IsEmpty);
-                    if(otherobject != null)//אם קיים אובייקט כזה
+                    // Collect all objects that collide with the current game object
+                    var collidingObjects = _gameobjectsSnapshots
+                        .Where(g =>
+                            !ReferenceEquals(g, gameObject) && // Exclude itself
+                            g.collisional &&                  // Ensure the object is collisional
+                            !RectHelper.Intersect(g.Rect, gameObject.Rect).IsEmpty // Check intersection
+                        ).ToList();
+
+                    if (collidingObjects.Any()) // If there are any colliding objects
                     {
-                        //Collide של אותו אובייקט,כלומר,אם הפעולה נקראת,זה אומר שבוודאות קרתה התנגשות,אם האובייקט מתנגש באובייקט אחר,נקראת הפעולה
-                        // כדי שיוכל להגיב באופן מיוחד ,כל אובייקט משכתב את הפעולה Collide.
-                        gameObject.Collide(otherobject);
+                        gameObject.Collide(collidingObjects);
                     }
                 }
             }

@@ -16,49 +16,52 @@ namespace Path_To_Glory.GameObjects
             Image.Height = 70;
             _ddY = 1;
         }
-        public override void Collide(GameObject gameObject)
+        public override void Collide(List <GameObject> gameObject)
         {
-            if (gameObject is Bullet)
+            foreach (var otherobject in gameObject)
             {
-                _scene.RemoveObject(gameObject);
-            }
-
-            if (gameObject is Ground)
-            {
-
-                _dY = 0;
-                _Y -= 1;
-            }
-            if (gameObject is Platform platform)
-            {
-                var rect = RectHelper.Intersect(Rect, platform.Rect);
-                if (rect.Width <= rect.Height) //מהצד
+                if (otherobject is Bullet)
                 {
-                    if (_dX < 0)
-                    {
-                        _dX = 0;
-                        _X += 2;
-                    }
-                    if (_dX > 0)
-                    {
-
-                        _dX = 0;
-                        _X -= 2;
-                    }
+                    _scene.RemoveObject(otherobject);
                 }
-                if (rect.Width > rect.Height)  //מלמעלה או מלמטה
+
+                if (otherobject is Ground)
                 {
 
-                    if (_dY > 0)    //מלמעלה
+                    _dY = 0;
+                    _Y -= 1;
+                }
+                if (otherobject is Platform platform)
+                {
+                    var rect = RectHelper.Intersect(Rect, platform.Rect);
+                    if (rect.Width <= rect.Height) //מהצד
                     {
+                        if (_dX < 0)
+                        {
+                            _dX = 0;
+                            _X += 2;
+                        }
+                        if (_dX > 0)
+                        {
 
-                        _dY = 0;
-                        _Y -= 1;
-
+                            _dX = 0;
+                            _X -= 2;
+                        }
                     }
-                    else          //מלמטה
+                    if (rect.Width > rect.Height)  //מלמעלה או מלמטה
                     {
-                        _dY = -_dY;
+
+                        if (_dY > 0)    //מלמעלה
+                        {
+
+                            _dY = 0;
+                            _Y -= 1;
+
+                        }
+                        else          //מלמטה
+                        {
+                            _dY = -_dY;
+                        }
                     }
                 }
             }

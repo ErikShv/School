@@ -1,5 +1,6 @@
 ﻿using GameEngine.GameServices;
 using System;
+using System.Collections.Generic;
 using Windows.Foundation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -59,7 +60,7 @@ namespace GameEngine.GameObjects
 
         //הפעולה תתבצע כאשר העצם הנוכחי התנגש בוודאות בעצם אחר 
         //הפעולה ריקה משום שכל דמות שהתנגשה תוכל להגיב באופן שונה ולכן הפעולה תמומש בהתאם לאופן התגובה
-        public virtual void Collide(GameObject gameObject)  
+        public virtual void Collide(List <GameObject> gameObject)  
         {
         }
     }

@@ -180,16 +180,17 @@ namespace Path_To_Glory.GameObjects
                 _state = StateType.idelLeft;
             }
         }
-        public override void Collide(GameObject gameObject)
+        public override void Collide(List <GameObject> gameObject)
         {
-            if (gameObject is Coin)
+            foreach(var otherobject in gameObject) { 
+            if (otherobject is Coin)
             {
-                _scene.RemoveObject(gameObject);
+                _scene.RemoveObject(otherobject);
             }
             else
-            if (gameObject is Ground)
+            if (otherobject is Ground)
             {
-                
+                    _Y = _scene.ActualHeight - 100;
                 _dY = 0;
                 _Y -= 1;
                 if (_state == StateType.JumpLeft && _dX != 0)
@@ -211,7 +212,7 @@ namespace Path_To_Glory.GameObjects
                     _state = StateType.idelRight;
                 }
             }
-            if(gameObject is MonsterA)
+            if(otherobject is MonsterA)
             {
                 Manager.GameEvent.OnRemoveLife(Hp);
                 Hp--;
@@ -221,7 +222,7 @@ namespace Path_To_Glory.GameObjects
 
              
 
-            if (gameObject is Platform platform)
+            if (otherobject is Platform platform)
             {
                 var rect = RectHelper.Intersect(Rect, platform.Rect);
                 if(rect.Width<=rect.Height) //מהצד
@@ -238,36 +239,37 @@ namespace Path_To_Glory.GameObjects
                         _X -= 2;
                     }
                 }
-                if(rect.Width > rect.Height)  //מלמעלה או מלמטה
-                {
-                   
-                    if(_dY>0)    //מלמעלה
+                    if (rect.Width > rect.Height)  //מלמעלה או מלמטה
                     {
-                        
-                        _dY = 0;
-                        _Y -= 1;
-                        if (_state == StateType.JumpLeft && _dX != 0)
+
+                        if (_dY > 0)    //מלמעלה
                         {
-                            _state = StateType.movingLeft;
+
+                            _dY = 0;
+                            _Y -= 1;
+                            if (_state == StateType.JumpLeft && _dX != 0)
+                            {
+                                _state = StateType.movingLeft;
+                            }
+                            if (_state == StateType.JumpRight && _dX != 0)
+                            {
+                                _state = StateType.movingRight;
+                            }
+                            if (_state == StateType.JumpLeft && _dX == 0)
+                            {
+                                SetImage("Characters/KnightIdleLeft2.gif");
+                                _state = StateType.idelLeft;
+                            }
+                            if (_state == StateType.JumpRight && _dX == 0)
+                            {
+                                SetImage("Characters/KnightIdleRight2.gif");
+                                _state = StateType.idelRight;
+                            }
                         }
-                        if (_state == StateType.JumpRight && _dX != 0)
+                        else          //מלמטה
                         {
-                            _state = StateType.movingRight;
+                            _dY = -_dY;
                         }
-                        if (_state == StateType.JumpLeft && _dX == 0)
-                        {
-                            SetImage("Characters/KnightIdleLeft2.gif");
-                            _state = StateType.idelLeft;
-                        }
-                        if (_state == StateType.JumpRight && _dX == 0)
-                        {
-                            SetImage("Characters/KnightIdleRight2.gif");
-                            _state = StateType.idelRight;
-                        }
-                    }
-                    else          //מלמטה
-                    {
-                        _dY = -_dY;
                     }
                 }
             }

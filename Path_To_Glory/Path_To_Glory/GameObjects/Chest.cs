@@ -17,33 +17,35 @@ namespace Path_To_Glory.GameObjects
         {
             Image.Height = 30;
         }
-        public override void Collide(GameObject gameObject)
+        public override void Collide(List<GameObject> gameObject)
         {
-
-            if (gameObject is Knight && !_done)
+            foreach (var otherobject in gameObject)
             {
-
-                SetImage("Interactables/ChestOpening2.gif");
-
-
-                DispatcherTimer timer = new DispatcherTimer();
-                timer.Interval = TimeSpan.FromSeconds(1);
-
-
-                timer.Tick += (sender, e) =>
+                if (otherobject is Knight && !_done)
                 {
 
-                    SetImage("Interactables/ChestOpen2.png");
-
-                    _done = true;
-                    timer.Stop();
-                };
+                    SetImage("Interactables/ChestOpening2.gif");
 
 
-                timer.Start();
+                    DispatcherTimer timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+
+
+                    timer.Tick += (sender, e) =>
+                    {
+
+                        SetImage("Interactables/ChestOpen2.png");
+
+                        _done = true;
+                        timer.Stop();
+                    };
+
+
+                    timer.Start();
+                }
+
+
             }
-
-
         }
     }
 }
