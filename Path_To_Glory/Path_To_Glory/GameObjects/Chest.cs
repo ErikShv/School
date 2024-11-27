@@ -13,19 +13,24 @@ namespace Path_To_Glory.GameObjects
     class Chest : GameObject
     {
         private bool _done = false;
+        
         public Chest(Scene scene, string filename, double placeX, double placeY) : base(scene, filename, placeX, placeY)
         {
             Image.Height = 30;
+            
         }
         public override void Collide(List<GameObject> gameObject)
         {
             foreach (var otherobject in gameObject)
             {
-                if (otherobject is Knight && !_done)
+                if (otherobject is Spectre )
                 {
-
-                    SetImage("Interactables/ChestOpening2.gif");
-
+                    if (!_done)
+                    {
+                        _done = true;
+                        
+                        SetImage("Interactables/ChestOpening2.gif");
+                    }
 
                     DispatcherTimer timer = new DispatcherTimer();
                     timer.Interval = TimeSpan.FromSeconds(1);
@@ -42,6 +47,8 @@ namespace Path_To_Glory.GameObjects
 
 
                     timer.Start();
+                    Image.Height = 35;
+                  
                 }
 
 

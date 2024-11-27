@@ -10,18 +10,17 @@ using Windows.UI.Xaml;
 
 namespace Path_To_Glory.GameObjects
 {
-    class Knight : GameMovingObject
+    class Spectre : GameMovingObject
     {
         public enum StateType
         {
-            idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight
+            idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight, DashR, DashL
         }
-        
-        private DateTime _lastShotTime = DateTime.MinValue;
-        private TimeSpan _shootCooldown = TimeSpan.FromMilliseconds(200);
+
+        private bool InAnimation = false;
         public StateType _state { get; set; }
         private int Hp = 3;
-        public Knight(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
+        public Spectre(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Manager.GameEvent.OnKeyDown += Go;
             Manager.GameEvent.OnKeyUp += Stop;
@@ -42,43 +41,170 @@ namespace Path_To_Glory.GameObjects
                 _X = _scene.ActualWidth - Image.Height;
             }
 
-          
-            
+
+
+        }
+        public void Dash()
+        {
+            if (_state == StateType.idelLeft || _state == StateType.movingLeft || _state == StateType.JumpLeft)
+            {
+                _ddX = -1;
+                SetImage("Characters/DashLeft.gif");
+                _state = StateType.DashL;
+            }
+            if (_state == StateType.idelRight || _state == StateType.movingRight || _state == StateType.JumpRight)
+            {
+                _ddX = 1;
+                SetImage("Characters/DashRight.gif");
+                _state = StateType.DashR;
+            }
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(400);
+
+
+            timer.Tick += (sender, e) =>
+            {
+                _ddX = 0;
+
+                if (_state == StateType.DashR)
+                {
+                    _dX = 5;
+                    SetImage("Characters/RunRight.gif");
+                    _state = StateType.idelRight;
+                }
+                if (_state == StateType.DashL)
+                {
+                    _dX = -5;
+                    SetImage("Characters/RunLeft.gif");
+                    _state = StateType.idelLeft;
+                }
+                timer.Stop();
+            };
+            timer.Start();
         }
         public void Jump()
         {
 
-            
-            if (_state == StateType.movingLeft || _state == StateType.idelLeft)
+            if (_dX == 0)
             {
-                _state = StateType.JumpLeft;
+                if (_state == StateType.idelRight)
+                {
+                    SetImage("Characters/JumpRight.gif");
+                    DispatcherTimer timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromMilliseconds(650);
+                    timer.Tick += (sender, e) =>
+                    {
+                        SetImage("Characters/JumpLastFrameR.png");
+                        timer.Stop();
+                    };
+                    timer.Start();
+                    _state = StateType.JumpRight;
+                }
+                if (_state == StateType.idelLeft)
+                {
+                    SetImage("Characters/JumpLeft.gif");
+                    DispatcherTimer timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromMilliseconds(650);
+                    timer.Tick += (sender, e) =>
+                    {
+                        SetImage("Characters/JumpLastFrameL.png");
+                        timer.Stop();
+                    };
+                    timer.Start();
+                    _state = StateType.JumpLeft;
+                }
             }
-            if (_state == StateType.movingRight || _state == StateType.idelRight)
+
+            if (_dX > 0)
             {
+                SetImage("Characters/JumpRight.gif");
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromMilliseconds(650);
+                timer.Tick += (sender, e) =>
+                {
+                    SetImage("Characters/JumpLastFrameR.png");
+                    timer.Stop();
+                };
+                timer.Start();
                 _state = StateType.JumpRight;
+            }
+
+            if (_dX < 0)
+            {
+                SetImage("Characters/JumpLeft.gif");
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromMilliseconds(650);
+                timer.Tick += (sender, e) =>
+                {
+                    SetImage("Characters/JumpLastFrameL.png");
+                    timer.Stop();
+                };
+                timer.Start();
+                _state = StateType.JumpLeft;
             }
             _dY = -20;
         }
-        private void Shoot()
+        private void Slash()
         {
-
-            if (DateTime.Now - _lastShotTime < _shootCooldown)
+            
+            InAnimation = true;
+            if (_state == StateType.idelLeft || _state == StateType.movingLeft || _state == StateType.JumpLeft)
             {
-                return;
+                _X -= 70;
+                SetImage("Characters/AtkTst.gif");
             }
-
-
-            _lastShotTime = DateTime.Now;
-
-
-            if (_state == StateType.movingRight || _state == StateType.idelRight || _state == StateType.JumpRight)
+            if (_state == StateType.idelRight || _state == StateType.movingRight || _state == StateType.JumpRight)
             {
-                _scene.AddObject(new Bullet(_scene, "FloorItems/bullet2.png", _X + 50, _Y + 10, true));
+                
+                SetImage("Characters/AtkTstR.gif");
             }
-            if (_state == StateType.movingLeft || _state == StateType.idelLeft || _state == StateType.JumpLeft)
+            Image.Height += 7;
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(650);
+            timer.Tick += (sender, e) =>
             {
-                _scene.AddObject(new Bullet(_scene, "FloorItems/BulletLeft2.png", _X - 50, _Y + 10, false));
-            }
+                if (_dX == 0)
+                {
+                    if (_state == StateType.idelRight)
+                    {
+                        SetImage("Characters/IdleRight.gif");
+                        _state = StateType.idelRight;
+                        
+                    }
+                    if (_state == StateType.idelLeft)
+                    {
+                        SetImage("Characters/IdleLeft.gif");
+                        _state = StateType.idelLeft;
+                       
+                    }
+                    
+                }
+                if (_dX > 0)
+                {
+                    _state = StateType.movingRight;                   
+                    SetImage("Characters/RunRight.gif");
+                    
+                    
+                }
+                if (_dX < 0)
+                {
+                    _state = StateType.movingLeft;
+                    SetImage("Characters/RunLeft.gif");
+
+
+                }
+                if(_state == StateType.idelLeft || _state == StateType.movingLeft || _state == StateType.JumpLeft)
+                {
+                    _X += 70;
+                }
+               
+                Image.Height -= 7;
+                InAnimation = false;
+                timer.Stop();
+            };
+            timer.Start();
+           
+
         }
 
 
@@ -86,10 +212,13 @@ namespace Path_To_Glory.GameObjects
         {
             var state = _state;
 
-
-            if (key == Keys.Shoot)
+            if (key == Keys.Interact)
             {
-                Shoot();
+                Dash();
+            }
+            if (key == Keys.Slash && InAnimation == false)
+            {
+                Slash();
             }
             if (key == Keys.Upkey)
             {
@@ -100,24 +229,32 @@ namespace Path_To_Glory.GameObjects
             }
             if (key == Keys.Rightkey)
             {
-                if (_state != StateType.JumpRight && _state != StateType.JumpLeft)
+                if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
                 {
                     _state = StateType.movingRight;
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunRight2.gif");
+                        SetImage("Characters/RunRight.gif");
                     }
                 }
-                else
+                if(_state == StateType.JumpRight || _state == StateType.JumpLeft)
                 {
-
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunRight2.gif");
+                        SetImage("Characters/JumpRight.gif");
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(650);
+                        timer.Tick += (sender, e) =>
+                        {
+                            SetImage("Characters/JumpLastFrameR.png");
+                            timer.Stop();
+                        };
+                        timer.Start();
+                        _state = StateType.JumpRight;
                     }
-                    _state = StateType.JumpRight;
                 }
                 _dX = 5;
+                
             }
 
             if (key == Keys.Leftkey)
@@ -127,26 +264,34 @@ namespace Path_To_Glory.GameObjects
                     _state = StateType.movingLeft;
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunLeft2.gif");
+                        SetImage("Characters/RunLeft.gif");
                     }
                 }
-                else
+                if (_state == StateType.JumpRight || _state == StateType.JumpLeft)
                 {
-
                     if (state != _state)
                     {
-                        SetImage("Characters/KnightRunLeft2.gif");
+                        SetImage("Characters/JumpLeft.gif");
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(650);
+                        timer.Tick += (sender, e) =>
+                        {
+                            SetImage("Characters/JumpLastFrameL.png");
+                            timer.Stop();
+                        };
+                        timer.Start();
+                        _state = StateType.JumpLeft;
                     }
-                    _state = StateType.JumpLeft;
                 }
                 _dX = -5;
+                
             }
 
         }
 
         public override void Stop()
         {
-            _dX = _dY = _ddX =0;
+            _dX = _dY = _ddX = 0;
         }
         private void Stop(VirtualKey key)
         {
@@ -154,128 +299,175 @@ namespace Path_To_Glory.GameObjects
 
             if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
             {
-                if (key != Keys.Upkey && key != Keys.Shoot)
+                if (key != Keys.Upkey && key != Keys.Slash && key != Keys.Interact)
                 {
                     Stop();
                 }
             }
             else
             {
-                if (key != Keys.Upkey && key != Keys.Shoot)
+                if (key != Keys.Upkey && key != Keys.Slash && key != Keys.Interact)
                 {
                     _dX = 0;
                 }
             }
 
 
-            if (_state == StateType.movingRight && _state != StateType.JumpRight && key != Keys.Shoot)
+            if (_state == StateType.movingRight && _state != StateType.JumpRight && key != Keys.Slash )
             {
-                SetImage("Characters/KnightIdleRight2.gif");
+                if (!InAnimation)
+                {
+                    SetImage("Characters/IdleRight.gif");
+                }
                 _state = StateType.idelRight;
             }
 
-            if (_state == StateType.movingLeft && _state != StateType.JumpLeft && key != Keys.Shoot)
+            if (_state == StateType.movingLeft && _state != StateType.JumpLeft && key != Keys.Slash)
             {
-                SetImage("Characters/KnightIdleLeft2.gif");
+                if (!InAnimation)
+                {
+                    SetImage("Characters/IdleLeft.gif");
+                }
                 _state = StateType.idelLeft;
             }
         }
-        public override void Collide(List <GameObject> gameObject)
+        public override void Collide(List<GameObject> gameObject)
         {
-            foreach(var otherobject in gameObject) { 
-            if (otherobject is Coin)
+            var state = _state;
+            foreach (var otherobject in gameObject)
             {
-                _scene.RemoveObject(otherobject);
-            }
-            else
-            if (otherobject is Ground)
-            {
+                
+                if (otherobject is Coin)
+                {
+                    _scene.RemoveObject(otherobject);
+                }
+                else
+                if (otherobject is Ground)
+                {
+                    
                     _Y = _scene.ActualHeight - 100;
-                _dY = 0;
-                _Y -= 1;
-                if (_state == StateType.JumpLeft && _dX != 0)
-                {
-                    _state = StateType.movingLeft;
-                }
-                if (_state == StateType.JumpRight && _dX != 0)
-                {
-                    _state = StateType.movingRight;
-                }
-                if (_state == StateType.JumpLeft && _dX == 0)
-                {
-                    SetImage("Characters/KnightIdleLeft2.gif");
-                    _state = StateType.idelLeft;
-                }
-                if (_state == StateType.JumpRight && _dX == 0)
-                {
-                    SetImage("Characters/KnightIdleRight2.gif");
-                    _state = StateType.idelRight;
-                }
-            }
-            if(otherobject is MonsterA)
-            {
-                Manager.GameEvent.OnRemoveLife(Hp);
-                Hp--;
-            }
-            
-
-
-             
-
-            if (otherobject is Platform platform)
-            {
-                var rect = RectHelper.Intersect(Rect, platform.Rect);
-                if(rect.Width<=rect.Height) //מהצד
-                {
-                    if (_dX < 0)
+                    _dY = 0;
+                    _Y -= 1;
+                    if(_dX == 0)
                     {
-                        _dX = 0;
-                        _X +=2;
+                        if(_state == StateType.JumpRight)
+                        {
+                            SetImage("Characters/IdleRight.gif");
+                            _state = StateType.idelRight;
+                        }
+                        if (_state == StateType.JumpLeft)
+                        {
+                            SetImage("Characters/IdleLeft.gif");
+                            _state = StateType.idelLeft;
+                        }
                     }
                     if (_dX > 0)
                     {
+                        _state = StateType.movingRight;
+                        if (state != _state)
+                        {
+                            SetImage("Characters/RunRight.gif");
+                        }
+                       
+                    }
+                    if (_dX < 0)
+                    {
+                        _state = StateType.movingLeft;
+                        if (state != _state)
+                        {
+                            SetImage("Characters/RunLeft.gif");
+                        }
                         
-                        _dX = 0;
-                        _X -= 2;
+                    }
+
+                }
+                if (otherobject is MonsterA)
+                {
+                    if (!InAnimation)
+                    {
+                        Manager.GameEvent.OnRemoveLife(Hp);
+                        Hp--;
+                    }
+                    else
+                    {
+                        _scene.RemoveObject(otherobject);
                     }
                 }
+
+
+
+
+
+                if (otherobject is Platform platform)
+                {
+                    var rect = RectHelper.Intersect(Rect, platform.Rect);
+                    if (rect.Width <= rect.Height) //מהצד
+                    {
+                        if (_dX < 0)
+                        {
+                            _dX = 0;
+                            _X += 2;
+                        }
+                        if (_dX > 0)
+                        {
+
+                            _dX = 0;
+                            _X -= 2;
+                        }
+                    }
                     if (rect.Width > rect.Height)  //מלמעלה או מלמטה
                     {
 
                         if (_dY > 0)    //מלמעלה
                         {
+                            
 
                             _dY = 0;
                             _Y -= 1;
-                            if (_state == StateType.JumpLeft && _dX != 0)
+                            if (_dX == 0)
                             {
-                                _state = StateType.movingLeft;
+                                if (_state == StateType.JumpRight)
+                                {
+                                    SetImage("Characters/IdleRight.gif");
+                                    _state = StateType.idelRight;
+                                }
+                                if (_state == StateType.JumpLeft)
+                                {
+                                    SetImage("Characters/IdleLeft.gif");
+                                    _state = StateType.idelLeft;
+                                }
                             }
-                            if (_state == StateType.JumpRight && _dX != 0)
+                            if (_dX > 0)
                             {
                                 _state = StateType.movingRight;
+                                if (state != _state)
+                                {
+                                    SetImage("Characters/RunRight.gif");
+                                }
+
                             }
-                            if (_state == StateType.JumpLeft && _dX == 0)
+                            if (_dX < 0)
                             {
-                                SetImage("Characters/KnightIdleLeft2.gif");
-                                _state = StateType.idelLeft;
+                                _state = StateType.movingLeft;
+                                if (state != _state)
+                                {
+                                    SetImage("Characters/RunLeft.gif");
+                                }
+
                             }
-                            if (_state == StateType.JumpRight && _dX == 0)
-                            {
-                                SetImage("Characters/KnightIdleRight2.gif");
-                                _state = StateType.idelRight;
-                            }
+
                         }
-                        else          //מלמטה
-                        {
-                            _dY = -_dY;
+                            else          //מלמטה
+                            {
+                                _dY = -_dY;
+                            }
                         }
                     }
                 }
             }
         }
-    }    
-}
+    }
+
 
 
 
