@@ -21,7 +21,7 @@ namespace Path_To_Glory.GameServices
         private void Init()
         {
             Scene.AddObject(new Coin(Scene, "FloorItems/Coin.gif", 500, 730));
-            Scene.AddObject(new Spectre(Scene, "Characters/IdleRight.gif", 800, Scene.ActualHeight-Scene.Ground));
+            Scene.AddObject(new Spectre(Scene, "Characters/IdleRight.gif", 800, Scene.ActualHeight-Scene.Ground ));
             Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight-30));
             Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 1001, Scene.ActualHeight - 30));
             Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", 0, Scene.ActualHeight - 200));
