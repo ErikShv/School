@@ -41,6 +41,10 @@ namespace Path_To_Glory.GameObjects
 
                         SetImage("Interactables/ChestOpen2.png");
                         _scene.AddObject(new FloorHp(_scene, "FloorItems/HpHeart.png", _placeX + 30, _placeY));
+                        _scene.AddObject(new Coin(_scene, "FloorItems/Coin.gif", _placeX-30, _placeY));
+                        _scene.AddObject(new Coin(_scene, "FloorItems/Coin.gif", _placeX , _placeY));
+                        _scene.AddObject(new Coin(_scene, "FloorItems/Coin.gif", _placeX - 10, _placeY));
+                        _scene.AddObject(new Coin(_scene, "FloorItems/Coin.gif", _placeX +20, _placeY));
                         _done = true;
                         timer.Stop();
                     };
