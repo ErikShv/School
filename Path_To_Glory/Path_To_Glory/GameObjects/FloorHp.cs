@@ -12,6 +12,8 @@ namespace Path_To_Glory.GameObjects
     {
         public FloorHp(Scene scene, string filename, double placeX, double placeY) : base(scene, filename, placeX, placeY)
         {
+            Image.Height = 20;
         }
+        
     }
 }

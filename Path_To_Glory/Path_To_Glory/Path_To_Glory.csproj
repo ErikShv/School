@@ -254,12 +254,8 @@
     <Content Include="Assets\Characters\RunLeft.gif" />
     <Content Include="Assets\Characters\RunRight.gif" />
     <Content Include="Assets\Decorations\SkullDecor.png" />
-    <Content Include="Assets\FloorItems\bullet.png" />
-    <Content Include="Assets\FloorItems\bullet2.png" />
-    <Content Include="Assets\FloorItems\BulletLeft.png" />
-    <Content Include="Assets\FloorItems\BulletLeft2.png" />
     <Content Include="Assets\FloorItems\Coin.gif" />
-    <Content Include="Assets\FloorItems\HeartFloor.png" />
+    <Content Include="Assets\FloorItems\HpHeart.png" />
     <Content Include="Assets\GameUi\CharacterBorder.png" />
     <Content Include="Assets\GameUi\CoinUi.gif" />
     <Content Include="Assets\GameUi\EmptyHeart.png" />

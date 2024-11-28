@@ -13,6 +13,7 @@ namespace GameEngine.GameServices
         public Action<VirtualKey> OnKeyDown;            //אירוע שבזכותו העצמים יוכלו להקשיב ללחיצת המקשים
         public Action<VirtualKey> OnKeyUp;              //האירוע שבזכותו העצמים יוכלו להקשיב לעזיבת המקש
         public Action<int> OnRemoveLife ;               //האירוע שבאמצעותו נוכל למחוק לב מדף המשחק
+        public Action<int> OnGetLife;
         public Action OnScoreRefresh;                   //באמצעות  האירוע נוכל להציג את ההישג המעודכן
         public Action<int> OnUpdateTime;                //האירוע שמאפשר להציג על המסך את משך הזמן הנותר של המשחק
         public Action OnGameOver;                       //האירוע שתרחש כאשר יסתיים המשחק

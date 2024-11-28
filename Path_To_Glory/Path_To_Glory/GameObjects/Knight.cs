@@ -453,6 +453,12 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
+                if(otherobject is FloorHp && Hp < 3)
+                {
+                    Manager.GameEvent.OnGetLife(Hp);
+                    Hp++;
+                    _scene.RemoveObject(otherobject);
+                }
 
 
 

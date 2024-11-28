@@ -34,7 +34,24 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
         {
             _gameManager = new GameManager(scene);
             Manager.GameEvent.OnRemoveLife += update;
+            Manager.GameEvent.OnGetLife += PuckupHeart;
         }
+
+        private void PuckupHeart(int Hp)
+        {
+           
+            if (Hp == 2)
+            {
+                Hp3.Source = new BitmapImage(new Uri("ms-appx:///Assets/GameUi/Heart.png"));
+
+            }
+            if (Hp == 1)
+            {
+                Hp2.Source = new BitmapImage(new Uri("ms-appx:///Assets/GameUi/Heart.png"));
+
+            }
+        }
+
         private void update(int Hp)
         {
             if (Hp == 3)

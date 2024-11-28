@@ -29,6 +29,7 @@ namespace Path_To_Glory.GameServices
             Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth/2-200, Scene.ActualHeight - 300));
             Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 200, Scene.ActualHeight - Scene.Ground-300));
             Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 400, Scene.ActualHeight - Scene.Ground +45));
+            Scene.AddObject(new FloorHp(Scene, "FloorItems/HpHeart.png", 200, Scene.ActualHeight - 45));
         }
     }
 }

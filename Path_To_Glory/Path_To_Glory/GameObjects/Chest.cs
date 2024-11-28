@@ -23,7 +23,7 @@ namespace Path_To_Glory.GameObjects
         {
             foreach (var otherobject in gameObject)
             {
-                if (otherobject is Spectre )
+                if (otherobject is Spectre && !_done )
                 {
                     if (!_done)
                     {
@@ -40,7 +40,7 @@ namespace Path_To_Glory.GameObjects
                     {
 
                         SetImage("Interactables/ChestOpen2.png");
-
+                        _scene.AddObject(new FloorHp(_scene, "FloorItems/HpHeart.png", _placeX + 30, _placeY));
                         _done = true;
                         timer.Stop();
                     };
