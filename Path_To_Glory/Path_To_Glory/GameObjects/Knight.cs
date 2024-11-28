@@ -17,7 +17,7 @@ namespace Path_To_Glory.GameObjects
             idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight, DashR, DashL
         }
 
-        private bool InAnimation = false;
+        public bool InAnimation { get; set; } = false;
         private bool _DashAnimation = false;
         private bool _dashinair = false;
         private bool _Hit = false;
@@ -186,7 +186,7 @@ namespace Path_To_Glory.GameObjects
             }
             Image.Height += 7;
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(650);
+            timer.Interval = TimeSpan.FromMilliseconds(500);
             timer.Tick += (sender, e) =>
             {
                 if (_dX == 0)
@@ -242,7 +242,7 @@ namespace Path_To_Glory.GameObjects
             {
                 Dash();
             }
-            if (key == Keys.Slash && InAnimation == false)
+            if (key == Keys.Slash && InAnimation == false && _state != StateType.JumpRight && _state != StateType.JumpLeft)
             {
                 Slash();
             }
@@ -446,7 +446,11 @@ namespace Path_To_Glory.GameObjects
                     }
                     else
                     {
-                        _scene.RemoveObject(otherobject);
+                        var Golem = (MonsterA)otherobject;
+                        if(Golem.GolemHp <= 0)
+                        {
+                            _scene.RemoveObject(otherobject);
+                        }
                     }
                 }
 

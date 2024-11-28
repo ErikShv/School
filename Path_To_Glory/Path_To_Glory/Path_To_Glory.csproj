@@ -119,7 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GameObjects\Bullet.cs" />
     <Compile Include="GameObjects\Chest.cs" />
     <Compile Include="GameObjects\Coin.cs" />
     <Compile Include="GameObjects\FloorHp.cs" />
@@ -234,6 +233,16 @@
     <Content Include="Assets\Characters\Facing_Straight.png" />
     <Content Include="Assets\Characters\GoblinIdleLeft2.gif" />
     <Content Include="Assets\Characters\GoblinIdleRight2.gif" />
+    <Content Include="Assets\Characters\GolemAtkLeft.gif" />
+    <Content Include="Assets\Characters\GolemAtkRight.gif" />
+    <Content Include="Assets\Characters\GolemDieLeft.gif" />
+    <Content Include="Assets\Characters\GolemDieRight.gif" />
+    <Content Include="Assets\Characters\GolemHitLeft.gif" />
+    <Content Include="Assets\Characters\GolemHitRight.gif" />
+    <Content Include="Assets\Characters\GolemIdleLeft.gif" />
+    <Content Include="Assets\Characters\GolemIdleRight.gif" />
+    <Content Include="Assets\Characters\GolemWalkingLeft.gif" />
+    <Content Include="Assets\Characters\GolemWalkingRight.gif" />
     <Content Include="Assets\Characters\HitLeft.gif" />
     <Content Include="Assets\Characters\HitRight.gif" />
     <Content Include="Assets\Characters\IdleLeft.gif" />
