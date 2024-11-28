@@ -22,6 +22,7 @@ namespace Path_To_Glory.GameObjects
         private bool _Hit = false;
         private bool _HitWall = false;
         private bool _HitEndPlatform = false;
+        private bool _Atk = false;
         public int GolemHp { get; set; } = 3;
         public override void Render()
         {
@@ -137,6 +138,49 @@ namespace Path_To_Glory.GameObjects
 
 
                     }
+                    if(!spectre.InAnimation)
+                    if (!_Atk)
+                    {
+                        _Atk = true;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(1000);
+                        Image.Height += 7;
+
+
+                        if (_LookRight)
+                        {
+                            SetImage("Characters/GolemAtkRight.gif");
+                        }
+                        if (!_LookRight)
+                        {
+                            SetImage("Characters/GolemAtkLeft.gif");
+                        }
+                        timer.Tick += (sender, e) =>
+                        {
+
+                            if (_LookRight && _dX == 0)
+                            {
+                                SetImage("Characters/GolemIdleRight.gif");
+                            }
+                            if (!_LookRight && _dX == 0)
+                            {
+                                SetImage("Characters/GolemIdleLeft.gif");
+                            }
+                            if (_LookRight)
+                            {
+                                SetImage("Characters/GolemWalkingRight.gif");
+                            }
+                            if (!_LookRight)
+                            {
+                                SetImage("Characters/GolemWalkingLeft.gif");
+                            }
+                            _Atk = false;
+                            Image.Height -= 7;
+                            timer.Stop();
+                        };
+                        timer.Start();
+                    }
+                    
                 }
 
                 if (otherobject is Ground)

@@ -23,6 +23,7 @@ namespace Path_To_Glory.GameObjects
         private bool _Hit = false;
         public StateType _state { get; set; }
         private int Hp = 3;
+        private int Coins = 0;
         public Spectre(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Manager.GameEvent.OnKeyDown += Go;
@@ -349,6 +350,8 @@ namespace Path_To_Glory.GameObjects
                 
                 if (otherobject is Coin)
                 {
+                    Coins++;
+                    Manager.GameEvent.OnGetCoin(Coins);
                     _scene.RemoveObject(otherobject);
                 }
                 else
@@ -486,8 +489,9 @@ namespace Path_To_Glory.GameObjects
 
                         if (_dY > 0)    //מלמעלה
                         {
-                            
 
+
+                            
                             _dY = 0;
                             _Y -= 1;
                             if (_dX == 0)
@@ -503,7 +507,7 @@ namespace Path_To_Glory.GameObjects
                                     _state = StateType.idelLeft;
                                 }
                             }
-                            if (_dX > 0)
+                            if (_dX > 0 && _DashAnimation == false)
                             {
                                 _state = StateType.movingRight;
                                 if (state != _state)
@@ -512,7 +516,7 @@ namespace Path_To_Glory.GameObjects
                                 }
 
                             }
-                            if (_dX < 0)
+                            if (_dX < 0 && _DashAnimation == false)
                             {
                                 _state = StateType.movingLeft;
                                 if (state != _state)

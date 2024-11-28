@@ -35,6 +35,13 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             _gameManager = new GameManager(scene);
             Manager.GameEvent.OnRemoveLife += update;
             Manager.GameEvent.OnGetLife += PuckupHeart;
+            Manager.GameEvent.OnGetCoin += PickUpCoin;
+        }
+
+        private void PickUpCoin(int Coins)
+        {
+
+            Coinstxt.Text = Coins.ToString();
         }
 
         private void PuckupHeart(int Hp)
