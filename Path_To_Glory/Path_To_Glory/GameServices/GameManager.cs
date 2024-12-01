@@ -20,6 +20,7 @@ namespace Path_To_Glory.GameServices
         //הפעולה תיצור את כל הדמויות
         private void Init()
         {
+            
             Scene.AddObject(new Coin(Scene, "FloorItems/Coin.gif", 500, 730));
             Scene.AddObject(new Spectre(Scene, "Characters/IdleRight.gif", 800, Scene.ActualHeight-Scene.Ground ));
             Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight-30));
@@ -28,7 +29,12 @@ namespace Path_To_Glory.GameServices
             Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth-400, Scene.ActualHeight - 200));
             Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth/2-200, Scene.ActualHeight - 300));
             Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 200, Scene.ActualHeight - Scene.Ground-300));
+            Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 1200, Scene.ActualHeight - Scene.Ground - 300));
+            Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 600, Scene.ActualHeight - Scene.Ground - 500));
             Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 400, Scene.ActualHeight - Scene.Ground +45));
+            Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 200, Scene.ActualHeight - Scene.Ground - 130));
+            Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 1300, Scene.ActualHeight - Scene.Ground - 130));
+            Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 600, Scene.ActualHeight - Scene.Ground - 230));
             Scene.AddObject(new FloorHp(Scene, "FloorItems/HpHeart.png", 200, Scene.ActualHeight - 45));
         }
     }

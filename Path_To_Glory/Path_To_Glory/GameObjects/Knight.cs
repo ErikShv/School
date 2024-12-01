@@ -14,7 +14,7 @@ namespace Path_To_Glory.GameObjects
     {
         public enum StateType
         {
-            idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight, DashR, DashL
+            idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight, DashR, DashL,Death
         }
 
         public bool InAnimation { get; set; } = false;
@@ -238,7 +238,7 @@ namespace Path_To_Glory.GameObjects
         private void Go(VirtualKey key)
         {
             var state = _state;
-
+            if( _state != StateType.Death && !InAnimation) { 
             if (key == Keys.Interact && _dX !=0)
             {
                 Dash();
@@ -276,26 +276,26 @@ namespace Path_To_Glory.GameObjects
                 
             }
 
-            if (key == Keys.Leftkey )
-            {
-                if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
+                if (key == Keys.Leftkey)
                 {
-                    _state = StateType.movingLeft;
-                    if (state != _state)
+                    if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
                     {
-                        SetImage("Characters/RunLeft.gif");
+                        _state = StateType.movingLeft;
+                        if (state != _state)
+                        {
+                            SetImage("Characters/RunLeft.gif");
+                        }
                     }
-                }
-                if (_state == StateType.JumpRight || _state == StateType.JumpLeft)
-                {
+                    if (_state == StateType.JumpRight || _state == StateType.JumpLeft)
+                    {
 
 
-                    SetImage("Characters/JumpLastFrameL.png");
-                    _state = StateType.JumpLeft;
-                    
+                        SetImage("Characters/JumpLastFrameL.png");
+                        _state = StateType.JumpLeft;
+
+                    }
+                    _dX = -5;
                 }
-                _dX = -5;
-                
             }
 
         }
@@ -396,8 +396,8 @@ namespace Path_To_Glory.GameObjects
                 }
                 if (otherobject is MonsterA && !_Hit)
                 {
-                    
-                    if (!InAnimation)
+                    MonsterA Golem = (MonsterA)otherobject;
+                    if (!InAnimation && _state != StateType.Death && Golem.Alive)
                     {
                         _Hit = true;
                         DispatcherTimer timer = new DispatcherTimer();
@@ -449,11 +449,30 @@ namespace Path_To_Glory.GameObjects
                     }
                     else
                     {
-                        var Golem = (MonsterA)otherobject;
-                        if(Golem.GolemHp <= 0)
+                        
+                        Golem.Get_Self(Golem);
+                        
+                    }
+                    if(Hp <= 0 && _state != StateType.Death)
+                    {
+                       
+                        if (_state == StateType.JumpRight || _state == StateType.idelRight || _state == StateType.movingRight)
                         {
-                            _scene.RemoveObject(otherobject);
+                            SetImage("Characters/DeathRight.gif");
                         }
+                        if (_state == StateType.JumpLeft || _state == StateType.idelLeft || _state == StateType.movingLeft)
+                        {
+                            SetImage("Characters/DeathLeft.gif");
+                        }
+                        _state = StateType.Death;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(1500);
+                        timer.Tick += (sender, e) =>
+                        {
+                            Manager.GameEvent.OnGameOver();
+                            timer.Stop();
+                        };
+                        timer.Start();
                     }
                 }
                 if(otherobject is FloorHp && Hp < 3)

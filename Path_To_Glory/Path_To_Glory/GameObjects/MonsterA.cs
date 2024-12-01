@@ -16,18 +16,28 @@ namespace Path_To_Glory.GameObjects
         {
             Image.Height = 50;
             _ddY = 1;
-            _dX = 2;
+            if (Alive)
+            {
+                _dX = 2;
+            }
         }
-        private bool _LookRight = true;
+        public bool _LookRight { get; set; } = true;
+        public bool Alive { get; set; } = true;
         private bool _Hit = false;
         private bool _HitWall = false;
         private bool _HitEndPlatform = false;
         private bool _Atk = false;
         public int GolemHp { get; set; } = 3;
+        private MonsterA _self;
+        
+        public void Get_Self(MonsterA Self)
+        {
+            _self = Self;
+        }
         public override void Render()
         {
             base.Render();
-            if (Rect.Left <= 0 && !_HitWall)
+            if (Rect.Left <= 0 && !_HitWall && Alive)
             {
                 _HitWall = true;
                 _X = 0;
@@ -56,7 +66,7 @@ namespace Path_To_Glory.GameObjects
                 timer.Start();
                 
             }
-            if (Rect.Right >= _scene?.ActualWidth)
+            if (Rect.Right >= _scene?.ActualWidth && Alive)
             {
                 _HitWall = true;
                 _X = _scene.ActualWidth - Image.Height-5;
@@ -95,10 +105,38 @@ namespace Path_To_Glory.GameObjects
                 var spctr = otherobject;
                 if(otherobject is Spectre)
                 {
-                    Spectre spectre = (Spectre)spctr;   
-                    if(spectre.InAnimation == true && !_Hit)
+                    Spectre spectre = (Spectre)spctr;
+                    
+                    if (Alive)
+                    {
+                        if (GolemHp <= 0)
+                        {
+                            Alive = false;
+                            if (_LookRight)
+                            {
+                                SetImage("Characters/GolemDieRight.gif");
+                            }
+                            if (!_LookRight)
+                            {
+                                SetImage("Characters/GolemDieLeft.gif");
+                            }
+                            _dX = 0;
+                            
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(1100);
+                            timer.Tick += (sender, e) =>
+                            {
+                                _scene.RemoveObject(_self);
+                                timer.Stop();
+                            };
+                            timer.Start();
+
+                        }
+                    }
+                    if (spectre.InAnimation == true && !_Hit && Alive)
                     {
                         _Hit = true;
+                        _dX = 0;
                         DispatcherTimer timer = new DispatcherTimer();
                         timer.Interval = TimeSpan.FromMilliseconds(500);
                         if (_LookRight)
@@ -111,22 +149,26 @@ namespace Path_To_Glory.GameObjects
                         }
                         timer.Tick += (sender, e) =>
                         {
-
-                            if (_LookRight && _dX == 0)
+                            if (Alive)
                             {
-                                SetImage("Characters/GolemIdleRight.gif");
-                            }
-                            if (!_LookRight && _dX == 0)
-                            {
-                                SetImage("Characters/GolemIdleLeft.gif");
-                            }
-                            if (_LookRight )
-                            {
-                                SetImage("Characters/GolemWalkingRight.gif");
-                            }
-                            if (!_LookRight )
-                            {
-                                SetImage("Characters/GolemWalkingLeft.gif");
+                                if (_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/GolemIdleRight.gif");
+                                }
+                                if (!_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/GolemIdleLeft.gif");
+                                }
+                                if (_LookRight)
+                                {
+                                    _dX = 2;
+                                    SetImage("Characters/GolemWalkingRight.gif");
+                                }
+                                if (!_LookRight)
+                                {
+                                    _dX = -2;
+                                    SetImage("Characters/GolemWalkingLeft.gif");
+                                }
                             }
                             _Hit = false;
 
@@ -138,47 +180,49 @@ namespace Path_To_Glory.GameObjects
 
 
                     }
-                    if(!spectre.InAnimation)
-                    if (!_Atk)
+                    if (!spectre.InAnimation && Alive)
                     {
-                        _Atk = true;
-                        DispatcherTimer timer = new DispatcherTimer();
-                        timer.Interval = TimeSpan.FromMilliseconds(1000);
-                        Image.Height += 7;
+                        if (!_Atk)
+                        {
+                            _Atk = true;
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(1000);
+                            Image.Height += 7;
 
 
-                        if (_LookRight)
-                        {
-                            SetImage("Characters/GolemAtkRight.gif");
-                        }
-                        if (!_LookRight)
-                        {
-                            SetImage("Characters/GolemAtkLeft.gif");
-                        }
-                        timer.Tick += (sender, e) =>
-                        {
-
-                            if (_LookRight && _dX == 0)
-                            {
-                                SetImage("Characters/GolemIdleRight.gif");
-                            }
-                            if (!_LookRight && _dX == 0)
-                            {
-                                SetImage("Characters/GolemIdleLeft.gif");
-                            }
                             if (_LookRight)
                             {
-                                SetImage("Characters/GolemWalkingRight.gif");
+                                SetImage("Characters/GolemAtkRight.gif");
                             }
                             if (!_LookRight)
                             {
-                                SetImage("Characters/GolemWalkingLeft.gif");
+                                SetImage("Characters/GolemAtkLeft.gif");
                             }
-                            _Atk = false;
-                            Image.Height -= 7;
-                            timer.Stop();
-                        };
-                        timer.Start();
+                            timer.Tick += (sender, e) =>
+                            {
+
+                                if (_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/GolemIdleRight.gif");
+                                }
+                                if (!_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/GolemIdleLeft.gif");
+                                }
+                                if (_LookRight)
+                                {
+                                    SetImage("Characters/GolemWalkingRight.gif");
+                                }
+                                if (!_LookRight)
+                                {
+                                    SetImage("Characters/GolemWalkingLeft.gif");
+                                }
+                                _Atk = false;
+                                Image.Height -= 7;
+                                timer.Stop();
+                            };
+                            timer.Start();
+                        }
                     }
                     
                 }
@@ -192,7 +236,7 @@ namespace Path_To_Glory.GameObjects
                 if (otherobject is Platform platform)
                 {
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
-                    if (rect.Width <= rect.Height+20) //מהצד
+                    if (rect.Width <= rect.Height+20 && Alive) //מהצד
                     {
                         if (_dX < 0)
                         {
@@ -225,7 +269,7 @@ namespace Path_To_Glory.GameObjects
                             timer.Start();
 
                         }
-                        if (_dX > 0)
+                        if (_dX > 0 && Alive)
                         {
 
                             

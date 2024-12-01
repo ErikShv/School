@@ -36,6 +36,12 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             Manager.GameEvent.OnRemoveLife += update;
             Manager.GameEvent.OnGetLife += PuckupHeart;
             Manager.GameEvent.OnGetCoin += PickUpCoin;
+            Manager.GameEvent.OnGameOver += MainScreen;
+        }
+
+        private void MainScreen()
+        {
+            Frame.Navigate(typeof(MenuPage));
         }
 
         private void PickUpCoin(int Coins)
