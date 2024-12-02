@@ -128,6 +128,7 @@
     <Compile Include="GameObjects\Platform.cs" />
     <Compile Include="GameObjects\Reaper.cs" />
     <Compile Include="GameObjects\ReaperSlash.cs" />
+    <Compile Include="GameObjects\Skeleton.cs" />
     <Compile Include="GameObjects\SkullDecor.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
@@ -263,6 +264,14 @@
     <Content Include="Assets\Characters\ReaperIdleRight.gif" />
     <Content Include="Assets\Characters\RunLeft.gif" />
     <Content Include="Assets\Characters\RunRight.gif" />
+    <Content Include="Assets\Characters\SkeletonAtkLeft.gif" />
+    <Content Include="Assets\Characters\SkeletonAtkRight.gif" />
+    <Content Include="Assets\Characters\SkeletonDeathLeft.gif" />
+    <Content Include="Assets\Characters\SkeletonDeathRight.gif" />
+    <Content Include="Assets\Characters\SkeletonIdleLeft.gif" />
+    <Content Include="Assets\Characters\SkeletonIdleRight.gif" />
+    <Content Include="Assets\Characters\SkeletonWalkLeft.gif" />
+    <Content Include="Assets\Characters\SkeletonWalkRight.gif" />
     <Content Include="Assets\Decorations\SkullDecor.png" />
     <Content Include="Assets\FloorItems\Coin.gif" />
     <Content Include="Assets\FloorItems\HpHeart.png" />
