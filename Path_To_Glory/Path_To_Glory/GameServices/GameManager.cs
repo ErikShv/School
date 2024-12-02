@@ -31,11 +31,13 @@ namespace Path_To_Glory.GameServices
             Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 200, Scene.ActualHeight - Scene.Ground-300));
             Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 1200, Scene.ActualHeight - Scene.Ground - 300));
             Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight.gif", 600, Scene.ActualHeight - Scene.Ground - 500));
+            Scene.AddObject(new Reaper(Scene, "Characters/ReaperIdleLeft.gif", 1200, Scene.ActualHeight -Scene.Ground, false));
             Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 400, Scene.ActualHeight - Scene.Ground +45));
             Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 200, Scene.ActualHeight - Scene.Ground - 130));
             Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 1300, Scene.ActualHeight - Scene.Ground - 130));
             Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 600, Scene.ActualHeight - Scene.Ground - 230));
             Scene.AddObject(new FloorHp(Scene, "FloorItems/HpHeart.png", 200, Scene.ActualHeight - 45));
+            
         }
     }
 }

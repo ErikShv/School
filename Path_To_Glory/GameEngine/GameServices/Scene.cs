@@ -23,7 +23,7 @@ namespace GameEngine.GameServices
 
         private void Run()
         {
-            foreach(var GameObject in _gameobjects)
+            foreach(var GameObject in _gameobjects.ToList())
             {
                 if(GameObject is GameMovingObject obj)
                 {

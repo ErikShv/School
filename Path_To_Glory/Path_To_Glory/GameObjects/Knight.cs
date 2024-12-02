@@ -394,6 +394,164 @@ namespace Path_To_Glory.GameObjects
                     }
 
                 }
+                if(otherobject is ReaperSlash && !_Hit)
+                {
+                    ReaperSlash ReaperSlash = (ReaperSlash)otherobject;
+                    if (!InAnimation && _state != StateType.Death)
+                    {
+                        _Hit = true;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(1000);
+                        if (_state == StateType.JumpRight || _state == StateType.idelRight || _state == StateType.movingRight)
+                        {
+                            SetImage("Characters/HitRight.gif");
+                        }
+                        if (_state == StateType.JumpLeft || _state == StateType.idelLeft || _state == StateType.movingLeft)
+                        {
+                            SetImage("Characters/HitLeft.gif");
+                        }
+                        timer.Tick += (sender, e) =>
+                        {
+
+                            if (_state == StateType.JumpRight)
+                            {
+                                SetImage("Characters/JumpLastFrameR.png");
+                            }
+                            if (_state == StateType.idelRight)
+                            {
+                                SetImage("Characters/IdleRight.gif");
+                            }
+                            if (_state == StateType.movingRight)
+                            {
+                                SetImage("Characters/RunRight.gif");
+                            }
+                            if (_state == StateType.JumpLeft)
+                            {
+                                SetImage("Characters/JumpLastFrameL.png");
+                            }
+                            if (_state == StateType.idelLeft)
+                            {
+                                SetImage("Characters/IdleLeft.gif");
+                            }
+                            if (_state == StateType.movingLeft)
+                            {
+                                SetImage("Characters/RunLeft.gif");
+                            }
+                            _Hit = false;
+
+
+                            timer.Stop();
+                        };
+                        Manager.GameEvent.OnRemoveLife(Hp);
+                        Hp--;
+                        timer.Start();
+
+                    }
+                    else
+                    {
+                        _scene.RemoveObject(ReaperSlash);
+                    }
+                    if (Hp <= 0 && _state != StateType.Death)
+                    {
+
+                        if (_state == StateType.JumpRight || _state == StateType.idelRight || _state == StateType.movingRight)
+                        {
+                            SetImage("Characters/DeathRight.gif");
+                        }
+                        if (_state == StateType.JumpLeft || _state == StateType.idelLeft || _state == StateType.movingLeft)
+                        {
+                            SetImage("Characters/DeathLeft.gif");
+                        }
+                        _state = StateType.Death;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(1500);
+                        timer.Tick += (sender, e) =>
+                        {
+                            Manager.GameEvent.OnGameOver();
+                            timer.Stop();
+                        };
+                        timer.Start();
+                    }
+                }
+                if(otherobject is Reaper && !_Hit)
+                {
+                    Reaper Reaper = (Reaper)otherobject;
+                    if (!InAnimation && _state != StateType.Death && Reaper.Alive)
+                    {
+                        _Hit = true;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(1000);
+                        if (_state == StateType.JumpRight || _state == StateType.idelRight || _state == StateType.movingRight)
+                        {
+                            SetImage("Characters/HitRight.gif");
+                        }
+                        if (_state == StateType.JumpLeft || _state == StateType.idelLeft || _state == StateType.movingLeft)
+                        {
+                            SetImage("Characters/HitLeft.gif");
+                        }
+                        timer.Tick += (sender, e) =>
+                        {
+
+                            if (_state == StateType.JumpRight)
+                            {
+                                SetImage("Characters/JumpLastFrameR.png");
+                            }
+                            if (_state == StateType.idelRight)
+                            {
+                                SetImage("Characters/IdleRight.gif");
+                            }
+                            if (_state == StateType.movingRight)
+                            {
+                                SetImage("Characters/RunRight.gif");
+                            }
+                            if (_state == StateType.JumpLeft)
+                            {
+                                SetImage("Characters/JumpLastFrameL.png");
+                            }
+                            if (_state == StateType.idelLeft)
+                            {
+                                SetImage("Characters/IdleLeft.gif");
+                            }
+                            if (_state == StateType.movingLeft)
+                            {
+                                SetImage("Characters/RunLeft.gif");
+                            }
+                            _Hit = false;
+
+
+                            timer.Stop();
+                        };
+                        Manager.GameEvent.OnRemoveLife(Hp);
+                        Hp--;
+                        timer.Start();
+
+                    }
+                    else
+                    {
+                        Reaper.Get_Self(Reaper);
+                    }
+                    if (Hp <= 0 && _state != StateType.Death)
+                    {
+
+                        if (_state == StateType.JumpRight || _state == StateType.idelRight || _state == StateType.movingRight)
+                        {
+                            SetImage("Characters/DeathRight.gif");
+                        }
+                        if (_state == StateType.JumpLeft || _state == StateType.idelLeft || _state == StateType.movingLeft)
+                        {
+                            SetImage("Characters/DeathLeft.gif");
+                        }
+                        _state = StateType.Death;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(1500);
+                        timer.Tick += (sender, e) =>
+                        {
+                            Manager.GameEvent.OnGameOver();
+                            timer.Stop();
+                        };
+                        timer.Start();
+                    }
+                }
                 if (otherobject is MonsterA && !_Hit)
                 {
                     MonsterA Golem = (MonsterA)otherobject;

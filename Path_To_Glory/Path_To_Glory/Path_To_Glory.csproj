@@ -126,6 +126,8 @@
     <Compile Include="GameObjects\Knight.cs" />
     <Compile Include="GameObjects\MonsterA.cs" />
     <Compile Include="GameObjects\Platform.cs" />
+    <Compile Include="GameObjects\Reaper.cs" />
+    <Compile Include="GameObjects\ReaperSlash.cs" />
     <Compile Include="GameObjects\SkullDecor.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
@@ -251,6 +253,14 @@
     <Content Include="Assets\Characters\JumpLastFrameR.png" />
     <Content Include="Assets\Characters\JumpLeft.gif" />
     <Content Include="Assets\Characters\JumpRight.gif" />
+    <Content Include="Assets\Characters\ReaperAtkLeft.gif" />
+    <Content Include="Assets\Characters\ReaperAtkRight.gif" />
+    <Content Include="Assets\Characters\ReaperDeathLeft.gif" />
+    <Content Include="Assets\Characters\ReaperDeathRight.gif" />
+    <Content Include="Assets\Characters\ReaperHitLeft.gif" />
+    <Content Include="Assets\Characters\ReaperHitRight.gif" />
+    <Content Include="Assets\Characters\ReaperIdleLeft.gif" />
+    <Content Include="Assets\Characters\ReaperIdleRight.gif" />
     <Content Include="Assets\Characters\RunLeft.gif" />
     <Content Include="Assets\Characters\RunRight.gif" />
     <Content Include="Assets\Decorations\SkullDecor.png" />
@@ -294,11 +304,6 @@
     <Content Include="Assets\Buttons\SignUpButton.png" />
     <Content Include="Assets\Buttons\TutorialButton.png" />
     <Content Include="Assets\Buttons\YesButton.png" />
-    <Content Include="Assets\GunsNItems\Ak.png" />
-    <Content Include="Assets\GunsNItems\Mp5.png" />
-    <Content Include="Assets\GunsNItems\Pistol.png" />
-    <Content Include="Assets\GunsNItems\Revolver.png" />
-    <Content Include="Assets\GunsNItems\Rpg.png" />
     <Content Include="Assets\Interactables\ChestClosed.png" />
     <Content Include="Assets\Interactables\ChestOpen2.png" />
     <Content Include="Assets\Interactables\ChestOpening.gif" />
@@ -306,6 +311,8 @@
     <Content Include="Assets\Interactables\Test7.gif" />
     <Content Include="Assets\Interactables\Test8.gif" />
     <Content Include="Assets\Interactables\Test9.png" />
+    <Content Include="Assets\Projectiles\ReaperSlashLeft.gif" />
+    <Content Include="Assets\Projectiles\ReaperSlashRight.gif" />
     <Content Include="Assets\Tiles\Floor.png" />
     <Content Include="Assets\Tiles\Floor1.png" />
     <Content Include="Assets\Tiles\Floor2.png" />
