@@ -1,4 +1,5 @@
-﻿using GameEngine.GameServices;
+﻿using DatabaseProject.Models;
+using GameEngine.GameServices;
 using Path_To_Glory.GameObjects;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Path_To_Glory.GameServices
 {
     public class GameManager : Manager
     {
-        
+        public static GameUser GameUser { get; private set; } = new GameUser();
         public GameManager(Scene scene) : base(scene)
         {
             Init();
@@ -20,7 +21,7 @@ namespace Path_To_Glory.GameServices
         //הפעולה תיצור את כל הדמויות
         private void Init()
         {
-            
+             
             Scene.AddObject(new Coin(Scene, "FloorItems/Coin.gif", 500, 730));
             Scene.AddObject(new Spectre(Scene, "Characters/IdleRight.gif", 800, Scene.ActualHeight-Scene.Ground ));
             Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight-30));
