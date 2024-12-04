@@ -50,7 +50,7 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                     DispatcherTimer timer2 = new DispatcherTimer();
-                    timer2.Interval = TimeSpan.FromMilliseconds(1000);
+                    timer2.Interval = TimeSpan.FromMilliseconds(3000);
                     timer2.Tick += (sender2, e2) =>
                     {
                         if (Alive)
