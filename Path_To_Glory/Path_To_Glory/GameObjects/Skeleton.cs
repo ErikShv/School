@@ -1,5 +1,6 @@
 ﻿using GameEngine.GameObjects;
 using GameEngine.GameServices;
+using Path_To_Glory.GameServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -125,6 +126,8 @@ namespace Path_To_Glory.GameObjects
                             timer.Tick += (sender, e) =>
                             {
                                 _scene.RemoveObject(_self);
+                                GameManager.GameUser.CurrentLevel.CountSkeleton--;
+                                GameManager.GameUser.CurrentLevel.CountMonster--;
                                 timer.Stop();
                             };
                             timer.Start();

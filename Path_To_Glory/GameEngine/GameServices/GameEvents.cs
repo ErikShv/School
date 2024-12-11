@@ -15,6 +15,7 @@ namespace GameEngine.GameServices
         public Action<int> OnRemoveLife ;               //האירוע שבאמצעותו נוכל למחוק לב מדף המשחק
         public Action<int> OnGetLife;
         public Action<int> OnGetCoin;
+        
         public Action OnScoreRefresh;                   //באמצעות  האירוע נוכל להציג את ההישג המעודכן
         public Action<int> OnUpdateTime;                //האירוע שמאפשר להציג על המסך את משך הזמן הנותר של המשחק
         public Action OnGameOver;                       //האירוע שתרחש כאשר יסתיים המשחק

@@ -132,6 +132,7 @@
     <Compile Include="GameObjects\SkullDecor.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
+    <Compile Include="GameServices\MyGameEvents.cs" />
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>

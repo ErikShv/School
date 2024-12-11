@@ -25,7 +25,9 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
     /// </summary>
     public sealed partial class Room1 : Page
     {
+      
         private GameManager _gameManager;
+        
         public Room1()
         {
             this.InitializeComponent();
@@ -37,6 +39,28 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             Manager.GameEvent.OnGetLife += PuckupHeart;
             Manager.GameEvent.OnGetCoin += PickUpCoin;
             Manager.GameEvent.OnGameOver += MainScreen;
+            GameManager.Events.OnNextRoom += NextRoom;
+        }
+
+        private void NextRoom()
+        {
+
+            if (GameManager.GameUser.CurrentLevel.LevelNum == 1)
+            {
+
+                Frame.Navigate(typeof(Room1));
+                GameManager.GameUser.CurrentLevel.LevelNum++;
+
+            }
+            else
+            {
+                if (GameManager.GameUser.CurrentLevel.LevelNum == 2)
+                {
+                    Frame.Navigate(typeof(Room1));
+                    GameManager.GameUser.CurrentLevel.LevelNum++;
+                }
+            }
+
         }
 
         private void MainScreen()

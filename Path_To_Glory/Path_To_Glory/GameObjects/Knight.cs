@@ -1,5 +1,6 @@
 ﻿using GameEngine.GameObjects;
 using GameEngine.GameServices;
+using Path_To_Glory.GameServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Path_To_Glory.GameObjects
         public StateType _state { get; set; }
         private int Hp = 3;
         private int Coins = 0;
+        private bool touchingrightwall = false;
         public Spectre(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Manager.GameEvent.OnKeyDown += Go;
@@ -35,14 +37,19 @@ namespace Path_To_Glory.GameObjects
 
         public override void Render()
         {
+
             base.Render();
             if (Rect.Left <= 0)
             {
                 _X = 0;
             }
-            if (Rect.Right >= _scene?.ActualWidth)
+            if (Rect.Right >= _scene?.ActualWidth && !touchingrightwall )
             {
-                _X = _scene.ActualWidth - Image.Height;
+                touchingrightwall = true;
+                _X -= 100;
+                GameManager.Events.OnNextRoom();
+               
+
             }
 
 

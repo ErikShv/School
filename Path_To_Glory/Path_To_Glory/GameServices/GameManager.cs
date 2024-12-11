@@ -13,6 +13,7 @@ namespace Path_To_Glory.GameServices
     public class GameManager : Manager
     {
         public static GameUser GameUser { get; private set; } = new GameUser();
+        public static MyGameEvents Events = new MyGameEvents();
         public GameManager(Scene scene) : base(scene)
         {
             Init();
@@ -42,6 +43,18 @@ namespace Path_To_Glory.GameServices
             }
             if (GameUser.CurrentLevel.LevelNum == 2)
             {
+                GameUser.CurrentLevel.LevelId = 2;
+                GameUser.CurrentLevel.LevelNum = 2;
+                GameUser.CurrentLevel.SkeletonHp = 1;
+                GameUser.CurrentLevel.ReaprHp = 2;
+                GameUser.CurrentLevel.GolemHp = 3;
+                GameUser.CurrentLevel.CountBoss = 0;
+                GameUser.CurrentLevel.CountReaper = 1;
+                GameUser.CurrentLevel.CountSkeleton = 3;
+                GameUser.CurrentLevel.CountGolem = 1;
+                GameUser.CurrentLevel.CountPlatform = 5;
+                GameUser.CurrentLevel.CountMonster = 5;
+
                 Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight - 30));
                 Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 1001, Scene.ActualHeight - 30));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth-390, Scene.ActualHeight-75));
@@ -50,8 +63,52 @@ namespace Path_To_Glory.GameServices
                 Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 600, Scene.ActualHeight - Scene.Ground - 500));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 300));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", 0, Scene.ActualHeight - 400));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 500));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 500));
+                Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight", Scene.ActualWidth - 350, Scene.ActualHeight - 200));
+                Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight - Scene.Ground - 400));
+                Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 850, Scene.ActualHeight - Scene.Ground - 150));
+                Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 850, Scene.ActualHeight - Scene.Ground-5));
+                Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", Scene.ActualWidth / 2 - 100, Scene.ActualHeight - Scene.Ground - 230));
+                Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", Scene.ActualWidth -350, Scene.ActualHeight - Scene.Ground -430));
                 Scene.AddObject(new Reaper(Scene, "Characters/ReaperIdleLeft.gif", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - Scene.Ground-300, true));
                 Scene.AddObject(new Spectre(Scene, "Characters/IdleRight.gif", 0, Scene.ActualHeight - Scene.Ground));
+
+            }
+            if (GameUser.CurrentLevel.LevelNum == 3)
+            {
+                GameUser.CurrentLevel.LevelId = 3;
+                GameUser.CurrentLevel.LevelNum = 3;
+                GameUser.CurrentLevel.SkeletonHp = 1;
+                GameUser.CurrentLevel.ReaprHp = 2;
+                GameUser.CurrentLevel.GolemHp = 3;
+                GameUser.CurrentLevel.CountBoss = 0;
+                GameUser.CurrentLevel.CountReaper = 0;
+                GameUser.CurrentLevel.CountSkeleton = 3;
+                GameUser.CurrentLevel.CountGolem = 3;
+                GameUser.CurrentLevel.CountPlatform = 6;
+                GameUser.CurrentLevel.CountMonster = 6;
+
+                Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 0, Scene.ActualHeight - 30));
+                Scene.AddObject(new Ground(Scene, "Tiles/FloorTutorial2.png", 1001, Scene.ActualHeight - 30));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", 0, Scene.ActualHeight - 200));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", 0, Scene.ActualHeight - 400));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", 0, Scene.ActualHeight - 600));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 200));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 400));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 600));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 300));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 500));
+                Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight -250));
+                Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight",0, Scene.ActualHeight - 550));
+                Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight - 750));
+                Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight", Scene.ActualWidth-200, Scene.ActualHeight - 250));
+                Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight", Scene.ActualWidth - 200, Scene.ActualHeight - 550));
+                Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", Scene.ActualWidth - 200, Scene.ActualHeight - 750));
+                Scene.AddObject(new Spectre(Scene, "Characters/IdleRight.gif", 0, Scene.ActualHeight - Scene.Ground));
+                Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", Scene.ActualWidth / 2 - 100, Scene.ActualHeight - Scene.Ground - 230));
+                Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", 100, Scene.ActualHeight - Scene.Ground - 130));
+                Scene.AddObject(new Chest(Scene, "Interactables/ChestClosed.png", Scene.ActualWidth - 200, Scene.ActualHeight - Scene.Ground - 130));
             }
         }
     }
