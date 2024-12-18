@@ -125,6 +125,26 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
+                if (otherobject is Wall wall)
+                {
+                    var rect = RectHelper.Intersect(Rect, wall.Rect);
+
+                    if (rect.Width > rect.Height)  //מלמעלה או מלמטה
+                    {
+
+                        if (_dY > 0)    //מלמעלה
+                        {
+
+                            _dY = 0;
+                            _Y -= 1;
+
+                        }
+                        else          //מלמטה
+                        {
+                            _dY = -_dY;
+                        }
+                    }
+                }
                 if (otherobject is Spectre)
                 {
                     Spectre spectre = (Spectre)spctr;

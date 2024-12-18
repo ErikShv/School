@@ -130,6 +130,7 @@
     <Compile Include="GameObjects\ReaperSlash.cs" />
     <Compile Include="GameObjects\Skeleton.cs" />
     <Compile Include="GameObjects\SkullDecor.cs" />
+    <Compile Include="GameObjects\Wall.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
     <Compile Include="GameServices\MyGameEvents.cs" />
@@ -323,13 +324,16 @@
     <Content Include="Assets\Interactables\Test9.png" />
     <Content Include="Assets\Projectiles\ReaperSlashLeft.gif" />
     <Content Include="Assets\Projectiles\ReaperSlashRight.gif" />
+    <Content Include="Assets\Tiles\BigWall.png" />
     <Content Include="Assets\Tiles\Floor.png" />
     <Content Include="Assets\Tiles\Floor1.png" />
     <Content Include="Assets\Tiles\Floor2.png" />
     <Content Include="Assets\Tiles\Floor3.png" />
     <Content Include="Assets\Tiles\FloorTutorial.png" />
     <Content Include="Assets\Tiles\FloorTutorial2.png" />
+    <Content Include="Assets\Tiles\OneWall.png" />
     <Content Include="Assets\Tiles\Platform.png" />
+    <Content Include="Assets\Tiles\TwoWall.png" />
     <Content Include="Assets\Titles\AboutText.png" />
     <Content Include="Assets\Titles\AboutTitle.png" />
     <Content Include="Assets\Titles\ConfirmPass.png" />

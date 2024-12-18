@@ -22,6 +22,8 @@ namespace Path_To_Glory.GameObjects
         private bool _DashAnimation = false;
         private bool _dashinair = false;
         private bool _Hit = false;
+        private bool _OnPlatform = false;
+        
         public StateType _state { get; set; }
         private int Hp = 3;
         private int Coins = 0;
@@ -45,12 +47,12 @@ namespace Path_To_Glory.GameObjects
             }
             if (Rect.Right >= _scene?.ActualWidth && !touchingrightwall )
             {
-                touchingrightwall = true;
-                _X -= 100;
-                GameManager.Events.OnNextRoom();
-               
-
+                _X -= 1;
+                
+                    touchingrightwall = true;
+                    GameManager.Events.OnNextRoom();
             }
+            
 
 
 
@@ -368,6 +370,7 @@ namespace Path_To_Glory.GameObjects
                     _Y = _scene.ActualHeight - 100;
                     _dY = 0;
                     _Y -= 1;
+                    _OnPlatform = false;
                     if(_dX == 0)
                     {
                         if(_state == StateType.JumpRight)
@@ -737,28 +740,30 @@ namespace Path_To_Glory.GameObjects
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
                     if (rect.Width <= rect.Height) //מהצד
                     {
-                        if (_dX < 0)
+                        if (_dX < 0 && !_OnPlatform)
                         {
-                            _dX = 0;
-                            _X += 2;
+                            
+                            _X += 9;
                         }
-                        if (_dX > 0)
+                        if (_dX > 0 && !_OnPlatform)
                         {
 
-                            _dX = 0;
-                            _X -= 2;
+                            
+                            _X -= 9;
                         }
                     }
                     if (rect.Width > rect.Height)  //מלמעלה או מלמטה
                     {
 
-                        if (_dY > 0)    //מלמעלה
+                        if (_dY > 0 )    //מלמעלה
                         {
 
 
                             
-                            _dY = 0;
-                            _Y -= 1;
+                                _dY = 0;
+                                _Y -= 1;
+                                _OnPlatform = true;
+                            
                             if (_dX == 0)
                             {
                                 if (_state == StateType.JumpRight)
@@ -798,7 +803,73 @@ namespace Path_To_Glory.GameObjects
                             }
                         }
                     }
+                if (otherobject is Wall wall)
+                {
+                    var rect = RectHelper.Intersect(Rect, wall.Rect);
+                    if (rect.Width <= rect.Height) //מהצד
+                    {
+                        if (_dX < 0)
+                        {
+                           
+                            _X += 9;
+                        }
+                        if (_dX > 0)
+                        {
+
+                            
+                            _X -= 9;
+                        }
+                    }
+                    if (rect.Width > rect.Height)  //מלמעלה או מלמטה
+                    {
+
+                        if (_dY > 0)    //מלמעלה
+                        {
+
+
+
+                            _dY = 0;
+                            _Y -= 1;
+                            if (_dX == 0)
+                            {
+                                if (_state == StateType.JumpRight)
+                                {
+                                    SetImage("Characters/IdleRight.gif");
+                                    _state = StateType.idelRight;
+                                }
+                                if (_state == StateType.JumpLeft)
+                                {
+                                    SetImage("Characters/IdleLeft.gif");
+                                    _state = StateType.idelLeft;
+                                }
+                            }
+                            if (_dX > 0 && _DashAnimation == false)
+                            {
+                                _state = StateType.movingRight;
+                                if (state != _state)
+                                {
+                                    SetImage("Characters/RunRight.gif");
+                                }
+
+                            }
+                            if (_dX < 0 && _DashAnimation == false)
+                            {
+                                _state = StateType.movingLeft;
+                                if (state != _state)
+                                {
+                                    SetImage("Characters/RunLeft.gif");
+                                }
+
+                            }
+
+                        }
+                        else          //מלמטה
+                        {
+                            _dY = -_dY;
+                        }
+                    }
                 }
+            }
             }
         }
     }

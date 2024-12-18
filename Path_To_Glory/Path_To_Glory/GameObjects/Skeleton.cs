@@ -227,9 +227,92 @@ namespace Path_To_Glory.GameObjects
                     _dY = 0;
                     _Y -= 1;
                 }
+
                 if (otherobject is Platform platform)
                 {
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
+                    if (rect.Width <= rect.Height + 20 && Alive) //מהצד
+                    {
+                        if (_dX < 0)
+                        {
+
+
+                            _X += 2;
+                            _HitEndPlatform = true;
+                            _dX = 0;
+                            SetImage("Characters/SkeletonIdleLeft.gif");
+
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(1000);
+                            timer.Tick += (sender, e) =>
+                            {
+
+                                _dX = 2;
+                                _LookRight = true;
+                                SetImage("Characters/SkeletonWalkRight.gif");
+                                DispatcherTimer timer2 = new DispatcherTimer();
+                                timer.Interval = TimeSpan.FromMilliseconds(1000);
+                                timer.Tick += (sender2, e2) =>
+                                {
+
+                                    _HitEndPlatform = false;
+                                    timer2.Stop();
+                                };
+                                timer2.Start();
+                                timer.Stop();
+                            };
+                            timer.Start();
+
+                        }
+                        if (_dX > 0 && Alive)
+                        {
+
+
+                            _X -= 2;
+                            _HitEndPlatform = true;
+                            _dX = 0;
+                            SetImage("Characters/SkeletonIdleRight.gif");
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(1000);
+                            timer.Tick += (sender, e) =>
+                            {
+
+                                _dX = -2;
+                                _LookRight = false;
+                                SetImage("Characters/SkeletonWalkLeft.gif");
+                                DispatcherTimer timer2 = new DispatcherTimer();
+                                timer.Interval = TimeSpan.FromMilliseconds(1000);
+                                timer.Tick += (sender2, e2) =>
+                                {
+
+                                    _HitEndPlatform = false;
+                                    timer2.Stop();
+                                };
+                                timer2.Start();
+                                timer.Stop();
+                            };
+                            timer.Start();
+                        }
+                    }
+                    if (rect.Width > rect.Height)  //מלמעלה או מלמטה
+                    {
+
+                        if (_dY > 0)    //מלמעלה
+                        {
+
+                            _dY = 0;
+                            _Y -= 1;
+
+                        }
+                        else          //מלמטה
+                        {
+                            _dY = -_dY;
+                        }
+                    }
+                }
+                if (otherobject is Wall wall)
+                {
+                    var rect = RectHelper.Intersect(Rect, wall.Rect);
                     if (rect.Width <= rect.Height + 20 && Alive) //מהצד
                     {
                         if (_dX < 0)

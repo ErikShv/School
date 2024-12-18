@@ -15,6 +15,10 @@ namespace Path_To_Glory.GameObjects
             Image.Height = 50;
             
         }
+        public double Get_Y()
+        {
+            return _Y;
+        }
         
     }
 }

@@ -99,6 +99,10 @@ namespace Path_To_Glory.GameServices
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 600));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 300));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 500));
+                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 700));
+                Scene.AddObject(new Wall(Scene, "Tiles/BigWall.png", Scene.ActualWidth / 2-20, Scene.ActualHeight - 425));
+                Scene.AddObject(new Wall(Scene, "Tiles/TwoWall.png", Scene.ActualWidth / 2 - 20, Scene.ActualHeight - 550));
+                Scene.AddObject(new Wall(Scene, "Tiles/TwoWall.png", Scene.ActualWidth / 2 - 20, Scene.ActualHeight - 650));
                 Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight -250));
                 Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight",0, Scene.ActualHeight - 550));
                 Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight - 750));
@@ -133,7 +137,6 @@ namespace Path_To_Glory.GameServices
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 400));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth - 390, Scene.ActualHeight - 600));
                 Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 300));
-                Scene.AddObject(new Platform(Scene, "Tiles/Platform.png", Scene.ActualWidth / 2 - 200, Scene.ActualHeight - 500));
                 Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight - 250));
                 Scene.AddObject(new MonsterA(Scene, "Characters/GolemWalkingRight", 0, Scene.ActualHeight - 550));
                 Scene.AddObject(new Skeleton(Scene, "Characters/SkeletonWalkRight.gif", 0, Scene.ActualHeight - 750));
