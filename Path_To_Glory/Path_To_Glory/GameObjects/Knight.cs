@@ -25,8 +25,8 @@ namespace Path_To_Glory.GameObjects
         private bool _OnPlatform = false;
         
         public StateType _state { get; set; }
-        private int Hp = 3;
-        private int Coins = 0;
+        private static int Hp = 3;
+        private static int Coins = 0;
         private bool touchingrightwall = false;
         public Spectre(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
@@ -41,16 +41,16 @@ namespace Path_To_Glory.GameObjects
         {
 
             base.Render();
+            
             if (Rect.Left <= 0)
             {
                 _X = 0;
             }
             if (Rect.Right >= _scene?.ActualWidth && !touchingrightwall )
             {
-                _X -= 1;
-                
-                    touchingrightwall = true;
-                    GameManager.Events.OnNextRoom();
+                touchingrightwall = true;
+                _X = _scene.ActualWidth - Image.Height;
+                GameManager.Events.OnNextRoom();  
             }
             
 
@@ -740,16 +740,28 @@ namespace Path_To_Glory.GameObjects
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
                     if (rect.Width <= rect.Height) //מהצד
                     {
-                        if (_dX < 0 && !_OnPlatform)
+                        if (_dX < 0 )
                         {
-                            
-                            _X += 9;
+                            if (!_OnPlatform)
+                            {
+                                _X += 9;
+                            }
+                            else
+                            {
+                                _X += 1;
+                            }
                         }
-                        if (_dX > 0 && !_OnPlatform)
+                        if (_dX > 0 )
                         {
 
-                            
-                            _X -= 9;
+                            if (!_OnPlatform)
+                            {
+                                _X -= 9;
+                            }
+                            else
+                            {
+                                _X -= 1;
+                            }
                         }
                     }
                     if (rect.Width > rect.Height)  //מלמעלה או מלמטה

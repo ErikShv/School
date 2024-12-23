@@ -40,6 +40,30 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             Manager.GameEvent.OnGetCoin += PickUpCoin;
             Manager.GameEvent.OnGameOver += MainScreen;
             GameManager.Events.OnNextRoom += NextRoom;
+            GameManager.Events.CheckHp += CheckHp;
+            GameManager.Events.CheckCoins += CheckCoins;
+        }
+
+        private void CheckCoins(int Coins)
+        {
+            Coinstxt.Text = Coins.ToString();
+        }
+
+        private void CheckHp(int Hp)
+        {
+            
+            if (Hp == 2)
+            {
+                Hp3.Source = new BitmapImage(new Uri("ms-appx:///Assets/GameUi/EmptyHeart.png"));
+                
+
+            }
+            if (Hp == 1)
+            {
+                Hp3.Source = new BitmapImage(new Uri("ms-appx:///Assets/GameUi/EmptyHeart.png"));
+                Hp2.Source = new BitmapImage(new Uri("ms-appx:///Assets/GameUi/EmptyHeart.png"));
+
+            }
         }
 
         private void NextRoom()
@@ -59,7 +83,17 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
                     Frame.Navigate(typeof(Room1));
                     GameManager.GameUser.CurrentLevel.LevelNum++;
                 }
+                else
+                {
+                    if (GameManager.GameUser.CurrentLevel.LevelNum == 3)
+                    {
+                        Frame.Navigate(typeof(Room1));
+                        GameManager.GameUser.CurrentLevel.LevelNum++;
+                    }
+                }
             }
+            
+
 
         }
 
