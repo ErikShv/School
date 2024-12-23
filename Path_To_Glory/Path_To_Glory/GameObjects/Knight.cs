@@ -46,7 +46,7 @@ namespace Path_To_Glory.GameObjects
             {
                 _X = 0;
             }
-            if (Rect.Right >= _scene?.ActualWidth && !touchingrightwall )
+            if (Rect.Right >= _scene?.ActualWidth && !touchingrightwall  && _state != StateType.Death)
             {
                 touchingrightwall = true;
                 _X = _scene.ActualWidth - Image.Height;
@@ -718,6 +718,7 @@ namespace Path_To_Glory.GameObjects
                         timer.Interval = TimeSpan.FromMilliseconds(1500);
                         timer.Tick += (sender, e) =>
                         {
+                            _scene.RemoveAllObjects();
                             Manager.GameEvent.OnGameOver();
                             timer.Stop();
                         };
