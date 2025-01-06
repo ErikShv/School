@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Channels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -58,8 +60,12 @@ namespace Path_To_Glory.Pages
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
-        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(UsernameSignUp.Text ==""||PasswordSignUp.Password ==""|| RePasswordSignUp.Password ==""||EmailSignUp.Text == "")
+            {
+                await new MessageDialog("Data is Missing!", "Path To Glory").ShowAsync();
+            }
             Frame.Navigate(typeof(MenuPage));
         }
     }

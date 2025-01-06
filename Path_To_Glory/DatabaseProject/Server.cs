@@ -30,8 +30,8 @@ namespace DatabaseProject
             Execute(query); 
             userId = ValidateUser(name, password);//קבלת UserId של המשתמש לאחר הוספתו לטבלת User
 
-            AddGameData(userId.Value); //הוספת ברירת מחדל
-            AddUserProduct(userId.Value);
+            //AddGameData(userId.Value); //הוספת ברירת מחדל
+            //AddUserProduct(userId.Value);
             return GetUser(userId.Value);
         }
         /*
@@ -53,6 +53,44 @@ namespace DatabaseProject
                 }
                 return null;
             }
+        }
+        // הפעולה מבצעת שאילתה
+        private static void Execute(string query)
+        {
+            using(SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                command.ExecuteNonQuery();
+            }
+        }
+        public static GameUser GetUser(int userId)
+        {
+            GameUser user = null;
+            string query = $"SELECT UserId,UserName,UserPassword, Email FROM [User] WHERE UserId ={userId}";
+            using(SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user = new GameUser
+                    {
+                        UserId = reader.GetInt32(0),
+                        UserName = reader.GetString(1),
+                        UserPassword = reader.GetString(2),
+                        UserEmail = reader.GetString(3)
+
+                    };
+                }
+            }
+            //if(user != null)
+            //{
+            //    SetUser(User);
+            //}
+            return user;
         }
     }
 }
