@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -191,6 +192,7 @@ namespace Path_To_Glory.Pages
 
         private void QuitNoBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
+            
             NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/NoButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }

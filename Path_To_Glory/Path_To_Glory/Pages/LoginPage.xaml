@@ -74,8 +74,8 @@
         <Image Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Assets/Titles/LoginTitle.png"></Image>
         <Image Grid.Row="6" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Username.png" VerticalAlignment="Center"></Image>
         <Image Grid.Row="8" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Pass.png" VerticalAlignment="Center"></Image>
-        <TextBox x:Name="UsernameSignUp" PlaceholderText="Enter your user name" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4"  Grid.RowSpan="2" VerticalAlignment="Center"></TextBox>
-        <PasswordBox x:Name="PasswordSignUp" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Center" PlaceholderText="Enter Your Password" ></PasswordBox>
+        <TextBox x:Name="UsernameLogin" PlaceholderText="Enter your user name" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4"  Grid.RowSpan="2" VerticalAlignment="Center"></TextBox>
+        <PasswordBox x:Name="PasswordLogin" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="4" Grid.RowSpan="2" VerticalAlignment="Center" PlaceholderText="Enter Your Password" ></PasswordBox>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="ContinueBtn" Grid.Row="10" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Right" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent" Click="ContinueBtn_Click">
             <Image x:Name="ContinueImg" Source="/Assets/Buttons/ContinueButton.png"></Image>
         </Button>
