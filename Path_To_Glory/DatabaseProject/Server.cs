@@ -38,7 +38,7 @@ namespace DatabaseProject
          הפעולה בודקת אם המשתמש הזין נתונים נכונים ונמצא במאגר המשתמשים אם הכל תקין,
         הפעולה מחזירה UserId של המשתמש אם נתונים אינם תקינים הפעולה מחזירה ערך null
         */
-        private static int? ValidateUser(string name, string password)
+        public static int? ValidateUser(string name, string password)
         {
             string query = $"SELECT UserId FROM [User] WHERE UserName='{name}' AND UserPassword='{password}'";
             using(SqliteConnection connection = new SqliteConnection(connectionString))

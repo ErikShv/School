@@ -12,7 +12,7 @@ namespace Path_To_Glory.GameServices
 {
     public class GameManager : Manager
     {
-        public static GameUser GameUser { get; private set; } = new GameUser();
+        public static GameUser GameUser { get; set; } = new GameUser();
         public static MyGameEvents Events = new MyGameEvents();
         public GameManager(Scene scene) : base(scene)
         {

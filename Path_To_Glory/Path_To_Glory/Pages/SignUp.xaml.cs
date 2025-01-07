@@ -1,9 +1,12 @@
-﻿using System;
+﻿using DatabaseProject;
+using Path_To_Glory.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.ServiceModel.Channels;
+using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -62,11 +65,44 @@ namespace Path_To_Glory.Pages
 
         private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(UsernameSignUp.Text ==""||PasswordSignUp.Password ==""|| RePasswordSignUp.Password ==""||EmailSignUp.Text == "")
+            if (UsernameSignUp.Text == "" || PasswordSignUp.Password == "" || RePasswordSignUp.Password == "" || EmailSignUp.Text == "")
             {
                 await new MessageDialog("Data is Missing!", "Path To Glory").ShowAsync();
             }
-            Frame.Navigate(typeof(MenuPage));
+            else if (PasswordSignUp.Password != RePasswordSignUp.Password)
+            {
+                await new MessageDialog("Passwords Arent Matching!", "Path To Glory").ShowAsync();
+            }
+            else if (!IsValidGmail(EmailSignUp.Text.Trim()))
+            {
+                await new MessageDialog("Mail Isnt Valid!", "Path To Glory").ShowAsync();
+            }
+            else
+            {
+                int? userId = Server.ValidateUser(UsernameSignUp.Text.Trim(), PasswordSignUp.Password.Trim());
+                if (userId == null)
+                {
+                    GameManager.GameUser = Server.AddNewUser(UsernameSignUp.Text.Trim(), PasswordSignUp.Password.Trim(), EmailSignUp.Text.Trim());
+                    await new MessageDialog("User Added Succesfully!", "Path To Glory").ShowAsync();
+                    Frame.Navigate(typeof(MenuPage));
+                }
+                else
+                {
+                    await new MessageDialog("This User Already Exists", "Path To Glory").ShowAsync();
+                }
+            }
+            
+        }
+        public static bool IsValidGmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            // Regular expression to validate Gmail addresses
+            string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+            return regex.IsMatch(email);
         }
     }
 }
