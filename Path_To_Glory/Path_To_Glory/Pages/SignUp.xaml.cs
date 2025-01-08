@@ -83,7 +83,7 @@ namespace Path_To_Glory.Pages
                 if (userId == null)
                 {
                     GameManager.GameUser = Server.AddNewUser(UsernameSignUp.Text.Trim(), PasswordSignUp.Password.Trim(), EmailSignUp.Text.Trim());
-                    await new MessageDialog("User Added Succesfully!", "Path To Glory").ShowAsync();
+                    await new MessageDialog("User Added Successfully!", "Path To Glory").ShowAsync();
                     Frame.Navigate(typeof(MenuPage));
                 }
                 else

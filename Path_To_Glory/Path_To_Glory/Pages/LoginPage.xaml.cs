@@ -1,10 +1,13 @@
-﻿using System;
+﻿using DatabaseProject;
+using Path_To_Glory.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -57,9 +60,20 @@ namespace Path_To_Glory.Pages
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
-        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MenuPage));
+            int? userId = Server.ValidateUser(UsernameLogin.Text.Trim(), PasswordLogin.Password.Trim());
+            if (userId.HasValue)
+            {
+                GameManager.GameUser = Server.GetUser(userId.Value);
+                await new MessageDialog("Logged In Successfully!", "Path To Glory").ShowAsync();
+                Frame.Navigate(typeof(MenuPage));
+            }
+            else
+            {
+                await new MessageDialog("Username Or Password Are Wrong, Please Check Your Credentials Or Create A New Account", "Path To Glory").ShowAsync();
+            }
+            
         }
 
         private void Image_PointerEntered(object sender, PointerRoutedEventArgs e)

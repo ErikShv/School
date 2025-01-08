@@ -20,7 +20,7 @@ namespace DatabaseProject.Models
 
         public int MaxLevel { get; set; } = 1;//השלב  המתקדם ביותר שהמשתמש הגיע אליו
 
-        public int CurrentPoweUp { get; set; } = 1;
+        public int CurrentPowerUp { get; set; } = 0;
 
         public GameLevel CurrentLevel = new GameLevel();//אם המשתמש לא יזדהה הוא ישחק בשלב בררת מחדל
 

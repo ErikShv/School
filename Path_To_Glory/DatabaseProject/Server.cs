@@ -40,7 +40,7 @@ namespace DatabaseProject
         */
         public static int? ValidateUser(string name, string password)
         {
-            string query = $"SELECT UserId FROM [User] WHERE UserName='{name}' AND UserPassword='{password}'";
+            string query = $"SELECT Id FROM [User] WHERE UserName='{name}' AND UserPassword='{password}'";
             using(SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -67,7 +67,7 @@ namespace DatabaseProject
         public static GameUser GetUser(int userId)
         {
             GameUser user = null;
-            string query = $"SELECT UserId,UserName,UserPassword, Email FROM [User] WHERE UserId ={userId}";
+            string query = $"SELECT Id,UserName,UserPassword, Email FROM [User] WHERE Id ={userId}";
             using(SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
