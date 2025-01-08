@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="Path_To_Glory.Pages.ForgotPass"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Path_To_Glory.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+
+
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
+        </Grid.Background>
+        <Border Grid.Column="4" Grid.Row="1" Grid.RowSpan="16" Grid.ColumnSpan="12" BorderBrush="Black" CornerRadius="15"  BorderThickness="10">
+            <Canvas>
+                <Canvas.Background >
+                    <ImageBrush ImageSource="/Assets/Backgrounds/OptionBackground.png"></ImageBrush>
+                </Canvas.Background>
+
+            </Canvas>
+        </Border>
+        <Image Source="/Assets/Titles/SignUpTitle.png" Grid.Row="2" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="4" VerticalAlignment="Top"></Image>
+
+        
+        <TextBox x:Name="EmailForPass" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.RowSpan="2"></TextBox>
+
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="ContinueBtn" Click="ContinueBtn_Click" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent">
+            <Image x:Name="ContinueImg" Source="/Assets/Buttons/ContinueButton.png"></Image>
+        </Button>
+        <Image Grid.Row="6" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Email.png" VerticalAlignment="Center"></Image>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
+            <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
+        </Button>
+    </Grid>
+</Page>
