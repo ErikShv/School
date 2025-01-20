@@ -15,19 +15,19 @@ namespace DatabaseProject
     {
         private static string dbPath = ApplicationData.Current.LocalFolder.Path; //נתיב מסד הנתונים במחשב
         private static string connectionString = "Filename=" + dbPath + "\\MyDatabase.db";//הנתיב שדרכו התכנית מתחברת למסד הנתונים
-        
 
-        public static GameUser AddNewUser(string name,string password,string mail)
+
+        public static GameUser AddNewUser(string name, string password, string mail)
         {
             int? userId = ValidateUser(name, password); //בדיקה אם המשתמש כבר נמצא במאגר
-            if(userId != null)//המשתמש קיים-לשלוח להתחברות במקום הרשמה
+            if (userId != null)//המשתמש קיים-לשלוח להתחברות במקום הרשמה
             {
                 return null;
             }
             //אם המשכנו, זאת אומרת המשתמש בעל הנתונים שהזין לא נמצא במאגר
             //מוסיפים את נתוניו האישיים של המשתמש שהזין לטבלת User
             string query = $"INSERT INTO [User] (UserName,UserPassword,Email) VALUES ('{name}','{password}','{mail}')";
-            Execute(query); 
+            Execute(query);
             userId = ValidateUser(name, password);//קבלת UserId של המשתמש לאחר הוספתו לטבלת User
 
             //AddGameData(userId.Value); //הוספת ברירת מחדל
@@ -41,7 +41,7 @@ namespace DatabaseProject
         public static int? ValidateUser(string name, string password)
         {
             string query = $"SELECT Id FROM [User] WHERE UserName='{name}' AND UserPassword='{password}'";
-            using(SqliteConnection connection = new SqliteConnection(connectionString))
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
                 SqliteCommand command = new SqliteCommand(query, connection);
@@ -57,18 +57,26 @@ namespace DatabaseProject
         // הפעולה מבצעת שאילתה
         private static void Execute(string query)
         {
-            using(SqliteConnection connection = new SqliteConnection(connectionString))
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
                 SqliteCommand command = new SqliteCommand(query, connection);
                 command.ExecuteNonQuery();
             }
         }
+
+        /*
+         הפעולה מחזירה משתמש אשר כל שדותיו מלאים
+         הפעולה אוספת נתונים מ- 4 טבלאות וממלאה באמצעותם את המשתמש 
+         ולוקחת משם User כדי שיוכל לגשת למשחק. בשלב התחלתי הפעולה ניגשת לטבלת
+         של המשתמש Id,Name,Mail
+         הממשיכה למלא את נתוני המשתמש,SetUser לאחר מכן הפעולה נעזרת בפעולת עזר 
+         */
         public static GameUser GetUser(int userId)
         {
             GameUser user = null;
             string query = $"SELECT Id,UserName,UserPassword, Email FROM [User] WHERE Id ={userId}";
-            using(SqliteConnection connection = new SqliteConnection(connectionString))
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
                 SqliteCommand command = new SqliteCommand(query, connection);
@@ -86,11 +94,79 @@ namespace DatabaseProject
                     };
                 }
             }
-            //if(user != null)
-            //{
-            //    SetUser(User);
-            //}
+            if (user != null)
+            {
+                SetUser(user);
+            }
             return user;
+        }
+        /*
+ הפעולה ממשיכה למלא את שדותיו של המשתמש. בשלב הראשון
+ MaxLevel,Money,CurrentLevelId,CurrentProductId :ושולפת משם את נתוני המשחק של המשתמש GameData היא ניגשת לטבלת 
+ נכנסים וממלאים משתמש MaxLevel,Money ,כמו כן 
+ במשתמש CurrentLevel -על מנת למלא את ה Level ניגשים לטבלת CurrentLevelId לאחר מכן באמצעות 
+ SetCurrentLevel על זה תהיה אחראית פעולת עזר  
+ GameData ששלפנו מהטבלה currentProductId בשלב הבא בעזרת 
+ אשר השחקן שיחק בפעם האחרונה Feature -כדי לשלוף ממנה את השם ה Product ניגשים לטבלה 
+ SetCurrentProduct על זה תהיה אחראית הפעולה .GameUser -הנתון הזה גם יכנס ל
+ GameUser לסיכום, באופן מדורג נאספו הנתונים מארבע טבלאות ומילאו את העצם   
+ כעת יוכל המשתמש לגשת למשחק
+ */
+        private static void SetUser(GameUser user)
+        {
+            int currentLevelId = 0;
+
+            string query = $"SELECT CurrentLevelId, CurrentPowerupId ,MaxLvlId, Souls FROM [GameData] WHERE UserId={user.UserId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user.MaxLevel = reader.GetInt32(2);
+                    user.Souls = reader.GetInt32(3);
+                    currentLevelId = reader.GetInt32(0);
+                    user.CurrentPowerUp = reader.GetInt32(1);
+                }
+            }
+            SetCurrentLevel(user, currentLevelId);
+
+        }
+        /*
+ ,שולפת ממנה את נתוני רמת הקושי currentLevelId ולפי Level הפעולה ניגשת לטבלת 
+  ומכניסה אותו לתוך המשתמש GameLevel בשלב הבא הפעולה בונה עצם מסוג 
+  מפני שנעזר בה בעקבות החלפת רמת הקושי public הדגש: הפעולה
+ */
+        public static void SetCurrentLevel(GameUser user, int currentLevelId)
+        {
+            string query = $"SELECT LevelId,LevelNumber,SkeletonHp,ReaprHp, GolemHp , CountSkeleton , CountGolem , CountReaper ,CountBoss , CountPlatform , CountMonster   FROM [GameLevel] WHERE LevelId={currentLevelId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    user.CurrentLevel = new GameLevel
+                    {
+                        LevelId = reader.GetInt32(0),
+                        LevelNum = reader.GetInt32(1),
+                         SkeletonHp = reader.GetInt32(2),
+                        ReaprHp = reader.GetInt32(3),
+                        GolemHp = reader.GetInt32(4),
+                        CountSkeleton = reader.GetInt32(5),
+                        CountGolem = reader.GetInt32(6),
+                        CountReaper = reader.GetInt32(7),
+                        CountBoss = reader.GetInt32(8),
+                        CountPlatform = reader.GetInt32(9),
+                        CountMonster = reader.GetInt32(10),
+                    };
+                }
+
+            }
         }
     }
 }
