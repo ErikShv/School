@@ -1,4 +1,5 @@
-﻿using Path_To_Glory.GameServices;
+﻿using DatabaseProject;
+using Path_To_Glory.GameServices;
 using Path_To_Glory.Pages.Levels.Tutorial;
 using System;
 using System.Collections.Generic;
@@ -63,34 +64,7 @@ namespace Path_To_Glory.Pages
         //הפעולה תמלא ערכי השלב שהמשתמש בחר
         private void CreateLevel(int Level)
         {
-            switch (Level)
-            {
-                case 1:GameManager.GameUser.CurrentLevel.LevelId = 1;
-                    GameManager.GameUser.CurrentLevel.LevelNum = 1;
-                    GameManager.GameUser.CurrentLevel.SkeletonHp = 1;
-                    GameManager.GameUser.CurrentLevel.ReaprHp = 1;
-                    GameManager.GameUser.CurrentLevel.GolemHp = 3;
-                    GameManager.GameUser.CurrentLevel.CountBoss = 0;
-                    GameManager.GameUser.CurrentLevel.CountReaper = 1;
-                    GameManager.GameUser.CurrentLevel.CountSkeleton = 1;
-                    GameManager.GameUser.CurrentLevel.CountGolem = 2;
-                    GameManager.GameUser.CurrentLevel.CountPlatform = 3;
-                    GameManager.GameUser.CurrentLevel.CountMonster = 4;
-                    break;
-                case 2:
-                    GameManager.GameUser.CurrentLevel.LevelId = 2;
-                    GameManager.GameUser.CurrentLevel.LevelNum = 2;
-                    GameManager.GameUser.CurrentLevel.SkeletonHp = 1;
-                    GameManager.GameUser.CurrentLevel.ReaprHp = 2;
-                    GameManager.GameUser.CurrentLevel.GolemHp = 3;
-                    GameManager.GameUser.CurrentLevel.CountBoss = 0;
-                    GameManager.GameUser.CurrentLevel.CountReaper = 1;
-                    GameManager.GameUser.CurrentLevel.CountSkeleton = 3;
-                    GameManager.GameUser.CurrentLevel.CountGolem = 1;
-                    GameManager.GameUser.CurrentLevel.CountPlatform = 5;
-                    GameManager.GameUser.CurrentLevel.CountMonster = 5;
-                    break;
-            }
+            Server.SetCurrentLevel(GameManager.GameUser, Level);
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
