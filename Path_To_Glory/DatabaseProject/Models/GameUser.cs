@@ -18,6 +18,9 @@ namespace DatabaseProject.Models
 
         public int Souls { get; set; } = 0;
 
+        public int Coins { get; set; } = 0;
+        
+
         public int MaxLevel { get; set; } = 1;//השלב  המתקדם ביותר שהמשתמש הגיע אליו
 
         public int CurrentPowerUp { get; set; } = 1;

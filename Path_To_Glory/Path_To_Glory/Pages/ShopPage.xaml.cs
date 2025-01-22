@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameEngine.GameServices;
+using Path_To_Glory.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -95,5 +97,9 @@ namespace Path_To_Glory.Pages
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Souls.Text = GameManager.GameUser.Souls.ToString();
+        }
     }
 }

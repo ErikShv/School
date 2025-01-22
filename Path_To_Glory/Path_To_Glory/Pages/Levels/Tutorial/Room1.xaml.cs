@@ -42,6 +42,7 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             GameManager.Events.OnNextRoom += NextRoom;
             GameManager.Events.CheckHp += CheckHp;
             GameManager.Events.CheckCoins += CheckCoins;
+            GameManager.Events.CheckCoins(GameManager.GameUser.Coins);
         }
 
         private void CheckCoins(int Coins)
@@ -106,6 +107,7 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
         {
 
             Coinstxt.Text = Coins.ToString();
+            GameManager.GameUser.Coins++;
         }
 
         private void PuckupHeart(int Hp)

@@ -41,7 +41,7 @@ namespace Path_To_Glory.GameObjects
         {
 
             base.Render();
-            
+           
             if (Rect.Left <= 0)
             {
                 _X = 0;
@@ -50,10 +50,12 @@ namespace Path_To_Glory.GameObjects
             {
                 touchingrightwall = true;
                 _X = _scene.ActualWidth - Image.Height;
-                GameManager.Events.OnNextRoom();  
-            }
-            
+                GameManager.Events.OnNextRoom();
+                
 
+            }
+
+            
 
 
         }
@@ -360,6 +362,7 @@ namespace Path_To_Glory.GameObjects
                 if (otherobject is Coin)
                 {
                     Coins++;
+                    GameManager.GameUser.Coins++;
                     Manager.GameEvent.OnGetCoin(Coins);
                     _scene.RemoveObject(otherobject);
                 }

@@ -116,7 +116,7 @@ namespace DatabaseProject
         {
             int currentLevelId = 0;
 
-            string query = $"SELECT CurrentLevelId, CurrentPowerupId ,MaxLvlId, Souls FROM [GameData] WHERE UserId={user.UserId}";
+            string query = $"SELECT CurrentLevelId, CurrentPowerupId ,MaxLvlId, Souls, Coins FROM [GameData] WHERE UserId={user.UserId}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -129,6 +129,7 @@ namespace DatabaseProject
                     user.Souls = reader.GetInt32(3);
                     currentLevelId = reader.GetInt32(0);
                     user.CurrentPowerUp = reader.GetInt32(1);
+                    user.Coins = reader.GetInt32(4);
                 }
             }
             SetCurrentLevel(user, currentLevelId);

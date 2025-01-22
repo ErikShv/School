@@ -318,6 +318,7 @@
     <Content Include="Assets\Buttons\SignUpButton.png" />
     <Content Include="Assets\Buttons\TutorialButton.png" />
     <Content Include="Assets\Buttons\YesButton.png" />
+    <Content Include="Assets\GameUi\Soul.gif" />
     <Content Include="Assets\Interactables\ChestClosed.png" />
     <Content Include="Assets\Interactables\ChestOpen2.png" />
     <Content Include="Assets\Interactables\ChestOpening.gif" />

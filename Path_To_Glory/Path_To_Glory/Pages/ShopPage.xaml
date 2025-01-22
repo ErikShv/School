@@ -5,8 +5,9 @@
     xmlns:local="using:Path_To_Glory.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="Black">
+    
 
     <Grid>
         <Grid.RowDefinitions>
@@ -100,6 +101,8 @@
                 </Canvas.Background>
             </Canvas>
         </Border>
+        <Image Source="/Assets/GameUi/Soul.gif" Grid.Row="3" Grid.Column="19" Grid.RowSpan="2"></Image>
+        <TextBlock x:Name="Souls" Grid.Row="3" Grid.Column="18" Grid.RowSpan="2" Foreground="White" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" >0</TextBlock>
         <Image Source="/Assets/GunsNItems/Pistol.png" Grid.Column="2" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         <Image Source="/Assets/GunsNItems/Ak.png" Grid.Column="2" Grid.Row="14" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         <Image Source="/Assets/GunsNItems/Mp5.png" Grid.Column="14" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
