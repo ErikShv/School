@@ -53,6 +53,73 @@ namespace Path_To_Glory.Pages
         {
             Souls.Text = GameManager.GameUser.Souls.ToString();
             _ownproductsId = Server.GetOwnProductsId(GameManager.GameUser); //מקבלים את מספרי המוצרים בבעלות השחקן
+            _chooseproduct = new List<Product>();
+
+            foreach (Product product in _allproducts)
+            {
+                if (IsExist(_ownproductsId, product.Id))
+                {
+                    _chooseproduct.Add(product);
+                }
+            }
+            ShowProducts();//הפעולה מראה את המוצרים שנמצעים בבעלות המשתמש על המסך
+        }
+
+        private void ShowProducts()
+        {
+            Image image;
+            foreach (Product prdct in _chooseproduct)
+            {
+                image = GetImage(prdct.Id);
+                PowerList.Items.Add(image);
+            }
+        }
+
+        private Image GetImage(int id)
+        {
+            Image image = new Image();
+            image.Width = 50;
+            image.Height = 50;
+            switch (id)
+            {
+                case 1: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup1.png"));break;
+                case 2: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup2.png")); break;
+                case 3: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup3.png")); break;
+            }
+            return image;
+        }
+
+        private bool IsExist(List<int> ownproductsId, int id)
+        {
+            foreach( int index in ownproductsId)
+            {
+                if(index == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        private List<Product> GetProducts() // הפעולה ממלאה את רשימת המוצרים שיש במשחק
+        {
+            _allproducts = new List<Product>();
+            _allproducts.Add(new Product
+            {
+                Id = 1,
+                Price =0
+            }) ;
+            _allproducts.Add(new Product
+            {
+                Id = 2,
+                Price = 1
+            });
+            _allproducts.Add(new Product
+            {
+                Id = 3,
+                Price = 2
+            });
+            return _allproducts;
         }
     }
 }

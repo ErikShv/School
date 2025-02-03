@@ -64,7 +64,7 @@
         <TextBlock x:Name="Souls" Grid.Row="3" Grid.Column="18" Grid.RowSpan="2" Foreground="White" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" >0</TextBlock>
 
 
-        <ListView x:Name="PoweList" Grid.Column="5" Grid.Row="6" Grid.RowSpan="10" Grid.ColumnSpan="9" Background="Gray" BorderBrush="White" BorderThickness="5">
+        <ListView x:Name="PowerList" Grid.Column="5" Grid.Row="6" Grid.RowSpan="10" Grid.ColumnSpan="9" Background="Gray" BorderBrush="White" BorderThickness="5">
             
         </ListView>
 
