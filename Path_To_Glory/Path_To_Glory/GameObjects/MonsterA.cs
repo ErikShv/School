@@ -28,7 +28,7 @@ namespace Path_To_Glory.GameObjects
         private bool _HitWall = false;
         private bool _HitEndPlatform = false;
         private bool _Atk = false;
-        public int GolemHp { get; set; } = 3;
+        public int GolemHp { get; set; } = GameManager.GameUser.CurrentLevel.GolemHp;
         private MonsterA _self;
         
         public void Get_Self(MonsterA Self)

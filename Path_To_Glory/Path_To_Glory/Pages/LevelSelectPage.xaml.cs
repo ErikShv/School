@@ -36,7 +36,17 @@ namespace Path_To_Glory.Pages
             NewGameImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedNewGameButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
         }
+        private void ContinueBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            ContinueImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedContinueButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
 
+        private void ContinueBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            ContinueImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ContinueButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
         private void NewGameBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             NewGameImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/NewGameButton.png"));
@@ -57,14 +67,14 @@ namespace Path_To_Glory.Pages
 
         private void TutorialBtn_Click(object sender, RoutedEventArgs e)
         {
-            var clickbutton = (Button)sender;//'גיליתי מהו הלחצן שגרם לפעולה להתבצע
+            var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע
             CreateLevel(clickbutton.TabIndex);
             Frame.Navigate(typeof(Room1));
         }
         //הפעולה תמלא ערכי השלב שהמשתמש בחר
         private void CreateLevel(int Level)
         {
-            Server.SetCurrentLevel(GameManager.GameUser, Level);
+            Server.SetCurrentLevel(GameManager.GameUser, GameManager.GameUser.MaxLevel);
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -82,6 +92,11 @@ namespace Path_To_Glory.Pages
         {
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

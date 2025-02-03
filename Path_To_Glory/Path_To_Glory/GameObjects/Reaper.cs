@@ -12,7 +12,7 @@ namespace Path_To_Glory.GameObjects
 {
     class Reaper : GameMovingObject
     {
-        public int ReaperHp { get; set; } = 1;
+        public int ReaperHp { get; set; } = GameManager.GameUser.CurrentLevel.ReaprHp;
         public bool _LookRight { get; set; }
         private bool _Hit = false;
         private bool _Atk = false;

@@ -27,7 +27,7 @@ namespace Path_To_Glory.GameObjects
         private bool _HitWall = false;
         private bool _HitEndPlatform = false;
         private bool _Atk = false;
-        public int SkeletonHp { get; set; } = 1;
+        public int SkeletonHp { get; set; } = GameManager.GameUser.CurrentLevel.SkeletonHp;
         private Skeleton _self;
         public void Get_Self(Skeleton Self)
         {

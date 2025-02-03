@@ -1,4 +1,5 @@
-﻿using GameEngine.GameServices;
+﻿using DatabaseProject;
+using GameEngine.GameServices;
 using Path_To_Glory.GameServices;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,7 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             GameManager.Events.CheckHp += CheckHp;
             GameManager.Events.CheckCoins += CheckCoins;
             GameManager.Events.CheckCoins(GameManager.GameUser.Coins);
+            CheckHp(GameManager.GameUser.Hp);
         }
 
         private void CheckCoins(int Coins)
@@ -93,13 +95,18 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
                     }
                 }
             }
-            
+            GameManager.GameUser.MaxLevel = GameManager.GameUser.CurrentLevel.LevelNum;
+            Server.SaveData(GameManager.GameUser);
 
 
         }
 
         private void MainScreen()
         {
+            GameManager.GameUser.Hp = 3;
+            GameManager.GameUser.Coins = 0;
+            GameManager.GameUser.CurrentLevel.LevelNum=2;
+            GameManager.GameUser.MaxLevel = 2;
             Frame.Navigate(typeof(MenuPage));
         }
 

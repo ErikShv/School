@@ -25,8 +25,8 @@ namespace Path_To_Glory.GameObjects
         private bool _OnPlatform = false;
         
         public StateType _state { get; set; }
-        private static int Hp = 3;
-        private static int Coins = 0;
+        private static int Hp = GameManager.GameUser.Hp;
+        private static int Coins = GameManager.GameUser.Coins;
         private bool touchingrightwall = false;
         public Spectre(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
@@ -456,6 +456,7 @@ namespace Path_To_Glory.GameObjects
                             timer.Stop();
                         };
                         Manager.GameEvent.OnRemoveLife(Hp);
+                        GameManager.GameUser.Hp--;
                         Hp--;
                         timer.Start();
 
@@ -535,6 +536,7 @@ namespace Path_To_Glory.GameObjects
                             timer.Stop();
                         };
                         Manager.GameEvent.OnRemoveLife(Hp);
+                        GameManager.GameUser.Hp--;
                         Hp--;
                         timer.Start();
 
@@ -614,6 +616,7 @@ namespace Path_To_Glory.GameObjects
                             timer.Stop();
                         };
                         Manager.GameEvent.OnRemoveLife(Hp);
+                        GameManager.GameUser.Hp--;
                         Hp--;
                         timer.Start();
 
@@ -695,6 +698,7 @@ namespace Path_To_Glory.GameObjects
                             timer.Stop();
                         };
                         Manager.GameEvent.OnRemoveLife(Hp);
+                        GameManager.GameUser.Hp--;
                         Hp--;
                         timer.Start();
 
@@ -731,6 +735,7 @@ namespace Path_To_Glory.GameObjects
                 if (otherobject is FloorHp && Hp < 3)
                 {
                     Manager.GameEvent.OnGetLife(Hp);
+                    GameManager.GameUser.Hp++;
                     Hp++;
                     _scene.RemoveObject(otherobject);
                 }

@@ -75,7 +75,7 @@ namespace DatabaseProject
         public static GameUser GetUser(int userId)
         {
             GameUser user = null;
-            string query = $"SELECT Id,UserName,UserPassword, Email FROM [User] WHERE Id ={userId}";
+            string query = $"SELECT Id, UserName, UserPassword, Email FROM [User] WHERE Id ={userId}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -116,7 +116,7 @@ namespace DatabaseProject
         {
             int currentLevelId = 0;
 
-            string query = $"SELECT CurrentLevelId, CurrentPowerupId ,MaxLvlId, Souls, Coins FROM [GameData] WHERE UserId={user.UserId}";
+            string query = $"SELECT CurrentLevelId, CurrentPowerupId , MaxLvlId, Souls, Coins FROM [GameData] WHERE UserId={user.UserId}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -142,7 +142,7 @@ namespace DatabaseProject
  */
         public static void SetCurrentLevel(GameUser user, int currentLevelId)
         {
-            string query = $"SELECT LevelId,LevelNumber,SkeletonHp,ReaprHp, GolemHp , CountSkeleton , CountGolem , CountReaper ,CountBoss , CountPlatform , CountMonster   FROM [GameLevel] WHERE LevelId={currentLevelId}";
+            string query = $"SELECT LevelId, LevelNumber, SkeletonHp, ReaprHp, GolemHp, CountSkeleton, CountGolem, CountReaper, CountBoss, CountPlatform, CountMonster FROM [GameLevel] WHERE LevelId={currentLevelId}";
             using (SqliteConnection connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -155,7 +155,7 @@ namespace DatabaseProject
                     {
                         LevelId = reader.GetInt32(0),
                         LevelNum = reader.GetInt32(1),
-                         SkeletonHp = reader.GetInt32(2),
+                        SkeletonHp = reader.GetInt32(2),
                         ReaprHp = reader.GetInt32(3),
                         GolemHp = reader.GetInt32(4),
                         CountSkeleton = reader.GetInt32(5),
@@ -167,6 +167,41 @@ namespace DatabaseProject
                     };
                 }
 
+            }
+        }
+        /*
+        ושולפת ממנה את מספרי המוצרים שנמצאים בבעלותו של השחקן, כלומר Storage0 הפעולה ניגשת לטבלת המחסן
+     מספרי המוצרים שהשחקן קנה בעבר.הפעולה מחזירה את רשימת מספרי המוצרים הללו
+    משתמשים בפעולה זו כדי למנוע מהשחקן לקנות מוצר שכבר קנה בעבר
+    */
+   public static List<int> GetOwnProductsId(GameUser gameUser)
+        {
+            List<int> ownProductsIds = new List<int>();
+            string query = $"SELECT PowerUpId FROM [Storage] WHERE UserId={gameUser.UserId}";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        ownProductsIds.Add(reader.GetInt32(0));
+                    }
+                    return ownProductsIds;
+                }
+                return null;
+            }
+        }
+        public static void SaveData(GameUser user)
+        {
+            string query = $"UPDATE GameData SET  CurrentLevelId = '{user.CurrentLevel.LevelNum}', CurrentPowerupId = '{user.CurrentPowerUp}', MaxLvlId = '{user.MaxLevel}', Souls = '{user.Souls}', Coins = '{user.Coins}' WHERE UserId = {user.UserId}; ";
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
             }
         }
     }
