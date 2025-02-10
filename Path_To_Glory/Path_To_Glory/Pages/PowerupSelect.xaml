@@ -64,16 +64,21 @@
         <TextBlock x:Name="Souls" Grid.Row="3" Grid.Column="18" Grid.RowSpan="2" Foreground="White" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" >0</TextBlock>
 
 
-        <ListView x:Name="PowerList" Grid.Column="5" Grid.Row="6" Grid.RowSpan="10" Grid.ColumnSpan="9" Background="Gray" BorderBrush="White" BorderThickness="5">
+        <ListView x:Name="PowerList" Grid.Column="5" Grid.Row="6" Grid.RowSpan="10" Grid.ColumnSpan="9" Background="Gray" BorderBrush="White" BorderThickness="5" >
             
         </ListView>
-
+        
 
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>
-        <Button x:Name="YesBtn" Grid.Row="10" Grid.Column="2"></Button>
-        <Button x:Name="NoBtn" Grid.Row="10" Grid.Column="16"></Button>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="YesBtn" Grid.RowSpan="2" Grid.Row="10" Grid.Column="2" PointerEntered="YesBtn_PointerEntered" PointerExited="YesBtn_PointerExited" Click="YesBtn_Click">
+            <Image x:Name="YesImg" Source="/Assets/Buttons/YesBtn.png">
+            </Image></Button>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="NoBtn" Grid.RowSpan="2" Grid.Row="10" Grid.Column="16" PointerEntered="NoBtn_PointerEntered" PointerExited="NoBtn_PointerExited" Click="NoBtn_Click">
+            <Image x:Name="NoImg" Source="/Assets/Buttons/NoBtn.png">
+            </Image>
+        </Button>
         <Image Source="/Assets/Titles/ShopTitle.png" Grid.Row="1" Grid.Column="6" Grid.RowSpan="5" Grid.ColumnSpan="8"></Image>
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>

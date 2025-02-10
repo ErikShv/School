@@ -29,7 +29,10 @@ namespace DatabaseProject
             string query = $"INSERT INTO [User] (UserName,UserPassword,Email) VALUES ('{name}','{password}','{mail}')";
             Execute(query);
             userId = ValidateUser(name, password);//קבלת UserId של המשתמש לאחר הוספתו לטבלת User
-
+            query = $"INSERT INTO [GameData] (UserId,CurrentLevelId,CurrentPowerupId,MaxLvlId,Souls,Coins) VALUES ('{userId}','{1}','{1}','{1}','{0}','{0}')";
+            Execute(query);
+            query = $"INSERT INTO [Storage] (UserId,PowerUpId) VALUES ('{userId}','{1}')";
+            Execute(query);
             //AddGameData(userId.Value); //הוספת ברירת מחדל
             //AddUserProduct(userId.Value);
             return GetUser(userId.Value);
@@ -203,6 +206,11 @@ namespace DatabaseProject
                 SqliteCommand command = new SqliteCommand(query, connection);
                 SqliteDataReader reader = command.ExecuteReader();
             }
+        }
+        public static void AddProduct(GameUser user)
+        {
+            string query = $"INSERT INTO [Storage] (UserId,PowerUpId) VALUES ('{user.UserId}','{user.CurrentPowerUp}')";
+            Execute(query);
         }
     }
 }

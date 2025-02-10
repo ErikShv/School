@@ -51,9 +51,11 @@ namespace Path_To_Glory.Pages
 
         private void Page_Loaded_1(object sender, RoutedEventArgs e)
         {
+            PowerList.SelectedIndex = 0;
             Souls.Text = GameManager.GameUser.Souls.ToString();
             _ownproductsId = Server.GetOwnProductsId(GameManager.GameUser); //מקבלים את מספרי המוצרים בבעלות השחקן
             _chooseproduct = new List<Product>();
+            _allproducts = GetProducts();
 
             foreach (Product product in _allproducts)
             {
@@ -82,9 +84,9 @@ namespace Path_To_Glory.Pages
             image.Height = 50;
             switch (id)
             {
-                case 1: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup1.png"));break;
+                case 1: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup.png"));break;
                 case 2: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup2.png")); break;
-                case 3: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup3.png")); break;
+                case 3: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/ShopItems/Scythe.png")); break;
             }
             return image;
         }
@@ -118,8 +120,44 @@ namespace Path_To_Glory.Pages
             {
                 Id = 3,
                 Price = 2
+
             });
             return _allproducts;
+        }
+
+        private void YesBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            YesImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedYesBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void YesBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            YesImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void NoBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedNoBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void NoBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/NoBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void YesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            GameManager.GameUser.CurrentPowerUp = PowerList.SelectedIndex +1;
+            Server.SaveData(GameManager.GameUser);
+        }
+
+        private void NoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ShopPage));
         }
     }
 }

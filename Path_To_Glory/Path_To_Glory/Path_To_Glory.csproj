@@ -232,7 +232,13 @@
     <Content Include="Assets\Backgrounds\OptionBackground.png" />
     <Content Include="Assets\Backgrounds\ShopBackground.gif" />
     <Content Include="Assets\Backgrounds\TutorialBack.png" />
+    <Content Include="Assets\Buttons\EquipmentBtn.png" />
     <Content Include="Assets\Buttons\ForgotPasswordButton.png" />
+    <Content Include="Assets\Buttons\NoBtn.png" />
+    <Content Include="Assets\Buttons\PressedEquipmentBtn.png" />
+    <Content Include="Assets\Buttons\PressedNoBtn.png" />
+    <Content Include="Assets\Buttons\PressedYesBtn.png" />
+    <Content Include="Assets\Buttons\YesBtn.png" />
     <Content Include="Assets\Characters\AtkTst.gif" />
     <Content Include="Assets\Characters\AtkTstR.gif" />
     <Content Include="Assets\Characters\AttackLeft.gif" />
@@ -331,6 +337,7 @@
     <Content Include="Assets\Interactables\Test9.png" />
     <Content Include="Assets\Projectiles\ReaperSlashLeft.gif" />
     <Content Include="Assets\Projectiles\ReaperSlashRight.gif" />
+    <Content Include="Assets\ShopItems\Scythe.png" />
     <Content Include="Assets\Tiles\BigWall.png" />
     <Content Include="Assets\Tiles\Floor.png" />
     <Content Include="Assets\Tiles\Floor1.png" />

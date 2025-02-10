@@ -1,4 +1,5 @@
-﻿using GameEngine.GameServices;
+﻿using DatabaseProject;
+using GameEngine.GameServices;
 using Path_To_Glory.GameServices;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -100,6 +102,73 @@ namespace Path_To_Glory.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Souls.Text = GameManager.GameUser.Souls.ToString();
+        }
+
+         private async void BuyPowerup1_Click(object sender, RoutedEventArgs e)
+        {
+            if(GameManager.GameUser.Souls < 1)
+            {
+                await new MessageDialog("Not Enough Souls!", "Path To Glory").ShowAsync();
+            }
+            else
+            {
+                List<int> Ids = Server.GetOwnProductsId(GameManager.GameUser);
+                if (Ids.Contains(1))
+                {
+                    await new MessageDialog("You Already Own This Product!", "Path To Glory").ShowAsync();
+                }
+                else
+                {
+                    GameManager.GameUser.Souls -=1;
+                    GameManager.GameUser.CurrentPowerUp = 1;
+                    Server.AddProduct(GameManager.GameUser);
+                    Souls.Text = GameManager.GameUser.Souls.ToString();
+                    await new MessageDialog("Product Added Succesfully!", "Path To Glory").ShowAsync();
+                    Server.SaveData(GameManager.GameUser);
+                }
+            }
+        }
+
+        private async void PowerUp3_Click(object sender, RoutedEventArgs e)
+        {
+            if (GameManager.GameUser.Souls < 2)
+            {
+                await new MessageDialog("Not Enough Souls!", "Path To Glory").ShowAsync();
+            }
+            else
+            {
+                List<int> Ids = Server.GetOwnProductsId(GameManager.GameUser);
+                if (Ids.Contains(3))
+                {
+                    await new MessageDialog("You Already Own This Product!", "Path To Glory").ShowAsync();
+                }
+                else
+                {
+                    GameManager.GameUser.Souls -= 2;
+                    GameManager.GameUser.CurrentPowerUp = 3;
+                    Server.AddProduct(GameManager.GameUser);
+                    Souls.Text = GameManager.GameUser.Souls.ToString();
+                    await new MessageDialog("Product Added Succesfully!", "Path To Glory").ShowAsync();
+                    Server.SaveData(GameManager.GameUser);
+                }
+            }
+        }
+
+        private void EquipmentBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            EquipmentImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedEquipmentBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void EquipmentBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            EquipmentImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/EquipmentBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void EquipmentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(PowerupSelect));
         }
     }
 }
