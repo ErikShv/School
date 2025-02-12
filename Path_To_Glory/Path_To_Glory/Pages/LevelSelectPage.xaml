@@ -59,7 +59,7 @@
         <Grid.Background>
             <ImageBrush Stretch="Fill" ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
         </Grid.Background>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="NewGameBtn" TabIndex="2" Grid.Row="11" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="NewGameBtn_PointerEntered" PointerExited="NewGameBtn_PointerExited" Click="TutorialBtn_Click">
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="NewGameBtn" TabIndex="2" Grid.Row="11" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="NewGameBtn_PointerEntered" PointerExited="NewGameBtn_PointerExited" Click="NewGameBtn_Click">
             <Image x:Name="NewGameImg" Source="/Assets/Buttons/NewGameButton.png"></Image>
         </Button>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="TutorialBtn" TabIndex="1" Grid.Row="8" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" Background="Transparent" PointerEntered="TutorialBtn_PointerEntered" PointerExited="TutorialBtn_PointerExited" Click="TutorialBtn_Click">

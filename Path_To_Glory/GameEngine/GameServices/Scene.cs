@@ -67,7 +67,7 @@ namespace GameEngine.GameServices
         }
         public void RemoveAllObjects()
         {
-            foreach(GameObject gameObject in _gameobjects)
+            foreach(GameObject gameObject in _gameobjectsSnapshots)
             {
                 RemoveObject(gameObject);
             }

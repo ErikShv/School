@@ -68,6 +68,12 @@ namespace Path_To_Glory.Pages
         private void TutorialBtn_Click(object sender, RoutedEventArgs e)
         {
             var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע
+            GameManager.GameUser.MaxLevel = 1;
+            GameManager.GameUser.CurrentLevel.LevelId = 1;
+            GameManager.GameUser.CurrentLevel.LevelNum = 1;
+            GameManager.GameUser.Coins = 0;
+            GameManager.GameUser.Hp = 3;
+            Server.SaveData(GameManager.GameUser);
             CreateLevel(clickbutton.TabIndex);
             Frame.Navigate(typeof(Room1));
         }
@@ -96,7 +102,22 @@ namespace Path_To_Glory.Pages
 
         private void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
+            var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע
+            CreateLevel(clickbutton.TabIndex);
+            Frame.Navigate(typeof(Room1));
+        }
 
+        private void NewGameBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע
+            GameManager.GameUser.MaxLevel = 2;
+            GameManager.GameUser.CurrentLevel.LevelId = 2;
+            GameManager.GameUser.CurrentLevel.LevelNum = 2;
+            GameManager.GameUser.Coins = 0;
+            GameManager.GameUser.Hp = 3;
+            Server.SaveData(GameManager.GameUser);
+            CreateLevel(clickbutton.TabIndex);
+            Frame.Navigate(typeof(Room1));
         }
     }
 }

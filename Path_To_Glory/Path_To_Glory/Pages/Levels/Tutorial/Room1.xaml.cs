@@ -35,6 +35,7 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Server.SetCurrentLevel(GameManager.GameUser, GameManager.GameUser.MaxLevel);
             _gameManager = new GameManager(scene);
             Manager.GameEvent.OnRemoveLife += update;
             Manager.GameEvent.OnGetLife += PuckupHeart;
@@ -71,27 +72,32 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
 
         private void NextRoom()
         {
-
+            scene.RemoveAllObjects();
             if (GameManager.GameUser.CurrentLevel.LevelNum == 1)
             {
-
-                Frame.Navigate(typeof(Room1));
                 GameManager.GameUser.CurrentLevel.LevelNum++;
+                GameManager.GameUser.MaxLevel++;
+                Frame.Navigate(typeof(Room1));
+                
 
             }
             else
             {
                 if (GameManager.GameUser.CurrentLevel.LevelNum == 2)
                 {
-                    Frame.Navigate(typeof(Room1));
                     GameManager.GameUser.CurrentLevel.LevelNum++;
+                    GameManager.GameUser.MaxLevel++;
+                    Frame.Navigate(typeof(Room1));
+                    
                 }
                 else
                 {
                     if (GameManager.GameUser.CurrentLevel.LevelNum == 3)
                     {
-                        Frame.Navigate(typeof(Room1));
                         GameManager.GameUser.CurrentLevel.LevelNum++;
+                        GameManager.GameUser.MaxLevel++;
+                        Frame.Navigate(typeof(Room1));
+                        
                     }
                 }
             }
@@ -105,8 +111,10 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
         {
             GameManager.GameUser.Hp = 3;
             GameManager.GameUser.Coins = 0;
-            GameManager.GameUser.CurrentLevel.LevelNum=2;
+            GameManager.GameUser.CurrentLevel.LevelId = 2;
+            GameManager.GameUser.CurrentLevel.LevelNum = 2;
             GameManager.GameUser.MaxLevel = 2;
+            Server.SaveData(GameManager.GameUser);
             Frame.Navigate(typeof(MenuPage));
         }
 

@@ -44,15 +44,14 @@ namespace Path_To_Glory.GameObjects
            
             if (Rect.Left <= 0)
             {
+                touchingrightwall = false;
                 _X = 0;
             }
-            if (Rect.Right >= _scene?.ActualWidth && !touchingrightwall  && _state != StateType.Death)
-            {
-                touchingrightwall = true;
-                _X = _scene.ActualWidth - Image.Height;
+            if (Rect.Right > _scene?.ActualWidth && !touchingrightwall  && _state != StateType.Death)
+            {             
+               touchingrightwall = true;
                 GameManager.Events.OnNextRoom();
-                
-
+                _X = _scene.ActualWidth - Image.Height;
             }
 
             
@@ -482,6 +481,7 @@ namespace Path_To_Glory.GameObjects
                         timer.Tick += (sender, e) =>
                         {
                             Manager.GameEvent.OnGameOver();
+                            Hp = 3;
                             timer.Stop();
                         };
                         timer.Start();
@@ -561,7 +561,9 @@ namespace Path_To_Glory.GameObjects
                         timer.Interval = TimeSpan.FromMilliseconds(1500);
                         timer.Tick += (sender, e) =>
                         {
+                            
                             Manager.GameEvent.OnGameOver();
+                            Hp = 3;
                             timer.Stop();
                         };
                         timer.Start();
@@ -643,7 +645,9 @@ namespace Path_To_Glory.GameObjects
                         timer.Interval = TimeSpan.FromMilliseconds(1500);
                         timer.Tick += (sender, e) =>
                         {
+                           
                             Manager.GameEvent.OnGameOver();
+                            Hp = 3;
                             timer.Stop();
                         };
                         timer.Start();
@@ -725,8 +729,9 @@ namespace Path_To_Glory.GameObjects
                         timer.Interval = TimeSpan.FromMilliseconds(1500);
                         timer.Tick += (sender, e) =>
                         {
-                            _scene.RemoveAllObjects();
+                            
                             Manager.GameEvent.OnGameOver();
+                            Hp = 3;
                             timer.Stop();
                         };
                         timer.Start();
