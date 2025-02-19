@@ -67,7 +67,7 @@
 
             </Canvas>
         </Border>
-        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="5" Background="Transparent">
+        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="10" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="5"  Background="Transparent" Click="Button_Click">
             <Image Source="/Assets/Buttons/ForgotPasswordButton.png" PointerEntered="Image_PointerEntered" PointerExited="Image_PointerExited"></Image>
         </Button>
 

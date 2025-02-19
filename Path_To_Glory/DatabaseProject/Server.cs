@@ -67,7 +67,35 @@ namespace DatabaseProject
                 command.ExecuteNonQuery();
             }
         }
+        public static string GetPass(string Mail)
+        {
+            string query = $"SELECT UserPassword FROM [User] WHERE Email ='{Mail}'";
 
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                GameUser user = null;
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+
+                    reader.Read();
+                    user = new GameUser
+                    {
+                        
+                        UserPassword = reader.GetString(0)
+
+                    };
+                    return user.UserPassword;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            
+        }
         /*
          הפעולה מחזירה משתמש אשר כל שדותיו מלאים
          הפעולה אוספת נתונים מ- 4 טבלאות וממלאה באמצעותם את המשתמש 
@@ -196,6 +224,34 @@ namespace DatabaseProject
                 }
                 return null;
             }
+        }
+        public static List<Score> GetScores()
+        {
+            List<Score> ownProductsIds = new List<Score>();
+
+            string query = @" SELECT User.Id AS UserId, User.UserName, GameData.Souls FROM GameData JOIN User ON GameData.UserId = User.Id ORDER BY GameData.Souls DESC;";
+
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                using (SqliteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read()) // Read each row
+                    {
+                        Score score = new Score
+                        {
+                            id = reader.GetInt32(0),   
+                            name = reader.GetString(1), 
+                            souls = reader.GetInt32(2)    
+                        };
+
+                        ownProductsIds.Add(score); 
+                    }
+                }
+            }
+
+            return ownProductsIds;
         }
         public static void SaveData(GameUser user)
         {

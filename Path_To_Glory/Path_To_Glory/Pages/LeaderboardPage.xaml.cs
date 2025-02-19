@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DatabaseProject;
+using DatabaseProject.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,6 +45,21 @@ namespace Path_To_Glory.Pages
         {
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<Score> scores = new List<Score>();
+            scores = Server.GetScores();
+            
+            LeaderName.Text = scores[0].name.ToString();
+            Score.Text = scores[0].souls.ToString();
+            
+            LeaderName2.Text = scores[1].name.ToString();
+            Score2.Text = scores[1].souls.ToString();
+            
+            LeaderName3.Text = scores[2].name.ToString();
+            Score3.Text = scores[2].souls.ToString();
         }
     }
 }

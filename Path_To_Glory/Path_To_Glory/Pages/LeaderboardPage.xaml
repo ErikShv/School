@@ -5,7 +5,7 @@
     xmlns:local="using:Path_To_Glory.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -68,8 +68,15 @@
             </Canvas>
         </Border>
         <TextBlock Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" FontSize="35" HorizontalAlignment="Center">Leaderboard</TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="5" FontSize="30" HorizontalAlignment="Center">1: </TextBlock>
-        <TextBlock Grid.Row="4" Grid.Column="6" FontSize="30" Grid.ColumnSpan="4">Roboses</TextBlock>
+        <TextBlock x:Name="LeaderId" Foreground="White" Grid.Row="4" Grid.Column="5" FontSize="30" HorizontalAlignment="Center">1</TextBlock>
+        <TextBlock x:Name="LeaderName" Foreground="White" Grid.Row="4" Grid.Column="6" FontSize="30" Grid.ColumnSpan="4"></TextBlock>
+        <TextBlock x:Name="Score" Grid.Row="4" Grid.Column="11" Foreground="White" FontSize="30" Grid.ColumnSpan="1"></TextBlock>
+        <TextBlock x:Name="LeaderId2" Grid.Row="6" Grid.Column="5" Foreground="White" FontSize="30" HorizontalAlignment="Center">2</TextBlock>
+        <TextBlock x:Name="LeaderName2" Grid.Row="6" Grid.Column="6" Foreground="White" FontSize="30" Grid.ColumnSpan="4"></TextBlock>
+        <TextBlock x:Name="Score2" Grid.Row="6" Grid.Column="11" FontSize="30" Foreground="White" Grid.ColumnSpan="1"></TextBlock>
+        <TextBlock x:Name="LeaderId3" Grid.Row="8" Grid.Column="5" FontSize="30" Foreground="White" HorizontalAlignment="Center">3</TextBlock>
+        <TextBlock x:Name="LeaderName3" Grid.Row="8" Grid.Column="6" FontSize="30" Foreground="White" Grid.ColumnSpan="4"></TextBlock>
+        <TextBlock x:Name="Score3" Grid.Row="8" Grid.Column="11" FontSize="30" Foreground="White" Grid.ColumnSpan="1"></TextBlock>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>

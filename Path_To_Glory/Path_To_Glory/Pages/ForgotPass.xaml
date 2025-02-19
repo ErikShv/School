@@ -71,13 +71,14 @@
 
         
         <TextBox x:Name="EmailForPass" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.RowSpan="2"></TextBox>
-
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="ContinueBtn" Click="ContinueBtn_Click" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited" Background="Transparent">
+        <TextBlock x:Name="Pass" Grid.ColumnSpan="5" Grid.Column="5" Grid.Row="10" Foreground="White" FontSize="30">Your password is: </TextBlock>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="ContinueBtn" Click="ContinueBtn_Click" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" PointerEntered="ContinueBtn_PointerEntered" PointerExited="ContinueBtn_PointerExited"  Background="Transparent">
             <Image x:Name="ContinueImg" Source="/Assets/Buttons/ContinueButton.png"></Image>
         </Button>
         <Image Grid.Row="6" Grid.Column="5" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/Assets/Titles/Email.png" VerticalAlignment="Center"></Image>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>
+        
     </Grid>
 </Page>

@@ -62,8 +62,16 @@ namespace Path_To_Glory.Pages
 
         private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+            string mail = EmailForPass.Text;
+            if (mail != "" || mail != string.Empty)
+            {
+                Pass.Text += Server.GetPass(mail).ToString();
+                ContinueBtn.IsEnabled = false;
+            }
+            else
+            {
+                await new MessageDialog("Mail does not exist!", "Path To Glory").ShowAsync();
+            }
         }
     }
 }
