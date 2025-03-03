@@ -44,17 +44,27 @@ namespace Path_To_Glory.GameObjects
            
             if (Rect.Left <= 0)
             {
-                touchingrightwall = false;
+                if (Rect.Right > 400)
+                {
+                    touchingrightwall = false;
+                }
                 _X = 0;
             }
-            if (Rect.Right > _scene?.ActualWidth && !touchingrightwall  && _state != StateType.Death)
+            if (Rect.Right > _scene?.ActualWidth && !touchingrightwall  && _state != StateType.Death &&GameManager.GameUser.CurrentLevel.LevelNum != 4)
             {             
                touchingrightwall = true;
                 GameManager.Events.OnNextRoom();
-                _X = _scene.ActualWidth - Image.Height;
+                _X = _scene.ActualWidth - Image.Height-50;
+            }
+            if (Rect.Right > _scene?.ActualWidth && !touchingrightwall && _state != StateType.Death && GameManager.GameUser.CurrentLevel.LevelNum == 4)
+            {
+                _X = _scene.ActualWidth - Image.Height-50;
+                touchingrightwall = true;
+                GameManager.Events.OnWinGame();
             }
 
-            
+
+
 
 
         }

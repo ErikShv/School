@@ -42,10 +42,18 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             Manager.GameEvent.OnGetCoin += PickUpCoin;
             Manager.GameEvent.OnGameOver += MainScreen;
             GameManager.Events.OnNextRoom += NextRoom;
+            GameManager.Events.OnWinGame += WinScreen;
             GameManager.Events.CheckHp += CheckHp;
             GameManager.Events.CheckCoins += CheckCoins;
             GameManager.Events.CheckCoins(GameManager.GameUser.Coins);
             CheckHp(GameManager.GameUser.Hp);
+        }
+
+        private void WinScreen()
+        {
+            
+            Frame.Navigate(typeof(YouWinPage));
+            
         }
 
         private void CheckCoins(int Coins)
@@ -75,8 +83,8 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             scene.RemoveAllObjects();
             if (GameManager.GameUser.CurrentLevel.LevelNum == 1)
             {
-                GameManager.GameUser.CurrentLevel.LevelNum++;
-                GameManager.GameUser.MaxLevel++;
+                GameManager.GameUser.CurrentLevel.LevelNum = 2;
+                GameManager.GameUser.MaxLevel = 2;
                 Frame.Navigate(typeof(Room1));
                 
 
@@ -85,8 +93,8 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             {
                 if (GameManager.GameUser.CurrentLevel.LevelNum == 2)
                 {
-                    GameManager.GameUser.CurrentLevel.LevelNum++;
-                    GameManager.GameUser.MaxLevel++;
+                    GameManager.GameUser.CurrentLevel.LevelNum = 3;
+                    GameManager.GameUser.MaxLevel = 3;
                     Frame.Navigate(typeof(Room1));
                     
                 }
@@ -94,11 +102,12 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
                 {
                     if (GameManager.GameUser.CurrentLevel.LevelNum == 3)
                     {
-                        GameManager.GameUser.CurrentLevel.LevelNum++;
-                        GameManager.GameUser.MaxLevel++;
+                        GameManager.GameUser.CurrentLevel.LevelNum = 4;
+                        GameManager.GameUser.MaxLevel = 4;
                         Frame.Navigate(typeof(Room1));
                         
                     }
+                   
                 }
             }
             GameManager.GameUser.MaxLevel = GameManager.GameUser.CurrentLevel.LevelNum;

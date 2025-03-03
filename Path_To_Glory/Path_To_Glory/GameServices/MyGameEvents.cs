@@ -11,5 +11,6 @@ namespace Path_To_Glory.GameServices
         public Action OnNextRoom;
         public Action<int> CheckHp;
         public Action<int> CheckCoins;
+        public Action OnWinGame;
     }
 }
