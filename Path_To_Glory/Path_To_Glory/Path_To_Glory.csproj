@@ -126,6 +126,7 @@
     <Compile Include="GameObjects\Knight.cs" />
     <Compile Include="GameObjects\MonsterA.cs" />
     <Compile Include="GameObjects\Platform.cs" />
+    <Compile Include="GameObjects\PlayerSlash.cs" />
     <Compile Include="GameObjects\Reaper.cs" />
     <Compile Include="GameObjects\ReaperSlash.cs" />
     <Compile Include="GameObjects\Skeleton.cs" />

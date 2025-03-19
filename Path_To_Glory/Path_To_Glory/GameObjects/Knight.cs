@@ -50,17 +50,28 @@ namespace Path_To_Glory.GameObjects
                 }
                 _X = 0;
             }
+            //כשנוגע בצד ההכי ימיני של המסף אז זה מחזיר אותו אחורה כדי שלא יצא מהמגרש של המשחק
+            //אם כל המפלצות מתות אז הוא עובר לשלב הבא
             if (Rect.Right > _scene?.ActualWidth && !touchingrightwall  && _state != StateType.Death &&GameManager.GameUser.CurrentLevel.LevelNum != 4)
-            {             
-               touchingrightwall = true;
-                GameManager.Events.OnNextRoom();
-                _X = _scene.ActualWidth - Image.Height-50;
+            {
+                if (GameManager.GameUser.CurrentLevel.CountMonster == 0)
+                {
+                    touchingrightwall = true;
+                    GameManager.Events.OnNextRoom();
+                    _X = _scene.ActualWidth - Image.Height - 50;
+                }
+                _X = _scene.ActualWidth - Image.Height;
             }
+            //אם הגיע לשלב הסופי וכל המפלצות מתות זה מעביר אותו לדף שאומר שהוא ניצח
             if (Rect.Right > _scene?.ActualWidth && !touchingrightwall && _state != StateType.Death && GameManager.GameUser.CurrentLevel.LevelNum == 4)
             {
-                _X = _scene.ActualWidth - Image.Height-50;
-                touchingrightwall = true;
-                GameManager.Events.OnWinGame();
+                if (GameManager.GameUser.CurrentLevel.CountMonster == 0)
+                {
+                    _X = _scene.ActualWidth - Image.Height - 50;
+                    touchingrightwall = true;
+                    GameManager.Events.OnWinGame();
+                }
+                _X = _scene.ActualWidth - Image.Height;
             }
 
 
@@ -68,6 +79,9 @@ namespace Path_To_Glory.GameObjects
 
 
         }
+        /// <summary>
+        /// יכולת שנותנת לשחקן להאיץ ממש מהר לשנייה
+        /// </summary>
         public void Dash()
         {
             if (_state == StateType.idelLeft || _state == StateType.movingLeft || _state == StateType.JumpLeft)
@@ -191,9 +205,23 @@ namespace Path_To_Glory.GameObjects
             }
             _dY = -20;
         }
+        /// <summary>
+        /// השחקן מביא מכה
+        /// </summary>
         private void Slash()
         {
-            
+            //אם לשחקן יש יכולת מיוחדת הוא שולח להב שזזה לכיוון האוייב ועושה נזק 
+            if(GameManager.GameUser.CurrentPowerUp == 3)
+            {
+                if (_state == StateType.idelRight)
+                {
+                    _scene.AddObject(new PlayerSlash(_scene, "Projectiles/ReaperSlashRight.gif", _X + 40, _Y + 20, true));
+                }
+                if (_state == StateType.idelLeft)
+                {
+                    _scene.AddObject(new PlayerSlash(_scene, "Projectiles/ReaperSlashLeft.gif", _X, _Y + 20, false));
+                }
+            }
             InAnimation = true;
             if (_state == StateType.idelLeft || _state == StateType.movingLeft || _state == StateType.JumpLeft)
             {
@@ -254,19 +282,22 @@ namespace Path_To_Glory.GameObjects
 
         }
 
-
+        //כאן מופעלים המקשים
         private void Go(VirtualKey key)
         {
             var state = _state;
             if( _state != StateType.Death && !InAnimation) { 
+                //כפתור הזינוק
             if (key == Keys.Interact && _dX !=0)
             {
                 Dash();
             }
+            //כפתור המכה
             if (key == Keys.Slash && InAnimation == false && _state != StateType.JumpRight && _state != StateType.JumpLeft)
             {
                 Slash();
             }
+            //כפתור הקפיצה
             if (key == Keys.Upkey)
             {
                 if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
@@ -274,6 +305,7 @@ namespace Path_To_Glory.GameObjects
                     Jump();
                 }
             }
+            //כפתור ללכת ימינה
             if (key == Keys.Rightkey)
             {
                 if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
@@ -295,7 +327,7 @@ namespace Path_To_Glory.GameObjects
                 _dX = 5;
                 
             }
-
+            //כפתור ללכת שמאלה
                 if (key == Keys.Leftkey)
                 {
                     if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
@@ -319,11 +351,12 @@ namespace Path_To_Glory.GameObjects
             }
 
         }
-
+        //עצירה
         public override void Stop()
         {
             _dX = _dY = _ddX = 0;
         }
+        //עצירה למצבים מסויימים
         private void Stop(VirtualKey key)
         {
 
@@ -367,7 +400,7 @@ namespace Path_To_Glory.GameObjects
             var state = _state;
             foreach (var otherobject in gameObject)
             {
-                
+             //התנגשות עם כסף
                 if (otherobject is Coin)
                 {
                     Coins++;
@@ -375,6 +408,7 @@ namespace Path_To_Glory.GameObjects
                     Manager.GameEvent.OnGetCoin(Coins);
                     _scene.RemoveObject(otherobject);
                 }
+                //התנגשות עם הרצפה, אם בא בתאוצה מלמעלה אז עוצר למעלה, אם בא מימין או שמאל עוצר על פני הרצפה ואם מלמטה הוא חוזר לרצפה
                 else
                 if (otherobject is Ground)
                 {
@@ -416,6 +450,7 @@ namespace Path_To_Glory.GameObjects
                     }
 
                 }
+                //התנגשות עם להב מריפר, אם מרביץ לה היא נעלת ואם לא לשחקן יורד לב
                 if(otherobject is ReaperSlash && !_Hit)
                 {
                     ReaperSlash ReaperSlash = (ReaperSlash)otherobject;
@@ -497,6 +532,7 @@ namespace Path_To_Glory.GameObjects
                         timer.Start();
                     }
                 }
+                //אם מתנגש בריפר יורד לשחקן לב ואם מרביץ לו הוא מת
                 if(otherobject is Reaper && !_Hit)
                 {
                     Reaper Reaper = (Reaper)otherobject;
@@ -579,6 +615,7 @@ namespace Path_To_Glory.GameObjects
                         timer.Start();
                     }
                 }
+                //אם מתנגש בגולם יורד לשחקן לב ואם מרביץ לו הוא מת
                 if (otherobject is MonsterA && !_Hit)
                 {
                     MonsterA Golem = (MonsterA)otherobject;
@@ -663,6 +700,7 @@ namespace Path_To_Glory.GameObjects
                         timer.Start();
                     }
                 }
+                //אם מתנגש בשלד יורד לשחקן לב ואם מרביץ לו הוא מת
                 if (otherobject is Skeleton && !_Hit)
                 {
                     Skeleton Skeleton = (Skeleton)otherobject;
@@ -747,6 +785,7 @@ namespace Path_To_Glory.GameObjects
                         timer.Start();
                     }
                 }
+                //אם מתנגש בלב הוא לוקח אותו ומוסיך לעצמו לב
                 if (otherobject is FloorHp && Hp < 3)
                 {
                     Manager.GameEvent.OnGetLife(Hp);
@@ -758,7 +797,7 @@ namespace Path_To_Glory.GameObjects
 
 
 
-
+                //תלוי מאיזה צד השחקן מתנגש בפלטפורמה ,אם מלעלה הוא נשאר במקום, אם מהצדדים הוא גם נשאר שם ואם מלמטה הוא חוזר למטה
                 if (otherobject is Platform platform)
                 {
                     var rect = RectHelper.Intersect(Rect, platform.Rect);

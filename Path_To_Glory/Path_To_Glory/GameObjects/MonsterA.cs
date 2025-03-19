@@ -30,13 +30,16 @@ namespace Path_To_Glory.GameObjects
         private bool _Atk = false;
         public int GolemHp { get; set; } = GameManager.GameUser.CurrentLevel.GolemHp;
         private MonsterA _self;
-        
+        /// <summary>
+        /// משיג את עצמו למטרה מסויימת
+        /// </summary>
         public void Get_Self(MonsterA Self)
         {
             _self = Self;
         }
         public override void Render()
         {
+            //הפעולה מתארת מה הגולם יעשה בכל שנייה כלומר לאן הוא ילך ,עצור וכדומה
             base.Render();
             if (Rect.Left <= 0 && !_HitWall && Alive)
             {
@@ -229,6 +232,90 @@ namespace Path_To_Glory.GameObjects
                     }
                     
                 }
+                if(otherobject is PlayerSlash)
+                {
+                    
+
+                    if (Alive)
+                    {
+                        if (GolemHp <= 0)
+                        {
+                            Alive = false;
+                            if (_LookRight)
+                            {
+                                SetImage("Characters/GolemDieRight.gif");
+                            }
+                            if (!_LookRight)
+                            {
+                                SetImage("Characters/GolemDieLeft.gif");
+                            }
+                            _dX = 0;
+
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(1100);
+                            timer.Tick += (sender, e) =>
+                            {
+                                _scene.RemoveObject(_self);
+                                GameManager.GameUser.CurrentLevel.CountGolem--;
+                                GameManager.GameUser.CurrentLevel.CountMonster--;
+                                timer.Stop();
+                            };
+                            timer.Start();
+
+                        }
+                    }
+                    if (!_Hit && Alive)
+                    {
+                        _Hit = true;
+                        _dX = 0;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(500);
+                        if (_LookRight)
+                        {
+                            SetImage("Characters/GolemHitRight.gif");
+                        }
+                        if (!_LookRight)
+                        {
+                            SetImage("Characters/GolemHitLeft.gif");
+                        }
+                        timer.Tick += (sender, e) =>
+                        {
+                            if (Alive)
+                            {
+                                if (_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/GolemIdleRight.gif");
+                                }
+                                if (!_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/GolemIdleLeft.gif");
+                                }
+                                if (_LookRight)
+                                {
+                                    _dX = 2;
+                                    SetImage("Characters/GolemWalkingRight.gif");
+                                }
+                                if (!_LookRight)
+                                {
+                                    _dX = -2;
+                                    SetImage("Characters/GolemWalkingLeft.gif");
+                                }
+                            }
+                            _Hit = false;
+
+
+                            timer.Stop();
+                        };
+                        GolemHp--;
+                        timer.Start();
+
+
+                    }
+
+                    _scene.RemoveObject(otherobject);
+
+                }
+            
 
                 if (otherobject is Ground)
                 {

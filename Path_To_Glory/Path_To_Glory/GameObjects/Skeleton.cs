@@ -220,6 +220,81 @@ namespace Path_To_Glory.GameObjects
                     }
 
                 }
+                if (otherobject is PlayerSlash)
+                {
+                    PlayerSlash slash =(PlayerSlash)otherobject;
+
+                    if (Alive)
+                    {
+                        if (SkeletonHp <= 0)
+                        {
+                            Alive = false;
+                            if (_LookRight)
+                            {
+                                SetImage("Characters/SkeletonDeathRight.gif");
+                            }
+                            if (!_LookRight)
+                            {
+                                SetImage("Characters/SkeletonDeathLeft.gif");
+                            }
+                            _dX = 0;
+
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(1100);
+                            timer.Tick += (sender, e) =>
+                            {
+                                _scene.RemoveObject(_self);
+                                GameManager.GameUser.CurrentLevel.CountSkeleton--;
+                                GameManager.GameUser.CurrentLevel.CountMonster--;
+                                timer.Stop();
+                            };
+                            timer.Start();
+
+                        }
+                    }
+                    if (!_Hit && Alive)
+                    {
+                        _Hit = true;
+                        _dX = 0;
+                        DispatcherTimer timer = new DispatcherTimer();
+                        timer.Interval = TimeSpan.FromMilliseconds(500);
+
+                        timer.Tick += (sender, e) =>
+                        {
+                            if (Alive)
+                            {
+                                if (_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/SkeletonIdleRight.gif");
+                                }
+                                if (!_LookRight && _dX == 0)
+                                {
+                                    SetImage("Characters/SkeletonIdleLeft.gif");
+                                }
+                                if (_LookRight)
+                                {
+                                    _dX = 2;
+                                    SetImage("Characters/SkeletonWalkRight.gif");
+                                }
+                                if (!_LookRight)
+                                {
+                                    _dX = -2;
+                                    SetImage("Characters/SkeletonWalkLeft.gif");
+                                }
+                            }
+                            _Hit = false;
+
+
+                            timer.Stop();
+                        };
+                        SkeletonHp--;
+                        timer.Start();
+
+                        _scene.RemoveObject(slash);
+                    }
+                    
+                    
+                }
 
                 if (otherobject is Ground)
                 {

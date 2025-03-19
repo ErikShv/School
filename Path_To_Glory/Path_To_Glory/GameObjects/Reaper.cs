@@ -125,6 +125,39 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
+                if( otherobject is PlayerSlash)
+                {
+                    
+                    if (Alive)
+                    {
+                        if (ReaperHp <= 0)
+                        {
+                            Alive = false;
+                            if (_LookRight)
+                            {
+                                SetImage("Characters/ReaperDeathRight.gif");
+                            }
+                            if (!_LookRight)
+                            {
+                                SetImage("Characters/ReaperDeathLeft.gif");
+                            }
+
+
+                            DispatcherTimer timer = new DispatcherTimer();
+                            timer.Interval = TimeSpan.FromMilliseconds(800);
+                            timer.Tick += (sender, e) =>
+                            {
+                                _scene.RemoveObject(_self);
+                                GameManager.GameUser.CurrentLevel.CountReaper--;
+                                GameManager.GameUser.CurrentLevel.CountMonster--;
+                                timer.Stop();
+                            };
+                            timer.Start();
+
+                        }
+                    }
+                    _scene.RemoveObject(otherobject);
+                }
                 if (otherobject is Wall wall)
                 {
                     var rect = RectHelper.Intersect(Rect, wall.Rect);
@@ -145,6 +178,7 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
+                
                 if (otherobject is Spectre)
                 {
                     Spectre spectre = (Spectre)spctr;

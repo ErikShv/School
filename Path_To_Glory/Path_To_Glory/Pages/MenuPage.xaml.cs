@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Path_To_Glory.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -200,6 +201,17 @@ namespace Path_To_Glory.Pages
         private void PlayBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(LevelSelectPage));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(GameManager.GameUser.UserName != "Anonymous")
+            {
+                LoginBtn.IsEnabled = false;
+                LoginBtn.Visibility = Visibility.Collapsed;
+                SignUpBtn.IsEnabled = false;
+                SignUpBtn.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
