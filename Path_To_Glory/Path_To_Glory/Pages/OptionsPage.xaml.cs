@@ -1,10 +1,12 @@
-﻿using System;
+﻿using GameEngine.GameServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,11 +35,14 @@ namespace Path_To_Glory.Pages
             if (SfxImg.Source is BitmapImage currentImage &&
      currentImage.UriSource == new Uri("ms-appx:///Assets/Buttons/OnButton.png"))
             {
+                Music._Flag = true;
                 SfxImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/OffButton.png"));
+                Music.Pause();
             }
             else
             {
                 SfxImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/OnButton.png"));
+                Music.Play("MusicTest.mp3");
             }
         }
 
@@ -66,6 +71,38 @@ namespace Path_To_Glory.Pages
         private void SfxBtn_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+        private void YesBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            YesImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedYesBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void YesBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            YesImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/YesBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            MusicSlider.Value = Music.Volume;
+        }
+
+        private void MusicSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            Music.Volume = (int)MusicSlider.Value;
+        }
+
+        private void YesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (GoLeftBx.Text != string.Empty && GoRightBx.Text != string.Empty && JumpBx.Text != string.Empty && SlashBx.Text != string.Empty) {
+                Keys.Leftkey = (VirtualKey)Enum.Parse(typeof(VirtualKey), GoLeftBx.Text, true);
+                Keys.Rightkey = Keys.Leftkey = (VirtualKey)Enum.Parse(typeof(VirtualKey), GoRightBx.Text, true);
+                Keys.Upkey = (VirtualKey)Enum.Parse(typeof(VirtualKey), JumpBx.Text, true);
+                Keys.Slash = (VirtualKey)Enum.Parse(typeof(VirtualKey), SlashBx.Text, true);
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace GameEngine.GameServices
     public static class Music
     {
         public static MediaPlayer _MediaPlayer = new MediaPlayer(); // הנגן
-
+        public static bool _Flag { get; set; } = false;
         public static bool IsOn { get; set; } = false; // האם מוזיקת רקע מתנגנת
         public static int _volume = 100; // הערך התחלתי של המוזיקה
 
@@ -20,11 +20,11 @@ namespace GameEngine.GameServices
             set
             {
                 _volume = value;
-                _MediaPlayer.Volume = _volume;
+                _MediaPlayer.Volume = _volume/100.0;
             }
             get
             {
-                return _volume;
+                return _volume*100;
             }
         }
 

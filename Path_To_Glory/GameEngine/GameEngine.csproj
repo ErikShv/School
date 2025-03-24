@@ -128,6 +128,7 @@
     <Compile Include="GameServices\Manager.cs" />
     <Compile Include="GameServices\Music.cs" />
     <Compile Include="GameServices\Scene.cs" />
+    <Compile Include="GameServices\SoundEffects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\GameEngine.rd.xml" />
   </ItemGroup>

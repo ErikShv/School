@@ -407,6 +407,10 @@ namespace Path_To_Glory.GameObjects
                     GameManager.GameUser.Coins++;
                     Manager.GameEvent.OnGetCoin(Coins);
                     _scene.RemoveObject(otherobject);
+
+                    SoundEffects.PlaySoundEffect("CoinSound.mp3");
+                    
+                    
                 }
                 //התנגשות עם הרצפה, אם בא בתאוצה מלמעלה אז עוצר למעלה, אם בא מימין או שמאל עוצר על פני הרצפה ואם מלמטה הוא חוזר לרצפה
                 else

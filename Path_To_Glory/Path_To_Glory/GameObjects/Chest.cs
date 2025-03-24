@@ -19,11 +19,14 @@ namespace Path_To_Glory.GameObjects
             Image.Height = 30;
             
         }
+        /// <summary>
+        /// מה קורה אם מתנגש בדברים מסויימים
+        /// </summary>
         public override void Collide(List<GameObject> gameObject)
         {
             foreach (var otherobject in gameObject)
             {
-                if (otherobject is Spectre && !_done )
+                if (otherobject is Spectre && !_done ) //אם זה הדמות שלי
                 {
                     if (!_done)
                     {
@@ -35,7 +38,7 @@ namespace Path_To_Glory.GameObjects
                     DispatcherTimer timer = new DispatcherTimer();
                     timer.Interval = TimeSpan.FromSeconds(1);
 
-
+                    //מוציא מטבעות ולב
                     timer.Tick += (sender, e) =>
                     {
 

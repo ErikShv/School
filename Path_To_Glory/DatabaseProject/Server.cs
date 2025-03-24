@@ -67,6 +67,9 @@ namespace DatabaseProject
                 command.ExecuteNonQuery();
             }
         }
+        /// <summary>
+        /// משיג את הססמא של המשתמש מהטבלה
+        /// </summary>
         public static string GetPass(string Mail)
         {
             string query = $"SELECT UserPassword FROM [User] WHERE Email ='{Mail}'";
@@ -225,6 +228,9 @@ namespace DatabaseProject
                 return null;
             }
         }
+        /// <summary>
+        /// משיג את הנשמות של כל המשתמשים את שמם ואת המספר המזהה שלהם
+        /// </summary>
         public static List<Score> GetScores()
         {
             List<Score> ownProductsIds = new List<Score>();
@@ -253,6 +259,9 @@ namespace DatabaseProject
 
             return ownProductsIds;
         }
+        /// <summary>
+        /// שומר את כל המידע של המשתמש כולל שלבים,כסף וכדומה
+        /// </summary>
         public static void SaveData(GameUser user)
         {
             string query = $"UPDATE GameData SET  CurrentLevelId = '{user.CurrentLevel.LevelNum}', CurrentPowerupId = '{user.CurrentPowerUp}', MaxLvlId = '{user.MaxLevel}', Souls = '{user.Souls}', Coins = '{user.Coins}' WHERE UserId = {user.UserId}; ";
@@ -263,6 +272,9 @@ namespace DatabaseProject
                 SqliteDataReader reader = command.ExecuteReader();
             }
         }
+        /// <summary>
+        /// מוסיף מוצר למחסן של המשתמש
+        /// </summary>
         public static void AddProduct(GameUser user)
         {
             string query = $"INSERT INTO [Storage] (UserId,PowerUpId) VALUES ('{user.UserId}','{user.CurrentPowerUp}')";

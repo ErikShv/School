@@ -1,4 +1,5 @@
-﻿using Path_To_Glory.GameServices;
+﻿using GameEngine.GameServices;
+using Path_To_Glory.GameServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,7 @@ namespace Path_To_Glory.Pages
     /// </summary>
     public sealed partial class MenuPage : Page
     {
+       
         public MenuPage()
         {
             this.InitializeComponent();
@@ -205,7 +207,11 @@ namespace Path_To_Glory.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            if(GameManager.GameUser.UserName != "Anonymous")
+            if (!Music._Flag)
+            {
+                Music.Play("MusicTest.mp3");
+            }
+            if (GameManager.GameUser.UserName != "Anonymous")
             {
                 LoginBtn.IsEnabled = false;
                 LoginBtn.Visibility = Visibility.Collapsed;

@@ -5,7 +5,7 @@
     xmlns:local="using:Path_To_Glory.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
+    mc:Ignorable="d" Loaded="Page_Loaded"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
@@ -72,10 +72,22 @@
         <Button Style="{StaticResource MyButtonStyle}" x:Name="SfxBtn" Grid.Row="4" Grid.Column="7" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" Click="SfxBtn_Click" PointerEntered="SfxBtn_PointerEntered" PointerExited="SfxBtn_PointerExited" >
             <Image Name="SfxImg" Source="/Assets/Buttons/OnButton.png"></Image>
         </Button>
-        <Slider Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalAlignment="Center"></Slider>
+        <Slider x:Name="MusicSlider" ValueChanged="MusicSlider_ValueChanged" Value="100" Grid.Row="4" Grid.Column="9" Grid.ColumnSpan="6" Grid.RowSpan="2" VerticalAlignment="Center"></Slider>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>
         <Image Source="/Assets/Titles/OptionTitle.png" Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="4" Grid.RowSpan="2"></Image>
+        <TextBox Grid.Row="7" Grid.Column="6" x:Name="GoRightBx" Text="Right"></TextBox>
+        <TextBlock Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" Foreground="White" FontSize="30">Go Right:</TextBlock>
+        <TextBox Grid.Row="9" Grid.Column="6" x:Name="GoLeftBx" Text="Left"></TextBox>
+        <TextBlock Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" Foreground="White" FontSize="30">Go Left:</TextBlock>
+        <TextBox Grid.Row="11" Grid.Column="6" x:Name="JumpBx" Text="Up"></TextBox>
+        <TextBlock Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="2" Foreground="White" FontSize="30">Jump:</TextBlock>
+        <TextBox Grid.Row="13" Grid.Column="6" x:Name="SlashBx" Text="Z"></TextBox>
+        <TextBlock Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="2" Foreground="White" FontSize="30">Slash:</TextBlock>
+        <Button Style="{StaticResource MyButtonStyle}" x:Name="YesBtn" Grid.RowSpan="2" Grid.Row="14" Grid.Column="5" PointerEntered="YesBtn_PointerEntered" PointerExited="YesBtn_PointerExited" Click="YesBtn_Click">
+            <Image x:Name="YesImg" Source="/Assets/Buttons/YesBtn.png">
+            </Image>
+        </Button>
     </Grid>
 </Page>
