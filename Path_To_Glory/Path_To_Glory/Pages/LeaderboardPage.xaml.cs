@@ -46,7 +46,9 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        /// <summary>
+        /// מראה את שלושת השחקנים עם הכי הרבה נשמות
+        /// </summary>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             List<Score> scores = new List<Score>();

@@ -48,19 +48,26 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             GameManager.Events.CheckCoins(GameManager.GameUser.Coins);
             CheckHp(GameManager.GameUser.Hp);
         }
-
+        /// <summary>
+        /// מעביר למסך ניצחון
+        /// </summary>
         private void WinScreen()
         {
             
             Frame.Navigate(typeof(YouWinPage));
             
         }
-
+        /// <summary>
+        /// מוודא מספר המטבעות שיש לשחקן הוא מספר המטבעות שעל המסך
+        /// </summary>
         private void CheckCoins(int Coins)
         {
             Coinstxt.Text = Coins.ToString();
         }
-
+        /// <summary>
+        /// מוודא שכמות החיים שיש לשחקן זה כמות החיים שעל המסך
+        /// </summary>
+        /// <param name="Hp"> כמות החיים של השחקן</param>
         private void CheckHp(int Hp)
         {
             
@@ -77,7 +84,9 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
 
             }
         }
-
+        /// <summary>
+        /// מעביר את השחקן לחדר הבא
+        /// </summary>
         private void NextRoom()
         {
             scene.RemoveAllObjects();
@@ -115,7 +124,9 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
 
 
         }
-
+        /// <summary>
+        /// מחזיר את הערכים של השחקן לערכים הדיפולטיווים אחריי שמת
+        /// </summary>
         private void MainScreen()
         {
             GameManager.GameUser.Hp = 3;
@@ -126,14 +137,14 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
             Server.SaveData(GameManager.GameUser);
             Frame.Navigate(typeof(MenuPage));
         }
-
+        //מוסיף למסך ולשחקן מטבעות
         private void PickUpCoin(int Coins)
         {
 
             Coinstxt.Text = Coins.ToString();
             GameManager.GameUser.Coins++;
         }
-
+        //מוסיף לשחקן חיים
         private void PuckupHeart(int Hp)
         {
            
@@ -148,7 +159,7 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
 
             }
         }
-
+        //אחריי שעובר דף מעדכן את החיים של השחקן לחיים שהיו לו בדף הקודם
         private void update(int Hp)
         {
             if (Hp == 3)

@@ -343,6 +343,8 @@
     <Content Include="Assets\Projectiles\ReaperSlashLeft.gif" />
     <Content Include="Assets\Projectiles\ReaperSlashRight.gif" />
     <Content Include="Assets\Sfx\CoinSound.mp3" />
+    <Content Include="Assets\Sfx\JumpSound1.mp3" />
+    <Content Include="Assets\Sfx\SwordSlash.mp3" />
     <Content Include="Assets\ShopItems\Scythe.png" />
     <Content Include="Assets\Tiles\BigWall.png" />
     <Content Include="Assets\Tiles\Floor.png" />

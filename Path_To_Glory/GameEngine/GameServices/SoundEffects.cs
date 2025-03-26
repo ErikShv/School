@@ -10,17 +10,16 @@ namespace GameEngine.GameServices
 {
     public static class SoundEffects
     {
-        private static MediaPlayer _backgroundPlayer = new MediaPlayer(); // Background music player
-        private static List<MediaPlayer> _effectPlayers = new List<MediaPlayer>(); // List of media players for sound effects
-        public static bool IsOn { get; set; } = false; // Is background music playing
-        private static int _volume = 100; // Initial volume level
+        
+        private static List<MediaPlayer> _effectPlayers = new List<MediaPlayer>(); // רשימה של אפקטים
+        private static int _volume = 100; // רמת השמע בררת מחדל
 
         public static int Volume
         {
             set
             {
                 _volume = value;
-                _backgroundPlayer.Volume = _volume / 100.0;
+               
             }
             get
             {
@@ -28,26 +27,10 @@ namespace GameEngine.GameServices
             }
         }
 
-        public static void PlayBackground(string filename)
-        {
-            if (!IsOn)
-            {
-                IsOn = true;
-                _backgroundPlayer.Source = MediaSource.CreateFromUri(new Uri($"ms-appx:///Assets/Music/{filename}"));
-                _backgroundPlayer.IsLoopingEnabled = true;
-                _backgroundPlayer.Play();
-            }
-        }
-
-        public static void PauseBackground()
-        {
-            if (IsOn)
-            {
-                IsOn = false;
-                _backgroundPlayer.Pause();
-            }
-        }
-
+       
+        /// <summary>
+        /// מנגן את הסאונד של האפקט ומפסיק כאשר הוא הסתיים
+        /// </summary>
         public static void PlaySoundEffect(string filename)
         {
             MediaPlayer effectPlayer = new MediaPlayer();

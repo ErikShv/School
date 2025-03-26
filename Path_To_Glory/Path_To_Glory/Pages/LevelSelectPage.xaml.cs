@@ -64,7 +64,7 @@ namespace Path_To_Glory.Pages
             TutorialImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/TutorialButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        //מכניס את השחקן לשלב שמלמד אותו איך לשחק
         private void TutorialBtn_Click(object sender, RoutedEventArgs e)
         {
             var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע
@@ -99,14 +99,14 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        //שם את השחקן בלבל האחרון ששיחק בו
         private void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
             var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע
             CreateLevel(clickbutton.TabIndex);
             Frame.Navigate(typeof(Room1));
         }
-
+        //שם את הערכים הדיפולטיווים של המשחק ומתחיל משחק חדש
         private void NewGameBtn_Click(object sender, RoutedEventArgs e)
         {
             var clickbutton = (Button)sender;//גיליתי מהו הלחצן שגרם לפעולה להתבצע

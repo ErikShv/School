@@ -103,7 +103,7 @@ namespace Path_To_Glory.Pages
         {
             Souls.Text = GameManager.GameUser.Souls.ToString();
         }
-
+        //קניית הפוואר אפ
          private async void BuyPowerup1_Click(object sender, RoutedEventArgs e)
         {
             if(GameManager.GameUser.Souls < 1)
@@ -128,7 +128,9 @@ namespace Path_To_Glory.Pages
                 }
             }
         }
-
+         /// <summary>
+         /// קניית הפוואר אפ
+         /// </summary>
         private async void PowerUp3_Click(object sender, RoutedEventArgs e)
         {
             if (GameManager.GameUser.Souls < 2)

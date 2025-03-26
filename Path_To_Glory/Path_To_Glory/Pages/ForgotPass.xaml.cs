@@ -62,6 +62,7 @@ namespace Path_To_Glory.Pages
 
         private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
+            //אם המייל אותו המייל שבבסיס הנתונים זה מראה למשתמש את ססמתו, ואם לא אז כתוב שהמייל לא קיים למשתמש זה
             string mail = EmailForPass.Text;
             if (mail != "" || mail != string.Empty)
             {

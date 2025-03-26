@@ -48,7 +48,9 @@ namespace Path_To_Glory.Pages
         {
             Frame.Navigate(typeof(MenuPage));
         }
-
+        /// <summary>
+        /// מראה את כל המשקים שיש למשתמש
+        /// </summary>
         private void Page_Loaded_1(object sender, RoutedEventArgs e)
         {
             PowerList.SelectedIndex = 0;
@@ -66,7 +68,7 @@ namespace Path_To_Glory.Pages
             }
             ShowProducts();//הפעולה מראה את המוצרים שנמצעים בבעלות המשתמש על המסך
         }
-
+        //שם את התמונות של המשקים
         private void ShowProducts()
         {
             Image image;
@@ -76,7 +78,7 @@ namespace Path_To_Glory.Pages
                 PowerList.Items.Add(image);
             }
         }
-
+        //לוקח את התמונות מה Assets
         private Image GetImage(int id)
         {
             Image image = new Image();
@@ -90,7 +92,7 @@ namespace Path_To_Glory.Pages
             }
             return image;
         }
-
+        //בודק אם המשק קיים
         private bool IsExist(List<int> ownproductsId, int id)
         {
             foreach( int index in ownproductsId)
@@ -102,7 +104,7 @@ namespace Path_To_Glory.Pages
             }
             return false;
         }
-        
+        //רשימה של כל המשקים
         private List<Product> GetProducts() // הפעולה ממלאה את רשימת המוצרים שיש במשחק
         {
             _allproducts = new List<Product>();
@@ -148,7 +150,7 @@ namespace Path_To_Glory.Pages
             NoImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/NoBtn.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        //שומר את המשק שהמשתמש בחר
         private void YesBtn_Click(object sender, RoutedEventArgs e)
         {
             GameManager.GameUser.CurrentPowerUp = PowerList.SelectedIndex +1;

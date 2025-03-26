@@ -33,6 +33,9 @@ namespace Path_To_Glory.GameObjects
         {
             _self = Self;
         }
+        /// <summary>
+        /// שולט על התזוזה של השלד ומחליף את הגיפים שלו בתגובה למצבו בכל רגע
+        /// </summary>
         public override void Render()
         {
             base.Render();
@@ -97,6 +100,10 @@ namespace Path_To_Glory.GameObjects
 
 
         }
+        /// <summary>
+        /// גופים שהשלד מתנגש בהם
+        /// </summary>
+       
         public override void Collide(List<GameObject> gameObject)
         {
             foreach (var otherobject in gameObject)
@@ -104,6 +111,8 @@ namespace Path_To_Glory.GameObjects
                 var spctr = otherobject;
                 if (otherobject is Spectre)
                 {
+                    //אם מתנגש בדמות של השחקן:
+                    //אם השחקן במצב שהוא מרביץ אז השלד מקבל נזק או אם הכמות חיים שלו 0 הוא מת
                     Spectre spectre = (Spectre)spctr;
 
                     if (Alive)
@@ -220,6 +229,7 @@ namespace Path_To_Glory.GameObjects
                     }
 
                 }
+                //אם השלד מתנגש בגוף זה הוא מקבל נזק ואם החיים שלו הם 0 הוא מת
                 if (otherobject is PlayerSlash)
                 {
                     PlayerSlash slash =(PlayerSlash)otherobject;
@@ -295,14 +305,14 @@ namespace Path_To_Glory.GameObjects
                     
                     
                 }
-
+                //משאיר את השלד על הרצפה
                 if (otherobject is Ground)
                 {
 
                     _dY = 0;
                     _Y -= 1;
                 }
-
+                //משאיר את השלד על הפלטפורמה וגורם לזה שאם השלד מגיע לקצה הפלטפורמה הוא עוצר לשנייה והולך בכיוון ההפוך
                 if (otherobject is Platform platform)
                 {
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
@@ -385,6 +395,7 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
+                //גורם לזה שאם השלד מגיע לקיר הוא עוצר לשנייה והולך בכיוון ההפוך
                 if (otherobject is Wall wall)
                 {
                     var rect = RectHelper.Intersect(Rect, wall.Rect);

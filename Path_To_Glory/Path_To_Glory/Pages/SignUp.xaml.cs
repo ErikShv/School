@@ -62,7 +62,9 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        /// <summary>
+        /// אם לא קיים משתמש עם הערכים המוכנסים יוצר אותו ומכניס לבסיס הנתונים, אם כן הודעה קופצת שקיים משתמש כזה
+        /// </summary>
         private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
             if (UsernameSignUp.Text == "" || PasswordSignUp.Password == "" || RePasswordSignUp.Password == "" || EmailSignUp.Text == "")
@@ -95,6 +97,7 @@ namespace Path_To_Glory.Pages
             }
             
         }
+        //בודק אם תבנית המייל מתאימה
         public static bool IsValidGmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))

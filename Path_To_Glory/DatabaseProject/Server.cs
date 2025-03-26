@@ -243,7 +243,7 @@ namespace DatabaseProject
                 using (SqliteCommand command = new SqliteCommand(query, connection))
                 using (SqliteDataReader reader = command.ExecuteReader())
                 {
-                    while (reader.Read()) // Read each row
+                    while (reader.Read()) // קורא כל שורה
                     {
                         Score score = new Score
                         {

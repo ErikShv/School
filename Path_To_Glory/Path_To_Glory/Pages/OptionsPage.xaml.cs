@@ -29,7 +29,7 @@ namespace Path_To_Glory.Pages
         {
             this.InitializeComponent();
         }
-
+        //מדליק ומפסיק את המוזיקה
         private void SfxBtn_Click(object sender, RoutedEventArgs e)
         {
             if (SfxImg.Source is BitmapImage currentImage &&
@@ -94,7 +94,7 @@ namespace Path_To_Glory.Pages
         {
             Music.Volume = (int)MusicSlider.Value;
         }
-
+        //שומר את השינויים שהמשתמש עשה למקשים
         private void YesBtn_Click(object sender, RoutedEventArgs e)
         {
             if (GoLeftBx.Text != string.Empty && GoRightBx.Text != string.Empty && JumpBx.Text != string.Empty && SlashBx.Text != string.Empty) {

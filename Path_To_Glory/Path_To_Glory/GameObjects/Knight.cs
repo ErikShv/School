@@ -150,6 +150,7 @@ namespace Path_To_Glory.GameObjects
             {
                 if (_state == StateType.idelRight)
                 {
+                    
                     SetImage("Characters/JumpRight.gif");
                     DispatcherTimer timer = new DispatcherTimer();
                     timer.Interval = TimeSpan.FromMilliseconds(650);
@@ -295,6 +296,7 @@ namespace Path_To_Glory.GameObjects
             //כפתור המכה
             if (key == Keys.Slash && InAnimation == false && _state != StateType.JumpRight && _state != StateType.JumpLeft)
             {
+                    SoundEffects.PlaySoundEffect("SwordSlash.mp3");
                 Slash();
             }
             //כפתור הקפיצה
@@ -302,7 +304,8 @@ namespace Path_To_Glory.GameObjects
             {
                 if (_state != StateType.JumpLeft && _state != StateType.JumpRight)
                 {
-                    Jump();
+                        SoundEffects.PlaySoundEffect("JumpSound1.mp3");
+                        Jump();
                 }
             }
             //כפתור ללכת ימינה
