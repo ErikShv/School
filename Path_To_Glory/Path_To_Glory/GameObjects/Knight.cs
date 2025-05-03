@@ -204,7 +204,14 @@ namespace Path_To_Glory.GameObjects
                 timer.Start();
                 _state = StateType.JumpLeft;
             }
-            _dY = -20;
+            if (GameManager.GameUser.CurrentPowerUp == 2)
+            {
+                _dY = -30;
+            }
+            else
+            {
+                _dY = -20;
+            }
         }
         /// <summary>
         /// השחקן מביא מכה

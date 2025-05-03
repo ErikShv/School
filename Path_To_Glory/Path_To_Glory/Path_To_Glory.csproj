@@ -238,6 +238,8 @@
     <Content Include="Assets\Backgrounds\TutorialBack.png" />
     <Content Include="Assets\Buttons\EquipmentBtn.png" />
     <Content Include="Assets\Buttons\ForgotPasswordButton.png" />
+    <Content Include="Assets\Buttons\HomeBtn.png" />
+    <Content Include="Assets\Buttons\HomeBtnPressed.png" />
     <Content Include="Assets\Buttons\NoBtn.png" />
     <Content Include="Assets\Buttons\PressedEquipmentBtn.png" />
     <Content Include="Assets\Buttons\PressedNoBtn.png" />
@@ -346,6 +348,7 @@
     <Content Include="Assets\Sfx\JumpSound1.mp3" />
     <Content Include="Assets\Sfx\SwordSlash.mp3" />
     <Content Include="Assets\ShopItems\Scythe.png" />
+    <Content Include="Assets\ShopItems\Shoes.png" />
     <Content Include="Assets\Tiles\BigWall.png" />
     <Content Include="Assets\Tiles\Floor.png" />
     <Content Include="Assets\Tiles\Floor1.png" />

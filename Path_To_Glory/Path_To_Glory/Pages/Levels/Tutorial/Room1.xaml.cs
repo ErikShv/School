@@ -178,5 +178,57 @@ namespace Path_To_Glory.Pages.Levels.Tutorial
 
             }
         }
-}    }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            PopupMenu.Visibility = Visibility.Visible;
+        }
+
+        private void HomeBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            HomeImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/HomeBtnPressed.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void HomeBtn_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            HomeImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/HomeBtn.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Server.SaveData(GameManager.GameUser);
+            Frame.Navigate(typeof(MenuPage));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PopupMenu.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            ContinueImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedQuitButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void Button_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            ContinueImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/QuitButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+
+        private void Button_PointerEntered_1(object sender, PointerRoutedEventArgs e)
+        {
+            QuitImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedContinueButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+        }
+
+        private void Button_PointerExited_1(object sender, PointerRoutedEventArgs e)
+        {
+            QuitImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/ContinueButton.png"));
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
+        }
+    }    }
 

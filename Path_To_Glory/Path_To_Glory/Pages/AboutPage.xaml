@@ -67,6 +67,12 @@
 
             </Canvas>
         </Border>
+        <TextBlock Foreground="White" Grid.Row="2" Grid.RowSpan="2" Grid.Column="8" Grid.ColumnSpan="4" FontSize="55" HorizontalAlignment="Center">About</TextBlock>
+        <TextBlock Foreground="White" Grid.Row="4" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="4" FontSize="30">Run Right: Arrow Right</TextBlock>
+        <TextBlock Foreground="White" Grid.Row="4" Grid.RowSpan="2" Grid.Column="11" Grid.ColumnSpan="4" FontSize="30">Run Left: Arrow Left</TextBlock>
+        <TextBlock Foreground="White" Grid.Row="6" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="4" FontSize="30">Jump: Up Arrow</TextBlock>
+        <TextBlock Foreground="White" Grid.Row="6" Grid.RowSpan="2" Grid.Column="11" Grid.ColumnSpan="4" FontSize="30">Dash: E</TextBlock>
+        <TextBlock Foreground="White" Grid.Row="8" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="4" FontSize="30">Slash: Z</TextBlock>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>
         </Button>

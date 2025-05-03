@@ -47,45 +47,7 @@ namespace Path_To_Glory.Pages
             BuyPistolImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
         }
 
-        private void BuyRevolver_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            BuyRevolverImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
-        }
-
-        private void BuyRevolver_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            BuyRevolverImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
-        }
-
-        private void BuyMp5_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            BuyMp5Img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
-        }
-
-        private void BuyMp5_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            BuyMp5Img.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
-        }
-
-        private void BuyAk_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            BuyAkImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
-        }
-
-        private void BuyAk_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            BuyAkImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
-        }
-
-        private void BuyRpg_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            BuyRpgImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBuyButton.png"));
-        }
-
-        private void BuyRpg_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            BuyRpgImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
-        }
+         
 
         private void BackBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
@@ -120,7 +82,7 @@ namespace Path_To_Glory.Pages
                 else
                 {
                     GameManager.GameUser.Souls -=1;
-                    GameManager.GameUser.CurrentPowerUp = 1;
+                    GameManager.GameUser.CurrentPowerUp = 2;
                     Server.AddProduct(GameManager.GameUser);
                     Souls.Text = GameManager.GameUser.Souls.ToString();
                     await new MessageDialog("Product Added Succesfully!", "Path To Glory").ShowAsync();
