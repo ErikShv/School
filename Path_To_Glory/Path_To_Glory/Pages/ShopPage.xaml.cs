@@ -64,6 +64,10 @@ namespace Path_To_Glory.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Souls.Text = GameManager.GameUser.Souls.ToString();
+            if (GameManager.GameUser.UserName == "Anonymous")
+            {
+                EquipmentBtn.IsEnabled = false;
+            }
         }
         //קניית הפוואר אפ
          private async void BuyPowerup1_Click(object sender, RoutedEventArgs e)

@@ -87,7 +87,7 @@ namespace Path_To_Glory.Pages
             switch (id)
             {
                 case 1: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup.png"));break;
-                case 2: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Powerups/Powerup2.png")); break;
+                case 2: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/ShopItems/Shoes.png")); break;
                 case 3: image.Source = new BitmapImage(new Uri("ms-appx:///Assets/ShopItems/Scythe.png")); break;
             }
             return image;

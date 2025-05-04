@@ -67,7 +67,7 @@
 
             </Canvas>
         </Border>
-        <Image Source="/Assets/Titles/SignUpTitle.png" Grid.Row="2" Grid.Column="8" Grid.RowSpan="4" Grid.ColumnSpan="4" VerticalAlignment="Top"></Image>
+        <TextBlock Foreground="White" Grid.Row="2" Grid.Column="7" Grid.ColumnSpan="6" Grid.RowSpan="2" FontSize="50"> Forgot Password?</TextBlock>
 
         
         <TextBox x:Name="EmailForPass" Grid.Column="7" Grid.Row="6" Grid.ColumnSpan="4" VerticalAlignment="Center" Grid.RowSpan="2"></TextBox>

@@ -84,19 +84,20 @@
         <Image Source="/Assets/ShopItems/Shoes.png" Grid.Column="4" Grid.Row="8" Grid.RowSpan="3" Grid.ColumnSpan="3"></Image>
         
         <Image Source="/Assets/ShopItems/Scythe.png" Grid.Column="12" Grid.Row="8" Grid.RowSpan="2" Grid.ColumnSpan="3"></Image>
-        
-       
 
+        <TextBlock Foreground="White" FontSize="35" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalAlignment="Center">Cost: 1</TextBlock>
+        <TextBlock Foreground="White" FontSize="35" Grid.Row="13" Grid.Column="12" Grid.ColumnSpan="3" Grid.RowSpan="2" VerticalAlignment="Center">Cost: 3</TextBlock>
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BuyPowerup1"  Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyPistol_PointerEntered" PointerExited="BuyPistol_PointerExited" Click="BuyPowerup1_Click" >
             <Image x:Name="BuyPistolImg" Source="/Assets/Buttons/BuyButton.png"></Image></Button>
 
         <Button Style="{StaticResource MyButtonStyle}" x:Name="PowerUp3" Click="PowerUp3_Click"  Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="10" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="BuyPistol_PointerEntered" PointerExited="BuyPistol_PointerExited">
             <Image x:Name="ShoesImg" Source="/Assets/Buttons/BuyButton.png"></Image>
         </Button>
-        <Button Style="{StaticResource MyButtonStyle}" x:Name="EquipmentBtn"  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="EquipmentBtn_PointerEntered"  PointerExited="EquipmentBtn_PointerExited" Click="EquipmentBtn_Click">
+        <Button  Style="{StaticResource MyButtonStyle}" x:Name="EquipmentBtn"  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center" Background="Transparent" PointerEntered="EquipmentBtn_PointerEntered"  PointerExited="EquipmentBtn_PointerExited" Click="EquipmentBtn_Click">
             <Image x:Name="EquipmentImg" Source="/Assets/Buttons/EquipmentBtn.png"></Image>
         </Button>
-
+        <Image Source="/Assets/GameUi/Soul.gif" Grid.Row="13" Grid.Column="6" Grid.RowSpan="2" VerticalAlignment="Center"></Image>
+        <Image Source="/Assets/GameUi/Soul.gif" Grid.Row="13" Grid.Column="14" Grid.RowSpan="2" VerticalAlignment="Center"></Image>
 
         <Button Style="{StaticResource MyButtonStyle}" x:Name="BackBtn" Grid.Column="19" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="BackBtn_Click" Background="Transparent" PointerEntered="BackBtn_PointerEntered" PointerExited="BackBtn_PointerExited">
             <Image x:Name="BackImg" Source="/Assets/Buttons/BackButton.png"></Image>

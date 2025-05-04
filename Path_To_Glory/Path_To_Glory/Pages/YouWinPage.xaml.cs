@@ -1,4 +1,5 @@
-﻿using Path_To_Glory.GameServices;
+﻿using DatabaseProject;
+using Path_To_Glory.GameServices;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +31,7 @@ namespace Path_To_Glory.Pages
         }
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
+            Server.SaveData(GameManager.GameUser);
             Frame.Navigate(typeof(MenuPage));
         }
 
@@ -49,7 +51,7 @@ namespace Path_To_Glory.Pages
         {
             GameManager.GameUser.CurrentLevel.LevelNum = 2;
             GameManager.GameUser.MaxLevel = 2;
-            GameManager.GameUser.Souls++;
+            GameManager.GameUser.Souls += GameManager.GameUser.Coins/20;
             GameManager.GameUser.Hp = 3;
             GameManager.GameUser.Coins = 0;
         }

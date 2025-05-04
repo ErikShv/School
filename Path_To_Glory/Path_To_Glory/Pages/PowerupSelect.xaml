@@ -79,7 +79,7 @@
             <Image x:Name="NoImg" Source="/Assets/Buttons/NoBtn.png">
             </Image>
         </Button>
-        <Image Source="/Assets/Titles/ShopTitle.png" Grid.Row="1" Grid.Column="6" Grid.RowSpan="5" Grid.ColumnSpan="8"></Image>
+        <TextBlock Grid.Row="2" Grid.RowSpan="3" Grid.Column="6" Grid.ColumnSpan="7" Foreground="White" FontSize="90" HorizontalAlignment="Center">Equipment</TextBlock>
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Backgrounds/MainMenuGif (1).gif"></ImageBrush>
         </Grid.Background>
