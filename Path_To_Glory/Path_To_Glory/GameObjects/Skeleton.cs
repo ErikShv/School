@@ -29,6 +29,9 @@ namespace Path_To_Glory.GameObjects
         private bool _Atk = false;
         public int SkeletonHp { get; set; } = GameManager.GameUser.CurrentLevel.SkeletonHp;
         private Skeleton _self;
+        /// <summary>
+        /// משיג את עצמו למטרה מסויימת כמו לדוגמא כדי למחוק את עצמו מהבמה
+        /// </summary>
         public void Get_Self(Skeleton Self)
         {
             _self = Self;
@@ -95,15 +98,8 @@ namespace Path_To_Glory.GameObjects
                 };
                 timer.Start();
             }
-
-
-
-
         }
-        /// <summary>
-        /// גופים שהשלד מתנגש בהם
-        /// </summary>
-       
+        //אחראי על מה קורה עם התנגשויות עם אובייקטים שונים 
         public override void Collide(List<GameObject> gameObject)
         {
             foreach (var otherobject in gameObject)

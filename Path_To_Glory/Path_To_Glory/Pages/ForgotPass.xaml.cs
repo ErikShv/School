@@ -59,10 +59,9 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        //אם המייל אותו המייל שבבסיס הנתונים זה מראה למשתמש את ססמתו, ואם לא אז כתוב שהמייל לא קיים למשתמש זה
         private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
-            //אם המייל אותו המייל שבבסיס הנתונים זה מראה למשתמש את ססמתו, ואם לא אז כתוב שהמייל לא קיים למשתמש זה
             string mail = EmailForPass.Text;
             if (mail != "" || mail != string.Empty)
             {

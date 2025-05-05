@@ -130,7 +130,6 @@
     <Compile Include="GameObjects\Reaper.cs" />
     <Compile Include="GameObjects\ReaperSlash.cs" />
     <Compile Include="GameObjects\Skeleton.cs" />
-    <Compile Include="GameObjects\SkullDecor.cs" />
     <Compile Include="GameObjects\Wall.cs" />
     <Compile Include="GameServices\GameManager.cs" />
     <Compile Include="GameServices\GameScene.cs" />
@@ -448,7 +447,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

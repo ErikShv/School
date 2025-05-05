@@ -17,13 +17,11 @@ namespace Path_To_Glory.GameObjects
         {
             idelLeft, idelRight, movingLeft, movingRight, JumpLeft, JumpRight, DashR, DashL,Death
         }
-
         public bool InAnimation { get; set; } = false;
         private bool _DashAnimation = false;
         private bool _dashinair = false;
         private bool _Hit = false;
         private bool _OnPlatform = false;
-        
         public StateType _state { get; set; }
         private static int Hp = GameManager.GameUser.Hp;
         private static int Coins = GameManager.GameUser.Coins;
@@ -36,7 +34,7 @@ namespace Path_To_Glory.GameObjects
             _state = StateType.idelRight;
             _ddY = 1;
         }
-
+        //עושה Refresh כל מאית שנייה למה שקורה על הבמה
         public override void Render()
         {
 
@@ -80,7 +78,7 @@ namespace Path_To_Glory.GameObjects
 
         }
         /// <summary>
-        /// יכולת שנותנת לשחקן להאיץ ממש מהר לשנייה
+        /// יכולת שנותנת לשחקן להאיץ ממש מהר לשנייה וגורמת לו לזנק בפעולה זו ישטיימרים האחרים על האנימציה של השחקן וכמה רחוק הוא מזנק
         /// </summary>
         public void Dash()
         {
@@ -143,6 +141,7 @@ namespace Path_To_Glory.GameObjects
             };
             timer.Start();
         }
+        //יכולת הקפיצה של השחקן בפעולה זו יש טיימרים האחראים על האנימציה של הדמות וכמה גבוהה השחקן קופץ
         public void Jump()
         {
 
@@ -214,7 +213,7 @@ namespace Path_To_Glory.GameObjects
             }
         }
         /// <summary>
-        /// השחקן מביא מכה
+        /// הפעולה אחראית על יכולת של השחקן להכות מפלצות, יש טיימרים שאחראים על אנימציית השחקן
         /// </summary>
         private void Slash()
         {
@@ -289,7 +288,6 @@ namespace Path_To_Glory.GameObjects
            
 
         }
-
         //כאן מופעלים המקשים
         private void Go(VirtualKey key)
         {
@@ -405,6 +403,7 @@ namespace Path_To_Glory.GameObjects
                 _state = StateType.idelLeft;
             }
         }
+        //פעולה האחראית על כל ההתנגשויות בין האובייקטים השונים במשחק
         public override void Collide(List<GameObject> gameObject)
         {
             var state = _state;
@@ -807,10 +806,6 @@ namespace Path_To_Glory.GameObjects
                     Hp++;
                     _scene.RemoveObject(otherobject);
                 }
-
-
-
-
                 //תלוי מאיזה צד השחקן מתנגש בפלטפורמה ,אם מלעלה הוא נשאר במקום, אם מהצדדים הוא גם נשאר שם ואם מלמטה הוא חוזר למטה
                 if (otherobject is Platform platform)
                 {
@@ -892,6 +887,7 @@ namespace Path_To_Glory.GameObjects
                             }
                         }
                     }
+                //מונע מהשחקן לעבור את הקיר
                 if (otherobject is Wall wall)
                 {
                     var rect = RectHelper.Intersect(Rect, wall.Rect);

@@ -29,7 +29,7 @@ namespace Path_To_Glory.Pages
         {
             this.InitializeComponent();
         }
-        //מדליק ומפסיק את המוזיקה
+        //מדליק ומפסיק את המוזיקה ומשנה את התמונה בהתאם למצב
         private void SfxBtn_Click(object sender, RoutedEventArgs e)
         {
             if (SfxImg.Source is BitmapImage currentImage &&
@@ -89,7 +89,7 @@ namespace Path_To_Glory.Pages
             
             MusicSlider.Value = Music.Volume;
         }
-
+        //שם את הווליום של המוזיקה בהתאם למספר שנמצא בסליידר
         private void MusicSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             Music.Volume = (int)MusicSlider.Value;

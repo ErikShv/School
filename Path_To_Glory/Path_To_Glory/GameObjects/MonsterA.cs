@@ -12,7 +12,6 @@ namespace Path_To_Glory.GameObjects
 {
     class MonsterA : GameMovingObject
     {
-        
         public MonsterA(Scene scene, string fileName, double placeX, double placeY) : base(scene, fileName, placeX, placeY)
         {
             Image.Height = 50;
@@ -31,12 +30,15 @@ namespace Path_To_Glory.GameObjects
         public int GolemHp { get; set; } = GameManager.GameUser.CurrentLevel.GolemHp;
         private MonsterA _self;
         /// <summary>
-        /// משיג את עצמו למטרה מסויימת
+        /// משיג את עצמו למטרה מסויימת כמו לדוגמא כדי למחוק את עצמו מהבמה
         /// </summary>
         public void Get_Self(MonsterA Self)
         {
             _self = Self;
         }
+        /// <summary>
+        /// שולט על התזוזה של השלד ומחליף את הגיפים שלו בתגובה למצבו בכל רגע
+        /// </summary>
         public override void Render()
         {
             //הפעולה מתארת מה הגולם יעשה בכל שנייה כלומר לאן הוא ילך ,עצור וכדומה
@@ -102,11 +104,13 @@ namespace Path_To_Glory.GameObjects
 
 
         }
+        //אחראי על מה קורה עם התנגשויות עם אובייקטים שונים 
         public override void Collide(List <GameObject> gameObject)
         {
             foreach (var otherobject in gameObject)
             {
                 var spctr = otherobject;
+                //התנגשות עם השחקן, מפעיל אנימציות שונות למוות, מכה, והרבצה
                 if(otherobject is Spectre)
                 {
                     Spectre spectre = (Spectre)spctr;
@@ -232,97 +236,16 @@ namespace Path_To_Glory.GameObjects
                     }
                     
                 }
-                if(otherobject is PlayerSlash)
-                {
-                    
-
-                    if (Alive)
-                    {
-                        if (GolemHp <= 0)
-                        {
-                            Alive = false;
-                            if (_LookRight)
-                            {
-                                SetImage("Characters/GolemDieRight.gif");
-                            }
-                            if (!_LookRight)
-                            {
-                                SetImage("Characters/GolemDieLeft.gif");
-                            }
-                            _dX = 0;
-
-                            DispatcherTimer timer = new DispatcherTimer();
-                            timer.Interval = TimeSpan.FromMilliseconds(1100);
-                            timer.Tick += (sender, e) =>
-                            {
-                                _scene.RemoveObject(_self);
-                                GameManager.GameUser.CurrentLevel.CountGolem--;
-                                GameManager.GameUser.CurrentLevel.CountMonster--;
-                                timer.Stop();
-                            };
-                            timer.Start();
-
-                        }
-                    }
-                    if (!_Hit && Alive)
-                    {
-                        _Hit = true;
-                        _dX = 0;
-                        DispatcherTimer timer = new DispatcherTimer();
-                        timer.Interval = TimeSpan.FromMilliseconds(500);
-                        if (_LookRight)
-                        {
-                            SetImage("Characters/GolemHitRight.gif");
-                        }
-                        if (!_LookRight)
-                        {
-                            SetImage("Characters/GolemHitLeft.gif");
-                        }
-                        timer.Tick += (sender, e) =>
-                        {
-                            if (Alive)
-                            {
-                                if (_LookRight && _dX == 0)
-                                {
-                                    SetImage("Characters/GolemIdleRight.gif");
-                                }
-                                if (!_LookRight && _dX == 0)
-                                {
-                                    SetImage("Characters/GolemIdleLeft.gif");
-                                }
-                                if (_LookRight)
-                                {
-                                    _dX = 2;
-                                    SetImage("Characters/GolemWalkingRight.gif");
-                                }
-                                if (!_LookRight)
-                                {
-                                    _dX = -2;
-                                    SetImage("Characters/GolemWalkingLeft.gif");
-                                }
-                            }
-                            _Hit = false;
-
-
-                            timer.Stop();
-                        };
-                        GolemHp--;
-                        timer.Start();
-
-
-                    }
-
-                    _scene.RemoveObject(otherobject);
-
-                }
-            
-
+                //התנגשות עם להב השחקן, מפעיל אנימציות שונות למוות, מכה, והרבצה
+                if (otherobject is PlayerSlash)
+                //התנגשות עם הרצפה,מונע מהמפלצת ליפול ממנה
                 if (otherobject is Ground)
                 {
 
                     _dY = 0;
                     _Y -= 1;
                 }
+                //התנגשות עם הפלטפורמה,מונע מהמפלצת ליפול ממנה
                 if (otherobject is Platform platform)
                 {
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
@@ -405,6 +328,7 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
+                //התנגשות עם הקיר, מונע מהמפלת לעבור את הקיר
                 if (otherobject is Wall wall)
                 {
                     var rect = RectHelper.Intersect(Rect, wall.Rect);

@@ -60,7 +60,8 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-        //בודק אם המשתמש והססמא של ששם הוא תואם לאלה שבבסיס הנתונים, אם כן אז מכניס מעביר אותו למסך הפתיחה עם הנתונים שלו ואם לו זה מודיע לו שאחד מהנתונים לא נכון
+        //בודק אם המשתמש והססמא של ששם הוא תואם לאלה שבבסיס הנתונים
+        //אם כן אז מכניס מעביר אותו למסך הפתיחה עם הנתונים שלו ואם לו זה מודיע לו שאחד מהנתונים לא נכון
         private async void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
             int? userId = Server.ValidateUser(UsernameLogin.Text.Trim(), PasswordLogin.Password.Trim());

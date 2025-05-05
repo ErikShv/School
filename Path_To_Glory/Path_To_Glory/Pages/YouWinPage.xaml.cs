@@ -46,7 +46,7 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        //חישוב שנותן לשחקן נשמה אחת על כל 20 מטבעות שיש לו
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             GameManager.GameUser.CurrentLevel.LevelNum = 2;

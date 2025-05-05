@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Path_To_Glory.App" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAQAAIAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Chest" Collapsed="true">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Chest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Coin" Collapsed="true">
+    <Position X="10.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Coin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.FloorHp" Collapsed="true">
+    <Position X="3.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\FloorHp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Ground" Collapsed="true">
+    <Position X="12.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Ground.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Spectre" Collapsed="true">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Path_To_Glory.GameObjects.Spectre.StateType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameObjects\Knight.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAQgAAAEAAAAAACAwAEAAAACAgIJAAEAAAQAA=</HashCode>
+      <FileName>GameObjects\Knight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.MonsterA" Collapsed="true">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABBAIAAAAAAAAAAAAAAAQAAAAAAAQIQJAAAAAAAAQ=</HashCode>
+      <FileName>GameObjects\MonsterA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Platform">
+    <Position X="14" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Platform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.PlayerSlash" Collapsed="true">
+    <Position X="10.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\PlayerSlash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Reaper" Collapsed="true">
+    <Position X="7" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAQAAAAAAAAQAAAAAAAQIQJAAAAAAAAQ=</HashCode>
+      <FileName>GameObjects\Reaper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.ReaperSlash" Collapsed="true">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\ReaperSlash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Skeleton" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAABBAIAAAAAAAAAAAAAAAQAAAAAAAQIQJAAAAAAAAQ=</HashCode>
+      <FileName>GameObjects\Skeleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameObjects.Wall" Collapsed="true">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Wall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameServices.GameManager" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAgAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>GameServices\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameServices.GameScene" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameServices\GameScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.GameServices.MyGameEvents" Collapsed="true">
+    <Position X="14.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAQAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameServices\MyGameEvents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Path_To_Glory.Pages.AboutPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Pages\AboutPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.ForgotPass" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAIAAAAAAAAAAAAAAAAAAAABAAAAgAAAAAAAQA=</HashCode>
+      <FileName>Pages\ForgotPass.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.LeaderboardPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAQAABAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Pages\LeaderboardPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.LevelSelectPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAQBAIAAAAAAAAAEAAABAAhAAABBIAAgAAAAAAAQA=</HashCode>
+      <FileName>Pages\LevelSelectPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.LoginPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAIAAAAIAAAAAAAAAEAAAAABAAAAgABAAAAAQA=</HashCode>
+      <FileName>Pages\LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.MenuPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAQACAAAQGAECACCAIGCBQAAAAEkAAAAAAEUIZI=</HashCode>
+      <FileName>Pages\MenuPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.OptionsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAoAAAAAQAAAAAAAAAIAQIABAAABAAQAAAAAQA=</HashCode>
+      <FileName>Pages\OptionsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.PowerupSelect" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAIAAAAAIQAAEAACAAQAAIABgQAVAAQAAAAAQA=</HashCode>
+      <FileName>Pages\PowerupSelect.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.ShopPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEIAQAAAAAAAAAAAAhAgQAABAAQAAAACAAAAQA=</HashCode>
+      <FileName>Pages\ShopPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.SignUp" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQBAIAAAAAAAAAAAAAAAAAAAABBAAAgAAAAAAAQA=</HashCode>
+      <FileName>Pages\SignUp.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.YouWinPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAQAABAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Pages\YouWinPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Path_To_Glory.Pages.Levels.Tutorial.Room1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEQAACAARBAAAAAAYAAEAAQAAAgAEAAgAAAYEAAA=</HashCode>
+      <FileName>Pages\Levels\Tutorial\Room1.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GameEngine.GameObjects.GameMovingObject" Collapsed="true">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameObjects.GameObject" Collapsed="true">
+    <Position X="8" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.Constants" Collapsed="true">
+    <Position X="10.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.GameEvents" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.Keys" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.Manager" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.Music" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.Scene" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="GameEngine.GameServices.SoundEffects" Collapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

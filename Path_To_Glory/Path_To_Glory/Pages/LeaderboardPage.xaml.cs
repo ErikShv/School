@@ -47,7 +47,7 @@ namespace Path_To_Glory.Pages
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
         /// <summary>
-        /// מראה את שלושת השחקנים עם הכי הרבה נשמות
+        ///  בודק מול בסיס הנתונים ומראה את שלושת השחקנים עם הכי הרבה נשמות
         /// </summary>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

@@ -47,8 +47,6 @@ namespace Path_To_Glory.Pages
             BuyPistolImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BuyButton.png"));
         }
 
-         
-
         private void BackBtn_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/PressedBackButton.png"));
@@ -60,7 +58,7 @@ namespace Path_To_Glory.Pages
             BackImg.Source = new BitmapImage(new Uri("ms-appx:///Assets/Buttons/BackButton.png"));
             Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 1);
         }
-
+        //מראה עמה נשמות יש לשחקן על המסך
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Souls.Text = GameManager.GameUser.Souls.ToString();
@@ -69,7 +67,7 @@ namespace Path_To_Glory.Pages
                 EquipmentBtn.IsEnabled = false;
             }
         }
-        //קניית הפוואר אפ
+        //קניית הפוואר אפ, בודקת אם יש מספיק כסף מול בסיס הנתונים ומורידה כסף בהתאם
          private async void BuyPowerup1_Click(object sender, RoutedEventArgs e)
         {
             if(GameManager.GameUser.Souls < 1)
@@ -94,9 +92,9 @@ namespace Path_To_Glory.Pages
                 }
             }
         }
-         /// <summary>
-         /// קניית הפוואר אפ
-         /// </summary>
+        /// <summary>
+        /// קניית הפוואר אפ, בודקת אם יש מספיק כסף מול בסיס הנתונים ומורידה כסף בהתאם
+        /// </summary>
         private async void PowerUp3_Click(object sender, RoutedEventArgs e)
         {
             if (GameManager.GameUser.Souls < 2)

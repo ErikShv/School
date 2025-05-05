@@ -8,10 +8,10 @@ namespace Path_To_Glory.GameServices
 {
     public class MyGameEvents
     {
-        //כל האיבנטים שיש במשחק שהם מיוחדים למשחק הזה
-        public Action OnNextRoom;
-        public Action<int> CheckHp;
-        public Action<int> CheckCoins;
-        public Action OnWinGame;
+        //כל האירועים שיש במשחק שהם מיוחדים למשחק הזה
+        public Action OnNextRoom;  //פעולה העוברת לחדר הבא במשחק
+        public Action<int> CheckHp; //פעולה הבודקת בכל תחילת חדר כמה חיים יש לשחקן
+        public Action<int> CheckCoins; //בודקת כמה מטבעות יש לשחקן בכל תחילת חדר חדש
+        public Action OnWinGame;  //פעולה שקורה כאשר השחקן מנצח
     }
 }

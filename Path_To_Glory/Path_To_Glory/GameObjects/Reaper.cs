@@ -18,17 +18,22 @@ namespace Path_To_Glory.GameObjects
         private bool _Atk = false;
         public bool Alive { get; set; } = true;
         private Reaper _self;
-
         public Reaper(Scene scene, string fileName, double placeX, double placeY, bool LookRight) : base(scene, fileName, placeX, placeY)
         {
             Image.Height = 80;
             _LookRight = LookRight;
             _ddY = 1;
         }
+        /// <summary>
+        /// משיג את עצמו למטרה מסויימת כמו לדוגמא כדי למחוק את עצמו מהבמה
+        /// </summary>
         public void Get_Self(Reaper Self)
         {
             _self = Self;
         }
+        /// <summary>
+        /// שולט על התזוזה של השלד ומחליף את הגיפים שלו בתגובה למצבו בכל רגע
+        /// </summary>
         public override void Render()
         {
             base.Render();
@@ -94,17 +99,20 @@ namespace Path_To_Glory.GameObjects
                 timer.Start();
             }
         }
+        //אחראי על מה קורה עם התנגשויות עם אובייקטים שונים
         public override void Collide(List<GameObject> gameObject)
         {
             foreach (var otherobject in gameObject)
             {
                 var spctr = otherobject;
+                //התנגשות עם הרצפה,מונע מהמפלצת ליפול ממנה
                 if (otherobject is Ground)
                 {
 
                     _dY = 0;
                     _Y -= 1;
                 }
+                //התנגשות עם הפלטפורמה,מונע מהמפלצת ליפול ממנה
                 if (otherobject is Platform platform)
                 {
                     var rect = RectHelper.Intersect(Rect, platform.Rect);
@@ -125,7 +133,8 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
-                if( otherobject is PlayerSlash)
+                //התנגשות עם להב השחקן, מפעיל אנימציות שונות למוות, מכה, והרבצה
+                if ( otherobject is PlayerSlash)
                 {
                     
                     if (Alive)
@@ -158,6 +167,7 @@ namespace Path_To_Glory.GameObjects
                     }
                     _scene.RemoveObject(otherobject);
                 }
+                //התנגשות עם הקיר, מונע מהמפלת לעבור את הקיר
                 if (otherobject is Wall wall)
                 {
                     var rect = RectHelper.Intersect(Rect, wall.Rect);
@@ -178,7 +188,7 @@ namespace Path_To_Glory.GameObjects
                         }
                     }
                 }
-                
+                //התנגשות עם השחקן, מפעיל אנימציות שונות למוות, מכה, והרבצה
                 if (otherobject is Spectre)
                 {
                     Spectre spectre = (Spectre)spctr;

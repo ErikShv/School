@@ -15,6 +15,7 @@ namespace Path_To_Glory.GameObjects
             Image.Height = 50;
             
         }
+        //משיג את ה-Y של הפלטפורמהS
         public double Get_Y()
         {
             return _Y;
