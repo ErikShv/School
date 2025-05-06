@@ -20,7 +20,7 @@ namespace GameEngine.GameServices
             Manager.GameEvent.OnRun += CheckCollisional;
 
         }
-
+         //מציג את כל האובייקטים שברשימה על המסך
         private void Run()
         {
             foreach(var GameObject in _gameobjects.ToList())
@@ -31,6 +31,7 @@ namespace GameEngine.GameServices
                 }
             }
         }
+        //בודק אם יש התנגשות בין שני אובייקטים
         public void CheckCollisional()
         {
             foreach (var gameObject in _gameobjectsSnapshots)
@@ -65,6 +66,7 @@ namespace GameEngine.GameServices
                 Children.Remove(gameObject.Image);        //מחיקת המראה של האובייקט מהמסך
             }
         }
+        //מסירה את כל האובייקטים מהמסך
         public void RemoveAllObjects()
         {
             foreach(GameObject gameObject in _gameobjectsSnapshots)

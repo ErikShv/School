@@ -8,7 +8,7 @@ namespace DatabaseProject.Models
 {
     public class Product
     {
-        public int Id { get; set; } = 1;
-        public int Price { get; set; } = 1;
-    }
+        public int Id { get; set; } = 1; //המספר המזהה של המוצר
+        public int Price { get; set; } = 1; //עלות המוצר
+    } 
 }

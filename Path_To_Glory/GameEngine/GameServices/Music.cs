@@ -14,7 +14,6 @@ namespace GameEngine.GameServices
         public static bool _Flag { get; set; } = false;
         public static bool IsOn { get; set; } = false; // האם מוזיקת רקע מתנגנת
         public static int _volume = 100; // הערך התחלתי של המוזיקה
-
         public static int Volume
         {
             set
@@ -27,7 +26,7 @@ namespace GameEngine.GameServices
                 return _volume*100;
             }
         }
-
+         //ניגון המוזיקה
         public static void Play(string Filename)
         {
             if (!IsOn)
@@ -38,7 +37,7 @@ namespace GameEngine.GameServices
                 _MediaPlayer.Play();
             }
         }
-
+        //יצירה של המוזיקה
         public static void Pause()
         {
             if (IsOn)

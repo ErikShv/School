@@ -42,22 +42,22 @@ namespace GameEngine.GameObjects
             SetImage(filename);
             Render();
         }
+        //קובע את מיקום האובייקט על המסך
         public virtual void Render()
         {
             Canvas.SetLeft(Image, _X);
             Canvas.SetTop(Image, _Y);
         }
+        //משנה את תמונת האובייקט
         protected void SetImage(string filename)
         {
             Image.Source = new BitmapImage(new Uri($"ms-appx:///Assets/{filename}"));
         }
-
       public  virtual void Init()   //מחזיקה את האובייקט למיקומו ההתחלתי
       {
             _X = _placeX;
             _Y = _placeY;
       }
-
         //הפעולה תתבצע כאשר העצם הנוכחי התנגש בוודאות בעצם אחר 
         //הפעולה ריקה משום שכל דמות שהתנגשה תוכל להגיב באופן שונה ולכן הפעולה תמומש בהתאם לאופן התגובה
         public virtual void Collide(List <GameObject> gameObject)  

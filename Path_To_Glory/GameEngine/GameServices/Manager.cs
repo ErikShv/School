@@ -63,19 +63,23 @@ namespace GameEngine.GameServices
                 GameEvent.OnRun();    //האירוע OnRun מופעל ללא הפסקה
             }
         }
+        //הפעולה מפעילה את המשחק
         public void Start()
         {
             Scene.Init();
             Gamestate = GameState.Started;
         }
+        //הפעולה עוצרת את המשחק
         public void Paused()
         {
             Gamestate = GameState.Paused;
         }
+        //הפעולה ממשיכה את המשחק
         public void Resume()
         {
             Gamestate = GameState.Started;
         }
+        //הפעולה מסיימת את המשחק
         public virtual void GameOver()
         {
             if(Gamestate != GameState.GameOver)

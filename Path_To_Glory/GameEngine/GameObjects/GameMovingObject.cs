@@ -42,7 +42,7 @@ namespace GameEngine.GameObjects
         {
             _dX = _dY = _ddX =_ddY= 0;
         }
-
+        //מזיז את האובייקט לאיקס ווואי הכתובים
         public void MoveTo(double toX, double toY, double speed = 1, double acceleration = 0)
         {
             _toX = toX;
